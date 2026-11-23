@@ -56,6 +56,41 @@
       background-size: 24px 24px;
     }
 
+    /* Color-linked Greek / Translation Tokens in Hero Scripture Box */
+    .kw-token {
+      display: inline-block;
+      padding: 0.05rem 0.42rem;
+      margin: 0 0.05rem;
+      border-radius: 0.45rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    }
+
+    .kw-token:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .kw-doulos {
+      background: rgba(245, 158, 11, 0.22);
+      color: #FDE68A;
+      border: 1px solid rgba(251, 191, 36, 0.55);
+    }
+
+    .kw-diaspora {
+      background: rgba(56, 189, 248, 0.20);
+      color: #BAE6FD;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+    }
+
+    .kw-chairo {
+      background: rgba(16, 185, 129, 0.22);
+      color: #A7F3D0;
+      border: 1px solid rgba(52, 211, 153, 0.55);
+    }
+
     /* Scripture Citations — 中文和合本 (wd.bible + tooltip) & English LSB (ref.ly + Reftagger) */
     a.sc-zh {
       color: #6A3D12;
@@ -152,19 +187,19 @@
        ===================================================================== -->
   <header class="sticky top-0 z-40 bg-parchment/95 backdrop-blur border-b border-parchmentBorder">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-      <!-- Brand (returns to Course Home) -->
+      <!-- Brand / Back to Course Home -->
       <a href="index.html" class="flex items-center gap-3 min-w-0 group">
         <div id="brandEmblem" class="w-10 h-10 rounded-xl bg-navy text-gold font-serif font-bold text-lg flex items-center justify-center shrink-0 shadow-sm group-hover:bg-navySoft transition-colors">
           雅
         </div>
         <div class="min-w-0">
           <div class="font-serif font-bold text-base sm:text-lg text-navy truncate leading-tight" data-i18n="siteTitle"></div>
-          <div class="text-[11px] sm:text-xs text-inkMuted truncate" data-i18n="unitSubtitle"></div>
+          <div class="text-[11px] sm:text-xs text-inkMuted truncate" data-i18n="siteSubtitle"></div>
         </div>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-inkMuted" aria-label="Unit navigation">
+      <!-- Desktop Section Navigation -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-inkMuted" aria-label="Unit navigation">
         <a href="index.html" class="hover:text-navy transition-colors" data-i18n="navHome"></a>
         <a href="#lexicon" class="hover:text-navy transition-colors" data-i18n="navLexicon"></a>
         <a href="#author" class="hover:text-navy transition-colors" data-i18n="navAuthor"></a>
@@ -211,7 +246,7 @@
   <main id="top" class="flex-1">
 
     <!-- ===================================================================
-         HERO BANNER
+         HERO BANNER WITH SBL GREEK TEXT & COLOR-LINKED KEYWORDS
          =================================================================== -->
     <section class="hero-pattern text-white border-b-4 border-gold">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 text-center">
@@ -222,19 +257,23 @@
 
         <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4 leading-tight" data-i18n="heroTitle"></h1>
 
-        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-7" data-i18n="heroDesc"></p>
+        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-8" data-i18n="heroDesc"></p>
 
-        <!-- Primary Scripture Quotation Box -->
-        <div class="max-w-3xl mx-auto rounded-2xl bg-white/10 border border-gold/40 px-6 py-5 text-left sm:text-center mb-7">
-          <blockquote id="heroVerseText" class="font-serif text-lg sm:text-xl text-white leading-relaxed"></blockquote>
-          <div id="heroVerseRef" class="mt-2 text-xs sm:text-sm font-semibold text-goldLight"></div>
-        </div>
+        <!-- SBL Greek + Color-Linked Translation Box -->
+        <div class="max-w-3xl mx-auto rounded-2xl bg-white/10 border border-gold/40 backdrop-blur-sm px-5 sm:px-8 py-6 text-left shadow-lg">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-white/15">
+            <span class="text-[11px] font-bold tracking-[0.16em] text-goldLight" data-i18n="heroVerseLabel"></span>
+            <span class="text-xs text-slate-300" data-i18n="heroGreekHint"></span>
+          </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-2.5">
-          <a href="#lexicon" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gold hover:bg-goldLight text-white text-xs sm:text-sm font-semibold shadow-sm transition-all active:scale-95" data-i18n="navLexicon"></a>
-          <a href="#author" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-medium transition-all active:scale-95" data-i18n="navAuthor"></a>
-          <a href="#tribes" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-medium transition-all active:scale-95" data-i18n="navTribes"></a>
-          <a href="#dispersion" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-medium transition-all active:scale-95" data-i18n="navDispersion"></a>
+          <!-- SBLGNT Greek Line -->
+          <div id="heroGreekLine" class="font-serif text-lg sm:text-2xl text-white leading-relaxed mb-4 tracking-wide" lang="el"></div>
+
+          <!-- Translated Verse Line with Matching Color Tokens -->
+          <div id="heroTransLine" class="font-serif text-base sm:text-xl text-slate-100 leading-relaxed"></div>
+
+          <!-- Color Legend Pills -->
+          <div id="heroLegendRow" class="mt-5 pt-4 border-t border-white/15 flex flex-wrap items-center gap-2.5 text-xs"></div>
         </div>
       </div>
     </section>
@@ -298,109 +337,80 @@
          =================================================================== -->
     <div id="protectedContent" class="hidden">
 
-      <!-- =================================================================
-           SECTION 1: KEY GREEK LEXICON (原文字义)
-           ================================================================= -->
-      <section id="lexicon" class="py-14 sm:py-18 border-b border-parchmentBorder">
+      <!-- PART 1: KEY GREEK LEXICON -->
+      <section id="lexicon" class="py-16 sm:py-20 border-b border-parchmentBorder">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="max-w-3xl mb-9">
-            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="lexiconEyebrow"></span>
-            <h2 class="font-serif text-2xl sm:text-4xl font-bold text-navy mb-2.5" data-i18n="lexiconTitle"></h2>
-            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="lexiconSubtitle"></p>
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="lexEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="lexTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="lexSubtitle"></p>
           </div>
-
           <div id="lexiconGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
         </div>
       </section>
 
-      <!-- =================================================================
-           SECTION 2: AUTHORSHIP & SELF-DESIGNATION (作者与头衔)
-           ================================================================= -->
-      <section id="author" class="py-14 sm:py-18 bg-parchmentDeep/45 border-b border-parchmentBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <!-- Part 1: Authorship -->
-          <div>
-            <div class="max-w-3xl mb-8">
-              <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="authorEyebrow"></span>
-              <h2 class="font-serif text-2xl sm:text-4xl font-bold text-navy mb-2.5" data-i18n="authorTitle"></h2>
-              <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="authorSubtitle"></p>
-            </div>
-
-            <div id="jamesCandidatesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6"></div>
-
-            <!-- Date & Historical Timeline Card -->
-            <div id="datingCard" class="bg-white rounded-2xl border border-parchmentBorder shadow-card p-5 sm:p-6"></div>
+      <!-- PART 2: AUTHORSHIP & SELF-DESIGNATION -->
+      <section id="author" class="py-16 sm:py-20 bg-parchmentDeep/45 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="authorEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="authorTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="authorSubtitle"></p>
           </div>
 
-          <!-- Part 2: James's Title -->
-          <div class="pt-6 border-t border-parchmentBorder">
-            <div class="max-w-3xl mb-7">
-              <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="titleEyebrow"></span>
-              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-navy mb-2" data-i18n="titleHeading"></h3>
-              <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="titleSubtitle"></p>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+            <div class="lg:col-span-7">
+              <div id="fourJamesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
             </div>
-
-            <div id="designationGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+            <div class="lg:col-span-5 space-y-5">
+              <div id="datingCard" class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
+              <div id="titleCard" class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- =================================================================
-           SECTION 3: THE TWELVE TRIBES & AUDIENCE (十二支派与受众)
-           ================================================================= -->
-      <section id="tribes" class="py-14 sm:py-18 border-b border-parchmentBorder">
+      <!-- PART 3: THE TWELVE TRIBES & REDEMPTIVE-HISTORICAL FULFILLMENT -->
+      <section id="tribes" class="py-16 sm:py-20 border-b border-parchmentBorder">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="max-w-3xl mb-9">
+          <div class="max-w-3xl mb-10">
             <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="tribesEyebrow"></span>
-            <h2 class="font-serif text-2xl sm:text-4xl font-bold text-navy mb-2.5" data-i18n="tribesTitle"></h2>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="tribesTitle"></h2>
             <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="tribesSubtitle"></p>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
-            <!-- Left: OT vs Revelation Twelve Tribes Comparison -->
             <div id="tribesCompareCard" class="lg:col-span-7 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
-
-            <!-- Right: First-Generation Jewish Christian Audience Evidences -->
             <div id="audienceEvidenceCard" class="lg:col-span-5 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
           </div>
         </div>
       </section>
 
-      <!-- =================================================================
-           SECTION 4: IN THE DISPERSION & PERSECUTED EPISTLES (散居与受迫害教会)
-           ================================================================= -->
-      <section id="dispersion" class="py-14 sm:py-18 bg-parchmentDeep/45 border-b border-parchmentBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <!-- Part 4: Dispersion Dual Meaning -->
-          <div>
-            <div class="max-w-3xl mb-8">
-              <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="dispEyebrow"></span>
-              <h2 class="font-serif text-2xl sm:text-4xl font-bold text-navy mb-2.5" data-i18n="dispTitle"></h2>
-              <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="dispSubtitle"></p>
-            </div>
-
-            <div id="dispersionGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-          </div>
-
-          <!-- Part 5: Bond-servant vs. Persecuted Christians (Canonical Context) -->
-          <div class="pt-6 border-t border-parchmentBorder">
-            <div class="max-w-3xl mb-7">
-              <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="canonEyebrow"></span>
-              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-navy mb-2" data-i18n="canonTitle"></h3>
-              <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="canonSubtitle"></p>
-            </div>
-
-            <div id="canonicalGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =================================================================
-           UNIT PREV / NEXT NAVIGATION
-           ================================================================= -->
-      <section class="py-10 bg-parchment">
+      <!-- PART 4: IN THE DISPERSION & CANONICAL CONTEXT -->
+      <section id="dispersion" class="py-16 sm:py-20 bg-parchmentDeep/45 border-b border-parchmentBorder">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div id="unitPager" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="dispEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="dispTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="dispSubtitle"></p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+            <div id="dispersionCard" class="lg:col-span-7 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
+            <div id="canonicalCard" class="lg:col-span-5 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
+          </div>
+
+          <!-- Previous / Next Unit Navigation -->
+          <div class="mt-12 pt-8 border-t border-parchmentBorder flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <a href="index.html" class="inline-flex items-center justify-center sm:justify-start gap-2.5 px-5 py-3.5 rounded-xl bg-white hover:bg-parchmentDeep border border-parchmentBorder text-sm font-semibold text-navy transition-colors shadow-sm">
+              <span>←</span>
+              <span data-i18n="prevUnitBtn"></span>
+            </a>
+            <a href="james_1_2_27.html" class="inline-flex items-center justify-center sm:justify-end gap-2.5 px-5 py-3.5 rounded-xl bg-navy hover:bg-gold text-white text-sm font-semibold transition-colors shadow-sm">
+              <span data-i18n="nextUnitBtn"></span>
+              <span>→</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -409,11 +419,11 @@
   </main>
 
   <!-- =====================================================================
-       FOOTER & 9-PAGE SITEMAP
+       FOOTER & 9-PAGE COURSE SITEMAP
        ===================================================================== -->
   <footer id="protectedFooter" class="hidden bg-navy text-slate-300 border-t-4 border-gold">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
         <div class="lg:col-span-4 space-y-3">
           <div class="flex items-center gap-3">
             <div id="footerEmblem" class="w-9 h-9 rounded-xl bg-white/10 border border-gold/40 text-goldLight font-serif font-bold text-base flex items-center justify-center">
@@ -443,7 +453,7 @@
   </footer>
 
   <!-- =====================================================================
-       APPLICATION LOGIC, WEEK 1 DATA & MULTI-BOOK SCRIPTURE ENGINE
+       APPLICATION LOGIC, WEEK 1 EXPOSITORY DATA & SCRIPTURE ENGINE
        ===================================================================== -->
   <script>
     (function () {
@@ -459,12 +469,150 @@
       };
 
       // -------------------------------------------------------------------
-      // 1. MULTI-BOOK SCRIPTURE ENGINE (和合本 wd.bible + getBible / LSB ref.ly + Reftagger)
+      // 1. UI DICTIONARY (STRICT SINGLE-LANGUAGE ISOLATION)
+      // -------------------------------------------------------------------
+      var UI_TEXT = {
+        zh: {
+          pageTitle: '雅各书 1:1 · 写作背景与问安',
+          emblem: '雅',
+          siteTitle: '雅各书研经课程',
+          siteSubtitle: '第一周 · 序言（雅 1:1）',
+          navHome: '课程主页',
+          navLexicon: '原文字汇',
+          navAuthor: '作者与头衔',
+          navTribes: '十二支派',
+          navDispersion: '散居与书卷对比',
+          langBtnTitle: '切换到英文',
+
+          heroBadge: '第一周 · 序言 · 雅各书 1:1',
+          heroTitle: '写作背景与问安',
+          heroDesc: '神的奴仆雅各写给散居在试炼中的教会：透过原文字义、作者身份、十二支派在新旧约的成全与散居处境，建立研读全书的释经根基。',
+          heroVerseLabel: '雅各书 1:1 · 希腊文原文与经文对照',
+          heroGreekHint: '点击彩色高亮词汇跳转至词义解析',
+
+          gateEyebrow: '课程内容访问验证',
+          gateTitle: '请输入访问密码',
+          gateDesc: '本单元大标题以下的释经要点受密码保护，请输入课程访问密码解锁（同浏览器会话内只需验证一次）。',
+          gateLabel: '访问密码',
+          gatePlaceholder: '请输入访问密码',
+          gateSubmit: '解锁本单元内容',
+          gateError: '访问密码不正确，请检查后重试。',
+          gateShowPwd: '显示密码',
+          gateHidePwd: '隐藏密码',
+
+          lexEyebrow: '第一部分 · 重点希腊文词汇',
+          lexTitle: '原文字义与经文关联',
+          lexSubtitle: '开篇仅有一节经文，却借由三个关键希腊文词汇奠定全书的属灵身份、处境张力与喜乐主题。',
+
+          authorEyebrow: '第二部分 · 雅各书的作者与头衔',
+          authorTitle: '作者考证与奴仆的身份',
+          authorSubtitle: '新约中共有四位名为“雅各”的人物，唯有主的兄弟雅各具备向散居全教会致信的属灵权柄；他却单以“奴仆”自称。',
+
+          tribesEyebrow: '第三部分 · 受众与救赎历史',
+          tribesTitle: '散住十二个支派之人',
+          tribesSubtitle: '对照旧约分地十二支派与启示录十二支派的关键差异，从创世记、以西结书到新约教会，把握“十二支派”在地理现实与新约成全上的双重意涵。',
+
+          dispEyebrow: '第四部分 · 历史与属灵处境',
+          dispTitle: '散居中的教会与新约书信脉络',
+          dispSubtitle: '“散居”既是第一代基督徒因逼迫流离的真实历史，也是所有神的子民在地上作客旅的属灵写照。',
+
+          prevUnitBtn: '返回课程主页（第十九讲总览）',
+          nextUnitBtn: '下一单元：雅各书 1:2–27（第2–4周）',
+
+          footerDesc: '本课程网站依据圣经归纳法查经十九讲内容编撰，旨在帮助信徒以清洁属神的智慧研读圣经、在基督里生活并在教会中忠心服事。',
+          sitemapTitle: '课程页面导航（全九页）',
+          footerCopyright: '雅各书圣经归纳法查经课程 · 仅作教会与神学研习使用',
+          backToTop: '返回顶部',
+          sitemapHomeTag: '课程主页',
+          sitemapHomeLabel: '主页 · 文体结构与神学'
+        },
+        en: {
+          pageTitle: 'James 1:1 · Background & Greeting',
+          emblem: 'J',
+          siteTitle: 'Epistle of James Course',
+          siteSubtitle: 'Week 1 · Introduction (James 1:1)',
+          navHome: 'Course Home',
+          navLexicon: 'Greek Lexicon',
+          navAuthor: 'Authorship & Title',
+          navTribes: 'Twelve Tribes',
+          navDispersion: 'Dispersion & Context',
+          langBtnTitle: 'Switch to Chinese',
+
+          heroBadge: 'Week 1 · Introduction · James 1:1',
+          heroTitle: 'Background & Opening Greeting',
+          heroDesc: 'James, a bond-servant of God and of the Lord Jesus Christ, writes to the dispersed church in trials—establishing the lexical, historical, and redemptive-historical foundation for the entire epistle.',
+          heroVerseLabel: 'JAMES 1:1 · SBL GREEK NEW TESTAMENT & TRANSLATION',
+          heroGreekHint: 'Click any color-linked word to jump to its lexicon note',
+
+          gateEyebrow: 'COURSE CONTENT ACCESS',
+          gateTitle: 'Enter Access Password',
+          gateDesc: 'Expository notes below this banner are password-protected. Enter the course password to unlock (stays unlocked for your browser session).',
+          gateLabel: 'Access Password',
+          gatePlaceholder: 'Enter access password',
+          gateSubmit: 'Unlock This Unit',
+          gateError: 'Incorrect password. Please check and try again.',
+          gateShowPwd: 'Show password',
+          gateHidePwd: 'Hide password',
+
+          lexEyebrow: 'PART 1 · KEY GREEK VOCABULARY',
+          lexTitle: 'Key Greek Lexicon & Verse Mapping',
+          lexSubtitle: 'In a single opening verse, three pivotal Greek terms establish the author’s spiritual identity, the audience’s scattered condition, and the book’s opening call to joy.',
+
+          authorEyebrow: 'PART 2 · AUTHORSHIP & SELF-DESIGNATION',
+          authorTitle: 'The Author & His Servant Title',
+          authorSubtitle: 'Among four New Testament men named James, only James the brother of the Lord held the apostolic stature to address the dispersed churches—yet he claims only the title of bond-servant.',
+
+          tribesEyebrow: 'PART 3 · AUDIENCE & REDEMPTIVE HISTORY',
+          tribesTitle: 'To the Twelve Tribes',
+          tribesSubtitle: 'Comparing the Old Testament land-inheriting tribes with Revelation’s New Covenant list reveals how “the twelve tribes” in James 1:1 carries both a historical reality and its ultimate fulfillment in the Church.',
+
+          dispEyebrow: 'PART 4 · HISTORICAL & SPIRITUAL SETTING',
+          dispTitle: 'In the Dispersion & Canonical Parallels',
+          dispSubtitle: '“Dispersion” reflects both the concrete scattering of early believers under persecution and the spiritual identity of Christians living away from their heavenly homeland.',
+
+          prevUnitBtn: 'Back to Course Home (Lecture 19 Overview)',
+          nextUnitBtn: 'Next Unit: James 1:2–27 (Weeks 2–4)',
+
+          footerDesc: 'Built from the 19-week Inductive Bible Study course on the Epistle of James, equipping believers to live in Christ and serve faithfully in the church with pure, godly wisdom.',
+          sitemapTitle: 'COURSE SITEMAP (9 PAGES)',
+          footerCopyright: 'Epistle of James Inductive Bible Study · For Church & Seminary Study',
+          backToTop: 'Back to Top',
+          sitemapHomeTag: 'Home Page',
+          sitemapHomeLabel: 'Home · Structure & Theology'
+        }
+      };
+
+      // -------------------------------------------------------------------
+      // 2. HERO SBL GREEK & COLOR-LINKED TRANSLATIONS
+      // -------------------------------------------------------------------
+      var HERO_SBL_GREEK_HTML =
+        'Ἰάκωβος θεοῦ καὶ κυρίου Ἰησοῦ Χριστοῦ ' +
+        '<a href="#lex-doulos" class="kw-token kw-doulos">δοῦλος</a> ' +
+        'ταῖς δώδεκα φυλαῖς ταῖς ἐν τῇ ' +
+        '<a href="#lex-diaspora" class="kw-token kw-diaspora">διασπορᾷ</a> ' +
+        '<a href="#lex-chairo" class="kw-token kw-chairo">χαίρειν</a>.';
+
+      var HERO_TRANS_HTML = {
+        zh: '作神和主耶稣基督<a href="#lex-doulos" class="kw-token kw-doulos">仆人</a>的雅各，请<a href="#lex-diaspora" class="kw-token kw-diaspora">散住</a>十二个支派之人的<a href="#lex-chairo" class="kw-token kw-chairo">安</a>！',
+        en: 'James, a <a href="#lex-doulos" class="kw-token kw-doulos">bond-servant</a> of God and of the Lord Jesus Christ, to the twelve tribes who are <a href="#lex-diaspora" class="kw-token kw-diaspora">dispersed abroad</a>: <a href="#lex-chairo" class="kw-token kw-chairo">Greetings</a>.'
+      };
+
+      var HERO_LEGEND = [
+        { id: 'lex-doulos', cls: 'kw-doulos', greek: 'δοῦλος', strongs: 'G1401', zh: '仆人 / 奴仆', en: 'bond-servant' },
+        { id: 'lex-diaspora', cls: 'kw-diaspora', greek: 'διασπορᾷ', strongs: 'G1290', zh: '散住 / 散居', en: 'dispersed abroad' },
+        { id: 'lex-chairo', cls: 'kw-chairo', greek: 'χαίρειν', strongs: 'G5463', zh: '安 / 喜乐问候', en: 'Greetings' }
+      ];
+
+      // -------------------------------------------------------------------
+      // 3. MULTI-BOOK SCRIPTURE ENGINE (和合本 TOOLTIP + LSB REFTAGGER)
       // -------------------------------------------------------------------
       var BOOKS = {
+        Gen:   { wd: 'gen', zh: '创',   enShort: 'Gen',     enFull: 'Genesis',          gb: 1 },
         Num:   { wd: 'num', zh: '民',   enShort: 'Num',     enFull: 'Numbers',          gb: 4 },
+        Deu:   { wd: 'deu', zh: '申',   enShort: 'Deut',    enFull: 'Deuteronomy',      gb: 5 },
         '1Ki': { wd: '1ki', zh: '王上', enShort: '1 Kgs',   enFull: '1 Kings',          gb: 11 },
         Psa:   { wd: 'psa', zh: '诗',   enShort: 'Ps',      enFull: 'Psalms',           gb: 19 },
+        Eze:   { wd: 'ezk', zh: '结',   enShort: 'Ezek',    enFull: 'Ezekiel',          gb: 26 },
         Hos:   { wd: 'hos', zh: '何',   enShort: 'Hos',     enFull: 'Hosea',            gb: 28 },
         Mat:   { wd: 'mat', zh: '太',   enShort: 'Matt',    enFull: 'Matthew',          gb: 40 },
         Mar:   { wd: 'mrk', zh: '可',   enShort: 'Mark',    enFull: 'Mark',             gb: 41 },
@@ -479,44 +627,43 @@
         Rev:   { wd: 'rev', zh: '启',   enShort: 'Rev',     enFull: 'Revelation',       gb: 66 }
       };
 
-      // Curated CUV (和合本) fallback for offline/restricted preview (no verse numbers, …… for skips)
       var CUV_FALLBACK = {
-        'Jas 1:1': '作神和主耶稣基督仆人的雅各，请散住十二个支派之人的安。',
-        'Jas 1:2': '我的弟兄们，你们落在百般试炼中，都要以为大喜乐；',
-        'Jas 2:2': '若有一个人带着金戒指，穿着华美衣服，进你们的会堂去，又有一个穷人穿着肮脏衣服也进去；',
-        'Jas 2:19': '你信神只有一位，你信的不错；鬼魔也信，却是战惊。',
-        'Act 1:13': '进了城，就上了所住的一间楼房；在那里有彼得、约翰、雅各、安得烈、腓力、多马、巴多罗买、马太、亚勒腓的儿子雅各、奋锐党的西门，和雅各的儿子犹大。',
-        'Luk 6:16': '和雅各的儿子犹大，并卖主的加略人犹大。',
-        'Mar 3:18': '安得烈、腓力、巴多罗买、马太、多马、亚勒腓的儿子雅各、和达太，并奋锐党的西门；',
+        'Gen 48:5-6': '我未到埃及见你之先，你在埃及地所生的以法莲和玛拿西，这两个儿子是我的，正如流便和西缅是我的一样。你在他们以后所生的就是你的，他们可以归于他们弟兄的名下得产业。',
+        'Num 1:5-15': '站在你们那里帮助你们的，按着支派，名字记在下面……这都是从会中选召的，各作本支派的首领，都是以色列军中的统领。',
+        'Num 18:20': '耶和华对亚伦说：“你在以色列人的境内不可有产业，在他们中间也不可有分。我就是你的分，是你的产业。”',
+        'Psa 147:2': '耶和华建造耶路撒冷，聚集以色列中被赶散的人。',
+        'Eze 36:26': '我也要赐给你们一个新心，将新灵放在你们里面，又从你们的肉体中除掉石心，赐给你们肉心。',
+        'Eze 37:19': '你就对他们说，主耶和华如此说：“我要将约瑟和他同伴以色列支派的杖，就是那在以法莲手中的，与犹大的杖一同接连为一，在我手中成为一根。”',
         'Mat 10:3': '腓力和巴多罗买，多马和税吏马太，亚勒腓的儿子雅各和达太，',
-        'Luk 6:15': '马太、多马、亚勒腓的儿子雅各、奋锐党的西门，',
-        'Mar 5:37': '于是带着彼得、雅各、和雅各的兄弟约翰同去，不许别人跟随他。',
-        'Mar 9:2': '过了六天，耶稣带着彼得、雅各、约翰暗暗的上了高山，就在他们面前变了形像，',
-        'Mar 10:35': '西庇太的儿子雅各、约翰进前来，对耶稣说：“夫子，我们无论求你什么，愿你给我们作。”',
-        'Mar 10:41': '那十个门徒听见，就恼怒雅各、约翰。',
-        'Act 12:1-2': '那时，希律王下手苦害教会中几个人，用刀杀了约翰的哥哥雅各。',
+        'Mar 3:18': '安得烈、腓力、巴多罗买、马太、多马、亚勒腓的儿子雅各，和达太，并奋锐党的西门，',
+        'Mar 5:37': '于是带着彼得、雅各，和雅各的兄弟约翰同去，不许别人跟随他。',
         'Mar 6:3': '这不是那木匠吗？不是马利亚的儿子雅各、约西、犹大、西门的长兄吗？他妹妹们不也是在我们这里吗？他们就厌弃他。',
+        'Mar 9:2': '过了六天，耶稣带着彼得、雅各、约翰暗暗地上了高山，就在他们面前变了形像，',
+        'Mar 10:35': '西庇太的儿子雅各、约翰进前来，对耶稣说：“夫子，我们无论求你什么，愿你给我们作。”',
+        'Luk 6:15': '马太和多马，亚勒腓的儿子雅各和奋锐党的西门，',
+        'Luk 6:16': '雅各的儿子犹大，和卖主的加略人犹大。',
         'Joh 7:5': '因为连他的弟兄说这话，是因为不信他。',
-        '1Co 15:7': '以后显给雅各看，再显给众使徒看，',
+        'Joh 7:35': '犹太人就彼此对问说：“这人要往哪里去，叫我们找不着呢？难道他要往散住希腊中的犹太人那里去教训希腊人吗？”',
+        'Act 1:13': '进了城，就上了所住的一间楼房；在那里有彼得、约翰、雅各、安得烈、腓力、多马、巴多罗买、马太、亚勒腓的儿子雅各、奋锐党的西门，和雅各的儿子犹大。',
+        'Act 2:36': '故此，以色列全家当确实地知道，你们钉在十字架上的这位耶稣，神已经立他为主，为基督了。',
+        'Act 8:1-4': '从这日起，耶路撒冷的教会大遭逼迫，除了使徒以外，门徒都分散在犹太和撒玛利亚各处……那些分散的人往各处去传道。',
+        'Act 11:19': '那些因司提反的事遭患难四散的门徒，直走到腓尼基和塞浦路斯并安提阿；他们不向别人讲道，只向犹太人讲。',
+        'Act 11:25-26': '他又往大数去找扫罗，找着了，就带他到安提阿去。他们足有一年的工夫和教会一同聚集，教训了许多人。门徒称为“基督徒”是从安提阿起首。',
+        'Act 12:1-2': '那时，希律王下手苦害教会中几个人，用刀杀了约翰的哥哥雅各。',
         'Act 12:17': '彼得摆手，不要他们作声，就告诉他们主怎样领他出监；又说：“你们把这事告诉雅各和众弟兄。”于是出去，往别处去了。',
-        'Act 15:13': '他们住了声，雅各就说：“诸位弟兄，请听我的话。',
+        'Act 15:13': '他们住了声，雅各就说：“诸位弟兄，请听我的话。”',
         'Act 21:18': '第二天，保罗同我们去见雅各；长老们也都在那里。',
+        'Act 26:6-7': '现在我站在这里受审，是因为指望神向我们祖宗所应许的；这应许，我们十二个支派，昼夜切切地事奉神，都指望得着……',
+        '1Co 15:7': '以后显给雅各看，再显给众使徒看，',
         'Gal 1:19': '至于别的使徒，除了主的兄弟雅各，我都没有看见。',
         'Gal 2:9': '又知道所赐给我的恩典，那称为教会柱石的雅各、矶法、约翰，就向我和巴拿巴用右手行相交之礼……',
-        'Gal 2:12': '从雅各那里来的人未到以先，他和外邦人一同吃饭；及至他们来到，他因怕奉割礼的人，就退去与外邦人隔开了。',
-        'Act 11:25-26': '他又往大数去找扫罗，找着了，就带他到安提阿去。他们足有一年的工夫和教会一同聚集，教训了许多人。门徒称为基督徒是从安提阿起首。',
-        'Act 2:36': '故此，以色列全家当确实的知道，你们钉在十字架上的这位耶稣，神已经立他为主，为基督了。',
-        'Rev 7:5-8': '犹大支派中受印的有一万二千；流便支派中有一万二千；迦得支派中有一万二千……约瑟支派中有一万二千；便雅悯支派中受印的有一万二千。',
-        'Num 1:5-15': '站在你们那里帮助你们的，按着支派，名字记在下面：属流便的，有示丢珥的儿子以利蓿……属拿弗他利的，有以南的儿子亚希拉。',
-        '1Ki 12:28-30': '耶罗波安王就筹画定妥，铸造了两个金牛犊……他就把牛犊一只安在伯特利，一只安在但。这事叫百姓陷在罪里……',
-        'Hos 10:5': '撒玛利亚的居民必因伯亚文的牛犊惊恐；崇拜牛犊的民和喜爱牛犊的祭司都必因荣耀离开他，为他悲哀。',
-        'Psa 147:2': '耶和华建造耶路撒冷，聚集以色列中被赶散的人。',
-        'Act 26:6-7': '现在我站在这里受审，是因为指望神向我们祖宗所应许的；这应许，我们十二个支派，昼夜切切的事奉神，都指望得着……',
-        'Joh 7:35': '犹太人就彼此对问说：“这人要往哪里去，叫我们找不着呢？难道他要往散住希腊中的犹太人那里去教训希腊人吗？”',
-        '1Pe 1:1': '耶稣基督的使徒彼得写信给那分散在本都、加拉太、加帕多家、亚西亚、庇推尼寄居的，',
-        'Act 8:1-4': '从这日起，耶路撒冷的教会大遭逼迫，除了使徒以外，门徒都分散在犹太和撒玛利亚各处……那些分散的人往各处去传道。',
-        'Act 11:19': '那些因司提反的事遭患难四散的门徒直走到腓尼基和居比路，并安提阿；他们不向别人讲道，只向犹太人讲。',
-        '1Th 4:1-18': '弟兄们，我还有话说：我们靠着主耶稣求你们，劝你们，你们既然受了我们的教训，知道该怎样行可以讨神的喜悦，就要照你们现在所行的更加勉励……'
+        '1Th 4:1-12': '弟兄们，我还有话说：我们靠着主耶稣求你们、劝你们，你们既然受了我们的教训，知道该怎样行可以讨神的喜悦，就要照你们现在所行的更加勉励……',
+        'Jas 1:1': '作神和主耶稣基督仆人的雅各，请散住十二个支派之人的安。',
+        'Jas 1:2': '我的弟兄们，你们落在百般试炼中，都要以为大喜乐；',
+        'Jas 2:2': '若有一个人带着金戒指，穿着华美衣服，进你们的会堂去；又有一个穷人穿着肮脏衣服也进去；',
+        'Jas 2:19': '你信神只有一位，你信的不错；鬼魔也信，却是战惊。',
+        '1Pe 1:1': '耶稣基督的使徒彼得写信给那分散在本都、加拉太、加帕多家、亚细亚、庇推尼寄居的，',
+        'Rev 7:5-8': '犹大支派中受印的有一万二千；流便支派中有一万二千；迦得支派中有一万二千……约瑟支派中有一万二千；便雅悯支派中受印的有一万二千。'
       };
 
       var CUV_CHAPTER_CACHE = {};
@@ -528,58 +675,46 @@
           .trim();
       }
 
-      function parseSingleRef(raw) {
+      function parseRef(raw) {
         var clean = String(raw || '').replace(/–/g, '-').trim();
         var m = clean.match(/^([1-3]?[A-Za-z]+)\s+(\d+)(?::(\d+)(?:-(\d+):(\d+)|-(\d+))?)?$/);
-        if (!m || !BOOKS[m[1]]) return null;
-        var bookCode = m[1];
-        var sc = parseInt(m[2], 10);
-        var sv = m[3] ? parseInt(m[3], 10) : null;
-        var ec = m[4] ? parseInt(m[4], 10) : sc;
-        var ev = m[5] ? parseInt(m[5], 10) : (m[6] ? parseInt(m[6], 10) : sv);
-        return {
-          key: bookCode + ' ' + clean.slice(bookCode.length).trim(),
-          bookCode: bookCode,
-          book: BOOKS[bookCode],
-          sc: sc,
-          sv: sv,
-          ec: ec,
-          ev: ev
-        };
-      }
-
-      function formatRefLabel(parsed, lang) {
-        var range = String(parsed.sc);
-        if (parsed.sv !== null) {
-          range += ':' + parsed.sv;
-          if (parsed.ev !== null && (parsed.ec !== parsed.sc || parsed.ev !== parsed.sv)) {
-            range += (lang === 'zh' ? '–' : '-') + (parsed.ec !== parsed.sc ? (parsed.ec + ':' + parsed.ev) : parsed.ev);
-          }
+        if (!m || !BOOKS[m[1]]) {
+          return { key: clean, book: 'Jas', sc: 1, sv: 1, ec: 1, ev: 1, wholeChap: false };
         }
-        return lang === 'zh'
-          ? (parsed.book.zh + ' ' + range)
-          : (parsed.book.enShort + ' ' + range);
+        var book = m[1];
+        var sc = parseInt(m[2], 10);
+        var wholeChap = !m[3];
+        var sv = m[3] ? parseInt(m[3], 10) : 1;
+        var ec = m[4] ? parseInt(m[4], 10) : sc;
+        var ev = m[5] ? parseInt(m[5], 10) : (m[6] ? parseInt(m[6], 10) : (wholeChap ? 999 : sv));
+        return { key: clean, book: book, sc: sc, sv: sv, ec: ec, ev: ev, wholeChap: wholeChap };
       }
 
       function buildScriptureHTML(raw) {
-        var parsed = parseSingleRef(raw);
-        if (!parsed) return raw;
+        var p = parseRef(raw);
+        var B = BOOKS[p.book];
+        var rangeStr = p.wholeChap
+          ? String(p.sc)
+          : (p.ec !== p.sc
+              ? (p.sc + ':' + p.sv + '-' + p.ec + ':' + p.ev)
+              : (p.ev !== p.sv ? (p.sc + ':' + p.sv + '-' + p.ev) : (p.sc + ':' + p.sv)));
+
         if (appState.lang === 'zh') {
-          var labelZh = formatRefLabel(parsed, 'zh');
-          var wdUrl = 'https://wd.bible/bible/verse/' + parsed.book.wd + '.' + parsed.sc + '.' + (parsed.sv || 1) + '.cunps';
+          var labelZh = B.zh + ' ' + rangeStr.replace(/-/g, '–');
+          var wdUrl = 'https://wd.bible/bible/verse/' + B.wd + '.' + p.sc + '.' + p.sv + '.cunps';
           return (
             '<a class="sc-zh" href="' + wdUrl + '" target="_blank" rel="noopener noreferrer" ' +
-            'data-refkey="' + parsed.key + '" data-gb="' + parsed.book.gb + '" ' +
-            'data-sc="' + parsed.sc + '" data-sv="' + (parsed.sv === null ? '' : parsed.sv) + '" ' +
-            'data-ec="' + parsed.ec + '" data-ev="' + (parsed.ev === null ? '' : parsed.ev) + '" ' +
-            'data-full="' + labelZh + '">' + labelZh + '</a>'
+            'data-refkey="' + p.key + '" data-gb="' + B.gb + '" data-sc="' + p.sc + '" data-sv="' + p.sv + '" ' +
+            'data-ec="' + p.ec + '" data-ev="' + p.ev + '" data-full="' + labelZh + '">' +
+            labelZh + '</a>'
           );
         }
-        var labelEn = formatRefLabel(parsed, 'en');
-        var fullRefEn = parsed.book.enFull + ' ' + labelEn.slice(parsed.book.enShort.length).trim();
-        var refLyUrl = 'https://ref.ly/' + encodeURIComponent(fullRefEn) + ';lsb';
+
+        var labelEn = B.enShort + ' ' + rangeStr;
+        var fullEn = B.enFull + ' ' + rangeStr;
+        var refLyUrl = 'https://ref.ly/' + encodeURIComponent(fullEn) + ';lsb';
         return (
-          '<span class="sc-en"><a href="' + refLyUrl + '" target="_blank" rel="noopener noreferrer" data-ref="' + fullRefEn + '">' +
+          '<span class="sc-en"><a href="' + refLyUrl + '" target="_blank" rel="noopener noreferrer" data-ref="' + fullEn + '">' +
           labelEn + '</a></span>'
         );
       }
@@ -590,17 +725,17 @@
         });
       }
 
-      function fetchChapterCuv(gbBookNum, chapterNum) {
-        var cacheKey = gbBookNum + '/' + chapterNum;
+      function fetchChapterCuv(bookNum, chapNum) {
+        var cacheKey = bookNum + '/' + chapNum;
         if (!CUV_CHAPTER_CACHE[cacheKey]) {
-          CUV_CHAPTER_CACHE[cacheKey] = fetch('https://api.getbible.net/v2/cus/' + gbBookNum + '/' + chapterNum + '.json')
+          CUV_CHAPTER_CACHE[cacheKey] = fetch('https://api.getbible.net/v2/cus/' + bookNum + '/' + chapNum + '.json')
             .then(function (r) {
               if (!r.ok) throw new Error('HTTP ' + r.status);
               return r.json();
             })
             .then(function (json) {
               return (json.verses || []).map(function (v) {
-                return { c: Number(v.chapter || chapterNum), v: Number(v.verse), t: cleanZhText(v.text) };
+                return { c: Number(v.chapter || chapNum), v: Number(v.verse), t: cleanZhText(v.text) };
               });
             })
             .catch(function (err) {
@@ -611,17 +746,17 @@
         return CUV_CHAPTER_CACHE[cacheKey];
       }
 
-      function getCuvTooltipText(d) {
-        var key = d.refkey;
-        var gb = Number(d.gb);
-        var sc = Number(d.sc);
-        var sv = d.sv !== '' ? Number(d.sv) : null;
-        var ec = Number(d.ec);
-        var ev = d.ev !== '' ? Number(d.ev) : null;
+      function getCuvTooltipText(dataset) {
+        var key = dataset.refkey;
+        var gb = Number(dataset.gb);
+        var sc = Number(dataset.sc);
+        var sv = Number(dataset.sv);
+        var ec = Number(dataset.ec);
+        var ev = Number(dataset.ev);
         var maxVerses = 5;
 
-        var est = sv === null ? 10 : (ec === sc ? (ev - sv + 1) : 10);
-        if (est > maxVerses && CUV_FALLBACK[key]) {
+        var estCount = (ec === sc) ? (ev - sv + 1) : 10;
+        if (estCount > maxVerses && CUV_FALLBACK[key]) {
           return Promise.resolve(CUV_FALLBACK[key]);
         }
 
@@ -635,8 +770,8 @@
             lists.forEach(function (vs, idx) {
               var ch = chapters[idx];
               vs.forEach(function (item) {
-                var from = (sv === null) ? 1 : (ch === sc ? sv : 1);
-                var to = (sv === null) ? 999 : (ch === ec ? ev : 999);
+                var from = (ch === sc) ? sv : 1;
+                var to = (ch === ec) ? ev : 999;
                 if (item.v >= from && item.v <= to) {
                   if (collected.length < maxVerses) {
                     collected.push(item.t);
@@ -646,7 +781,9 @@
                 }
               });
             });
-            if (!collected.length) return CUV_FALLBACK[key] || '点击打开微读圣经查阅完整经文。';
+            if (!collected.length) {
+              return CUV_FALLBACK[key] || '点击打开微读圣经查阅完整经文。';
+            }
             return collected.join('') + (truncated ? '……' : '');
           })
           .catch(function () {
@@ -654,7 +791,7 @@
           });
       }
 
-      // Floating CUV tooltip
+      // Floating CUV Tooltip DOM
       var tipEl = document.createElement('div');
       tipEl.id = 'zh-tip';
       tipEl.setAttribute('role', 'tooltip');
@@ -703,7 +840,7 @@
       }
 
       // -------------------------------------------------------------------
-      // 2. LOGOS REFTAGGER V2 (ENGLISH LSB)
+      // 4. LOGOS REFTAGGER V2 (ENGLISH LSB HOVER)
       // -------------------------------------------------------------------
       window.refTagger = {
         settings: {
@@ -744,363 +881,146 @@
       }
 
       // -------------------------------------------------------------------
-      // 3. UI STRINGS & WEEK 1 EXPOSITORY DATA
+      // 5. WEEK 1 EXPOSITORY CONTENT DATA
       // -------------------------------------------------------------------
-      var UI_TEXT = {
-        zh: {
-          pageTitle: '雅各书 1:1 · 写作背景与问安',
-          emblem: '雅',
-          siteTitle: '雅各书研经课程',
-          unitSubtitle: '序言 · 第一周 · 雅各书 1:1',
-          navHome: '返回主页',
-          navLexicon: '重点词汇',
-          navAuthor: '作者与头衔',
-          navTribes: '十二支派',
-          navDispersion: '散居与书信脉络',
-          langBtnTitle: '切换到英文',
-
-          heroBadge: '序言 · 第一周 · 交叉对称结构背景',
-          heroTitle: '雅各书 1:1：写作背景与问安',
-          heroDesc: '从作者身份的严谨辨析、谦卑而荣耀的奴仆头衔，到散住十二支派的第一代犹太基督徒处境，为整卷雅各书奠定历史与神学根基。',
-          heroVerseText: '“作神和主耶稣基督仆人的雅各，请散住十二个支派之人的安。”',
-          heroVerseRef: '—— 雅各书 1:1（和合本）',
-
-          gateEyebrow: '课程内容访问验证',
-          gateTitle: '请输入访问密码',
-          gateDesc: '本页面大标题以下的释经要点受密码保护，请输入密码以解锁阅读（同一浏览器会话只需输入一次）。',
-          gateLabel: '访问密码',
-          gatePlaceholder: '请输入访问密码',
-          gateSubmit: '解锁课程内容',
-          gateError: '访问密码不正确，请检查后重试。',
-          gateShowPwd: '显示密码',
-          gateHidePwd: '隐藏密码',
-
-          lexiconEyebrow: '原文字义分析',
-          lexiconTitle: '重点希腊文词汇',
-          lexiconSubtitle: '雅各书 1:1 仅有一节问安语，却浓缩了三个牵动全书神学脉络的关键原词。',
-
-          authorEyebrow: '第一部分 · 历史背景',
-          authorTitle: '雅各书的作者辨析',
-          authorSubtitle: '新约圣经中至少出现四位名叫“雅各”的人物；通过经文与教会历史交叉比对，可以明确本书作者正是主的肉身兄弟雅各。',
-
-          titleEyebrow: '第二部分 · 身份神学',
-          titleHeading: '雅各的“头衔”：神和主耶稣基督的奴仆',
-          titleSubtitle: '作为耶稣的肉身兄弟与耶路撒冷教会的柱石，雅各却单单以“奴仆”自称，显明深刻的属灵谦卑与早期基督论。',
-
-          tribesEyebrow: '第三部分 · 受众身份',
-          tribesTitle: '散住十二个支派之人',
-          tribesSubtitle: '对照旧约与启示录的十二支派名单，并结合书信内部线索，确认本书最初写给第一代犹太基督徒。',
-
-          dispEyebrow: '第四部分 · 历史与属灵处境',
-          dispTitle: '散居的双重意涵',
-          dispSubtitle: '“散住”一词既有第一世纪因逼迫流散的真实历史处境，也承载基督徒在世作客旅的永恒属灵身份。',
-
-          canonEyebrow: '第五部分 · 正典对照',
-          canonTitle: '主的奴仆 对比 被迫害的基督徒',
-          canonSubtitle: '将雅各书与新约其他写给受逼迫教会的书信并列观察，更清晰把握试炼中书信牧养的共同重心。',
-
-          footerDesc: '本课程网站依据圣经归纳法查经十九讲内容编撰，旨在帮助信徒以清洁属神的智慧研读圣经、在基督里生活并在教会中忠心服事。',
-          sitemapTitle: '课程页面导航（全九页）',
-          footerCopyright: '雅各书圣经归纳法查经课程 · 仅作教会与神学研习使用',
-          backToTop: '返回顶部',
-          sitemapHomeTag: '课程主页',
-          sitemapHomeLabel: '主页 · 文体结构与神学',
-
-          prevLabel: '返回课程主页',
-          prevTitle: '雅各书：文体结构与神学总览',
-          nextLabel: '下一单元 · 第2–4周',
-          nextTitle: 'A · 雅 1:2–27 · 信心的完善与行道'
-        },
-        en: {
-          pageTitle: 'James 1:1 · Background & Greeting',
-          emblem: 'J',
-          siteTitle: 'Epistle of James Course',
-          unitSubtitle: 'Intro · Week 1 · James 1:1',
-          navHome: 'Course Home',
-          navLexicon: 'Greek Lexicon',
-          navAuthor: 'Author & Title',
-          navTribes: 'Twelve Tribes',
-          navDispersion: 'Dispersion & Context',
-          langBtnTitle: 'Switch to Chinese',
-
-          heroBadge: 'Intro · Week 1 · Chiastic Background',
-          heroTitle: 'James 1:1: Background & Greeting',
-          heroDesc: 'Establishing the historical and theological foundation of the epistle—from the identity and servant-title of James to the first-generation Jewish Christian audience scattered in trials.',
-          heroVerseText: '“James, a bond-servant of God and of the Lord Jesus Christ, To the twelve tribes who are dispersed abroad: Greetings.”',
-          heroVerseRef: '— James 1:1 (NASB / LSB)',
-
-          gateEyebrow: 'COURSE CONTENT ACCESS',
-          gateTitle: 'Enter Access Password',
-          gateDesc: 'All expository sections below this banner are password-protected. Enter the password once to unlock all pages in this session.',
-          gateLabel: 'Access Password',
-          gatePlaceholder: 'Enter access password',
-          gateSubmit: 'Unlock Course Content',
-          gateError: 'Incorrect password. Please check and try again.',
-          gateShowPwd: 'Show password',
-          gateHidePwd: 'Hide password',
-
-          lexiconEyebrow: 'PHILOLOGICAL STUDY',
-          lexiconTitle: 'Key Greek Vocabulary',
-          lexiconSubtitle: 'A single opening verse introduces three pivotal Greek terms that set the theological and pastoral tone for the entire epistle.',
-
-          authorEyebrow: 'PART 1 · HISTORICAL BACKGROUND',
-          authorTitle: 'Authorship of the Epistle',
-          authorSubtitle: 'Four men named James appear in the New Testament; comparing scriptural and historical evidence points decisively to James, the brother of the Lord.',
-
-          titleEyebrow: 'PART 2 · IDENTITY & CHRISTOLOGY',
-          titleHeading: 'James’s Title: Bond-Servant of God and the Lord Jesus Christ',
-          titleSubtitle: 'Rather than appealing to earthly kinship or ecclesiastical rank, James anchors his authority in spiritual slavery to Christ.',
-
-          tribesEyebrow: 'PART 3 · ORIGINAL AUDIENCE',
-          tribesTitle: 'To the Twelve Tribes',
-          tribesSubtitle: 'Comparing the Old Testament and Revelation tribal lists alongside internal clues confirms an initial audience of first-generation Jewish Christians.',
-
-          dispEyebrow: 'PART 4 · HISTORICAL & SPIRITUAL SETTING',
-          dispTitle: 'Dual Meaning of the Dispersion',
-          dispSubtitle: 'The term “Dispersion” reflects both the literal scattering of early Jewish believers under persecution and the spiritual pilgrimage of all Christians away from their heavenly homeland.',
-
-          canonEyebrow: 'PART 5 · CANONICAL COMPARISON',
-          canonTitle: 'Bond-Servant of the Lord & Persecuted Believers',
-          canonSubtitle: 'Reading James alongside other New Testament letters addressed to persecuted churches highlights the pastoral focus of early Christian endurance.',
-
-          footerDesc: 'Built from the 19-week Inductive Bible Study course on the Epistle of James, equipping believers to live in Christ and serve faithfully in the church with pure, godly wisdom.',
-          sitemapTitle: 'COURSE SITEMAP (9 PAGES)',
-          footerCopyright: 'Epistle of James Inductive Bible Study · For Church & Seminary Study',
-          backToTop: 'Back to Top',
-          sitemapHomeTag: 'Home Page',
-          sitemapHomeLabel: 'Home · Structure & Theology',
-
-          prevLabel: 'Back to Course Home',
-          prevTitle: 'Epistle of James: Structure & Theology Overview',
-          nextLabel: 'Next Unit · Weeks 2–4',
-          nextTitle: 'A · James 1:2–27 · Perfection of Faith & Doing the Word'
-        }
-      };
-
       var LEXICON_ITEMS = [
         {
+          id: 'lex-doulos',
+          barColor: 'bg-amber-500',
+          pillCls: 'bg-amber-100 text-amber-900 border-amber-300',
           greek: 'δοῦλος',
+          verseForm: 'δοῦλος',
           translit: 'doulos',
           strongs: 'G1401',
-          gloss: { zh: '奴仆、完全委身的仆人', en: 'Bond-servant / Slave' },
-          desc: {
-            zh: '原意指在法律与生命上完全归属主人的奴仆。雅各用此词表明自己毫无保留地顺服于神和主耶稣基督的主权之下（[[Jas 1:1]]）。',
-            en: 'Denotes a bond-servant wholly owned by and devoted to a master. James uses it to declare total submission to God and the Lord Jesus Christ ([[Jas 1:1]]).'
+          matchedWord: { zh: '仆人', en: 'bond-servant' },
+          gloss: { zh: '奴仆、完全归属主人的仆人', en: 'Slave, bond-servant wholly belonging to a master' },
+          note: {
+            zh: '原意并非普通雇工，而是生命主权完全归属主人的“奴仆”。雅各写这封书信的属灵资格，不是因着与耶稣的肉身血缘，而是因着与主耶稣基督的属灵关系——作基督的奴仆是真正的荣耀，作世界的奴仆才是耻辱（[[Jas 1:1]]）。',
+            en: 'Denotes a bond-servant whose life belongs entirely to his master, not a hired worker. James grounds his authority not in earthly kinship with Jesus, but in spiritual submission to Christ—being Christ’s slave is true honor, while slavery to the world is shame ([[Jas 1:1]]).'
           }
         },
         {
-          greek: 'χαίρω',
-          translit: 'chairō',
-          strongs: 'G5463',
-          gloss: { zh: '请安、问候（原意：喜乐）', en: 'Greetings (lit. Rejoice)' },
-          desc: {
-            zh: '希腊书信标准的问候语，直译为“愿你们喜乐”。雅各巧妙地借此词根，在下一节立刻衔接“都要以为大喜乐”（[[Jas 1:2]]），将日常问安转化为试炼中的属灵呼召。',
-            en: 'Standard Greek epistolary greeting literally meaning “rejoice.” James intentionally links this root directly into “consider it all joy” in the very next verse ([[Jas 1:2]]).'
-          }
-        },
-        {
+          id: 'lex-diaspora',
+          barColor: 'bg-sky-500',
+          pillCls: 'bg-sky-100 text-sky-900 border-sky-300',
           greek: 'διασπορά',
+          verseForm: 'διασπορᾷ',
           translit: 'diaspora',
           strongs: 'G1290',
-          gloss: { zh: '散住、散居在外的群落', en: 'Dispersion / Scattered Abroad' },
-          desc: {
-            zh: '意为“撒种般地分散”。既指历史中散居巴勒斯坦以外列国的犹太群落（[[Joh 7:35]]），也描绘因逼迫四散的早期基督徒与在世寄居的天国客旅（[[1Pe 1:1]]）。',
-            en: 'Literally “scattering” (like sowing seed). It refers historically to Jewish communities outside Palestine ([[Joh 7:35]]) and spiritually to persecuted believers living away from their heavenly home ([[1Pe 1:1]]).'
+          matchedWord: { zh: '散住', en: 'dispersed abroad' },
+          gloss: { zh: '散居、播散在外', en: 'Dispersion, scattering abroad' },
+          note: {
+            zh: '原指巴勒斯坦以外犹太人散居各地的专称（[[Joh 7:35]]）。在此既呼应第一代犹太基督徒因逼迫而实际流散的历史（[[Act 8:1-4]]；[[Act 11:19]]），也具属灵象征：信徒在地上是远离天上真家乡的客旅与寄居者（[[1Pe 1:1]]）。',
+            en: 'A technical term for Jews living outside Palestine ([[Joh 7:35]]). Here it reflects both the literal historical scattering of Jewish believers under persecution ([[Act 8:1-4]]; [[Act 11:19]]) and the spiritual pilgrimage of Christians living away from their heavenly homeland ([[1Pe 1:1]]).'
+          }
+        },
+        {
+          id: 'lex-chairo',
+          barColor: 'bg-emerald-500',
+          pillCls: 'bg-emerald-100 text-emerald-900 border-emerald-300',
+          greek: 'χαίρω',
+          verseForm: 'χαίρειν',
+          translit: 'chairō',
+          strongs: 'G5463',
+          matchedWord: { zh: '安', en: 'Greetings' },
+          gloss: { zh: '问安、喜乐', en: 'To rejoice, be glad; standard Greek greeting' },
+          note: {
+            zh: '希腊书信惯用的开篇问候，字根即“喜乐”。雅各巧妙地用此词与下一节“落在百般试炼中，都要以为大喜乐”（[[Jas 1:2]]）形成文字呼应，将日常问安直接引向试炼中的属天喜乐。',
+            en: 'The standard Greek epistolary greeting rooted in the verb “to rejoice.” James deliberately bridges this opening greeting straight into the very next verse’s command to “consider it all joy” when encountering trials ([[Jas 1:2]]).'
           }
         }
       ];
 
-      var JAMES_CANDIDATES = [
+      var FOUR_JAMES = [
         {
           isAuthor: false,
-          status: { zh: '非本书作者', en: 'Not the Author' },
-          name: { zh: '雅各，犹大的父亲', en: 'James, Father of Judas' },
-          refs: ['Act 1:13', 'Luk 6:16'],
-          note: {
-            zh: '仅在使徒名单中被提及为使徒犹大（非卖主的加略人犹大）的父亲，新约中再无其他生平或教会领袖事迹记载。',
-            en: 'Mentioned only in apostolic lists as the father of Judas (not Iscariot), with no further record of ministry or church-wide authority.'
+          name: { zh: '雅各（犹大的父亲）', en: 'James, Father of Judas' },
+          role: { zh: '使徒犹大之父', en: 'Father of Judas (not Iscariot)' },
+          refs: ['Luk 6:16', 'Act 1:13'],
+          desc: {
+            zh: '仅在使徒名单中作为“雅各的儿子犹大”的父亲被提及，新约未记载其生平或教会领袖职分。',
+            en: 'Mentioned only in apostle lists to identify “Judas the son of James”; no public leadership role is recorded.'
           }
         },
         {
           isAuthor: false,
-          status: { zh: '非本书作者', en: 'Not the Author' },
-          name: { zh: '雅各，亚勒腓的儿子', en: 'James, Son of Alphaeus' },
-          refs: ['Mar 3:18', 'Mat 10:3', 'Luk 6:15'],
-          note: {
-            zh: '十二使徒之一（常称小雅各），在福音书与使徒行传中极为低调，缺乏无需附加说明便直接以“雅各”之名向众教会发信的广域知名度。',
-            en: 'One of the Twelve (often called James the Less), who remains obscure in the New Testament and lacks the unmistakable prominence required to write simply as “James.”'
+          name: { zh: '雅各（亚勒腓的儿子）', en: 'James, Son of Alphaeus' },
+          role: { zh: '十二使徒之一（小雅各）', en: 'One of the Twelve Apostles' },
+          refs: ['Mat 10:3', 'Mar 3:18', 'Luk 6:15', 'Act 1:13'],
+          desc: {
+            zh: '十二使徒之一，常被称为“小雅各”；在福音书与使徒行传中甚少记载其言行，缺乏向全教会写信的知名度。',
+            en: 'One of the Twelve, seldom mentioned outside apostle lists; lacks the prominent profile implied by addressing the churches simply as “James.”'
           }
         },
         {
           isAuthor: false,
-          status: { zh: '非本书作者', en: 'Not the Author' },
-          name: { zh: '雅各，西庇太的儿子', en: 'James, Son of Zebedee' },
-          refs: ['Mar 5:37', 'Mar 9:2', 'Mar 10:35', 'Mar 10:41', 'Act 12:1-2'],
-          note: {
-            zh: '使徒约翰的哥哥，虽为耶稣最亲近的三门徒之一，但早在公元 44 年即被希律王用刀杀害殉道，时间早于本书所反映的教会处境。',
-            en: 'Brother of John and part of Jesus’ inner circle, but martyred by Herod Agrippa I around AD 44—too early for the church circumstances reflected in the letter.'
+          name: { zh: '雅各（西庇太的儿子）', en: 'James, Son of Zebedee' },
+          role: { zh: '约翰之兄、核心三使徒之一', en: 'Brother of John; Inner Circle' },
+          refs: ['Mar 5:37', 'Mar 9:2', 'Mar 10:35', 'Act 12:1-2'],
+          desc: {
+            zh: '虽为耶稣最亲近的三位门徒之一，但早在公元 44 年即被希律王用刀杀害殉道，时间过早，不合书信背景。',
+            en: 'One of Jesus’ inner three disciples, yet martyred very early by Herod Agrippa I (c. AD 44), too early for the letter’s historical context.'
           }
         },
         {
           isAuthor: true,
-          status: { zh: '本书作者', en: 'Author of the Epistle' },
-          name: { zh: '雅各，主的兄弟', en: 'James, Brother of the Lord' },
-          refs: ['Mar 6:3', 'Joh 7:5', '1Co 15:7', 'Act 12:17', 'Act 15:13', 'Act 21:18', 'Gal 1:19', 'Gal 2:9', 'Gal 2:12'],
-          note: {
-            zh: '耶稣在世传道时他原本不信，直到复活的主亲自向他显现后彻底归信，成为耶路撒冷教会的柱石与领袖，拥有向散居众教会写信劝勉的属灵权柄。',
-            en: 'Originally skeptical during Jesus’ earthly ministry, he was transformed by the risen Christ’s personal appearance and became a pillar and primary leader of the Jerusalem church.'
-          }
-        }
-      ];
-
-      var DATING_INFO = {
-        badge: { zh: '写作年代与历史定位', en: 'Date & Historical Placement' },
-        headline: { zh: '约公元 48 年写作 · 公元 62 年殉道', en: 'Written c. AD 48 · Martyred c. AD 62' },
-        body: {
-          zh: '根据教会历史记载，主的兄弟雅各约于公元 62 年在耶路撒冷殉道。本封书信的写作时间大致推算在公元 48 年左右——在保罗于安提阿教会教导之后（[[Act 11:25-26]]），且早于耶路撒冷大会外邦人割礼争议之前。因此，雅各书很可能是新约圣经中最早成书的书卷之一。',
-          en: 'Historical records place the martyrdom of James around AD 62. This epistle was likely written around AD 48—after Paul’s teaching ministry in Antioch ([[Act 11:25-26]]) and prior to the Jerusalem Council’s Gentile controversy—making James one of the earliest New Testament books.'
-        }
-      };
-
-      var DESIGNATION_CARDS = [
-        {
-          num: '01',
-          title: { zh: '属灵关系胜过属世血缘', en: 'Spiritual Bond Over Earthly Kinship' },
-          body: {
-            zh: '雅各书写这封书信的资格，并不是因着他与耶稣的肉身血缘关系（“主的兄弟”），而是因着他与耶稣的属灵关系——归属基督的奴仆。',
-            en: 'James’s qualification to write this letter rests not on his biological kinship with Jesus, but on his spiritual relationship to Him as His redeemed servant.'
-          }
-        },
-        {
-          num: '02',
-          title: { zh: '基督的奴仆是真荣耀', en: 'True Honor in Serving Christ' },
-          body: {
-            zh: '在世人眼中“奴仆”代表卑微，但在天国价值观里，做基督的奴仆是一种荣耀，做世界与私欲的奴仆才是一种耻辱。',
-            en: 'Whereas the world despises servitude, in the kingdom of God being a bond-servant of Christ is supreme honor, while slavery to the world is true shame.'
-          }
-        },
-        {
-          num: '03',
-          title: { zh: '早期教会对耶稣神性的认信', en: 'Early High Christology' },
-          body: {
-            zh: '雅各将“神”与“主耶稣基督”并列为自己唯一服事的对象，直接反映出早期教会对耶稣作为主与基督的清晰神学认识（[[Act 2:36]]）。',
-            en: 'Placing “God” and “the Lord Jesus Christ” side by side as Master reflects the early church’s clear confession of Jesus’ divine Lordship ([[Act 2:36]]).'
+          name: { zh: '雅各（主的兄弟）', en: 'James, Brother of the Lord' },
+          role: { zh: '耶路撒冷教会柱石 · 本书作者', en: 'Pillar of Jerusalem Church · Author' },
+          refs: ['Mar 6:3', 'Joh 7:5', '1Co 15:7', 'Act 12:17', 'Act 15:13', 'Act 21:18', 'Gal 1:19', 'Gal 2:9'],
+          desc: {
+            zh: '耶稣生前原不信祂，在主复活向他显现后归主，成为耶路撒冷教会的柱石与会议主持者。无需附加头衔，教会一听“雅各”即知其人。',
+            en: 'Originally skeptical during Jesus’ earthly ministry, he believed after the risen Lord appeared to him and became a pillar and leader of the Jerusalem church—known across the churches simply as “James.”'
           }
         }
       ];
 
       var TRIBES_OT = {
-        zh: ['吕便', '西缅', '利未', '犹大', '以萨迦', '西布伦', '但', '拿弗他利', '迦得', '亚设', '便雅悯', '约瑟（以法莲、玛拿西）'],
-        en: ['Reuben', 'Simeon', 'Levi', 'Judah', 'Issachar', 'Zebulun', 'Dan', 'Naphtali', 'Gad', 'Asher', 'Benjamin', 'Joseph (Ephraim & Manasseh)']
+        zh: ['流便', '西缅', '犹大', '以萨迦', '西布伦', '以法莲', '玛拿西', '便雅悯', '但', '亚设', '迦得', '拿弗他利'],
+        en: ['Reuben', 'Simeon', 'Judah', 'Issachar', 'Zebulun', 'Ephraim', 'Manasseh', 'Benjamin', 'Dan', 'Asher', 'Gad', 'Naphtali']
       };
 
       var TRIBES_REV = {
-        zh: ['犹大', '吕便', '迦得', '亚设', '拿弗他利', '玛拿西', '西缅', '利未', '以萨迦', '西布伦', '约瑟', '便雅悯'],
+        zh: ['犹大', '流便', '迦得', '亚设', '拿弗他利', '玛拿西', '西缅', '利未', '以萨迦', '西布伦', '约瑟', '便雅悯'],
         en: ['Judah', 'Reuben', 'Gad', 'Asher', 'Naphtali', 'Manasseh', 'Simeon', 'Levi', 'Issachar', 'Zebulun', 'Joseph', 'Benjamin']
       };
 
       var AUDIENCE_EVIDENCES = [
         {
-          title: { zh: '犹太传统自称“十二支派”', en: 'Traditional Jewish Self-Identity' },
+          title: { zh: '历史地理现实：第一代散居的犹太基督徒', en: 'Historical & Geographical Reality: Dispersed Jewish Christians' },
           body: {
-            zh: '犹太人传统上将自己整体视为神立约的“十二支派”，而“散居”几乎总是指散落到以色列本地以外的犹太群落（[[Psa 147:2]]；[[Act 26:6-7]]）。',
-            en: 'Jews traditionally viewed themselves as the covenant “twelve tribes,” and “Dispersion” nearly always referred to those living outside the land of Israel ([[Psa 147:2]]; [[Act 26:6-7]]).'
+            zh: '犹太人传统上将自己整体视为立约的“十二支派”（[[Psa 147:2]]；[[Act 26:6-7]]）。书信称其聚会场所为“会堂”（[[Jas 2:2]]），并诉诸独一真神的认信（[[Jas 2:19]]），呼应了当时犹太基督徒因逼迫散居在外的地理与历史现实。',
+            en: 'Jews traditionally viewed themselves as the covenant “twelve tribes” ([[Psa 147:2]]; [[Act 26:6-7]]). Addressing their gathering as a “synagogue” ([[Jas 2:2]]) and appealing to monotheism ([[Jas 2:19]]) reflects the concrete historical reality of first-generation Jewish Christians scattered abroad.'
           }
         },
         {
-          title: { zh: '在犹太会堂中聚会', en: 'Assembling in the Synagogue' },
+          title: { zh: '先知的新约应许：犹大与约瑟合而为一', en: 'Prophetic New Covenant Promise: Judah & Joseph Made One' },
           body: {
-            zh: '从 [[Jas 2:2]] 原文可见，收信人的聚会场所被称为“会堂”（συναγωγή），显现出极浓厚的早期犹太基督徒群体色彩。',
-            en: 'In [[Jas 2:2]], their gathering place is explicitly called a “synagogue” (συναγωγή), strongly pointing to an early Jewish Christian assembly.'
+            zh: '旧约中犹大从未居于十二支派之首。以西结书在应许赐下新心、除去石心的新约之后（[[Eze 36:26]]），宣告神要将代表外邦人的“约瑟的杖（在以法莲手中）”与代表以色列的“犹大的杖”接连为一（[[Eze 37:19]]），指向犹太人与外邦人藉基督的血同归一体。',
+            en: 'In the Old Testament, Judah was never the first tribe. Immediately after promising a new heart in the New Covenant ([[Eze 36:26]]), Ezekiel declares that God will join “the stick of Joseph (in the hand of Ephraim)” with “the stick of Judah” into one stick ([[Eze 37:19]])—uniting Jew and Gentile through the blood of Christ.'
           }
         },
         {
-          title: { zh: '持守独一真神的认信', en: 'Monotheistic Confession' },
+          title: { zh: '救赎终极成全：教会是十二支派的成全', en: 'Redemptive Fulfillment: The Church as the Twelve Tribes Fulfilled' },
           body: {
-            zh: '从 [[Jas 2:19]]“你信神只有一位”可见，收信人深谙旧约示玛的独一神信仰，综合写作年代与处境，本书是写给第一代犹太基督徒。',
-            en: '[[Jas 2:19]] appeals directly to the Shema confession (“God is one”). Combined with the early date, the letter clearly targets first-generation Jewish Christians.'
-          }
-        }
-      ];
-
-      var DISPERSION_CARDS = [
-        {
-          badge: { zh: '历史与字面意涵', en: 'Literal & Historical Meaning' },
-          title: { zh: '因逼迫流散巴勒斯坦以外的犹太基督徒', en: 'Jewish Christians Scattered by Persecution' },
-          points: {
-            zh: [
-              '“散居”（διασπορά，G1290）在第一世纪已成为指代居住在巴勒斯坦以外列国中之犹太人的专有词汇（[[Joh 7:35]]）。',
-              '结合使徒行传的历史脉络，耶路撒冷教会在司提反殉道后大遭逼迫，门徒四散至犹太、撒玛利亚、腓尼基、居比路和安提阿等地（[[Act 8:1-4]]；[[Act 11:19]]）。',
-              '雅各作为耶路撒冷教会的牧者，写信牧养这些在异乡与苦难中流散的羊群。'
-            ],
-            en: [
-              '“Dispersion” (διασπορά, G1290) had become a technical name for Jewish communities living among the nations outside Palestine ([[Joh 7:35]]).',
-              'In the historical context of Acts, early Jewish believers were literally scattered abroad by severe persecution following Stephen’s martyrdom ([[Act 8:1-4]]; [[Act 11:19]]).',
-              'Writing from Jerusalem, James pastors his scattered flock enduring dislocation and hardship.'
-            ]
-          }
-        },
-        {
-          badge: { zh: '属灵与象征意涵', en: 'Figurative & Spiritual Meaning' },
-          title: { zh: '在世寄居、远离天上家乡的基督徒', en: 'Pilgrims Living Apart from Their Heavenly Homeland' },
-          points: {
-            zh: [
-              '使徒彼得在书信开篇也使用同一个词“分散寄居的”来称呼以外邦人为主的收信群体（[[1Pe 1:1]]）。',
-              '这表明“散居”同时具有普遍的属灵象征意义：描绘历世历代所有基督徒在今世都是客旅，暂时远离我们真正的天上家乡。',
-              '正因今世不是终极归宿，信徒在百般试炼中才不至迷失方向，反而专心仰望从上头来的赏赐与智慧。'
-            ],
-            en: [
-              'Peter uses the exact same term (“scattered / Dispersion”) to address readers who were predominantly Gentiles ([[1Pe 1:1]]).',
-              'Figuratively, the word characterizes all Christians across history as pilgrims living in this world, apart from their true heavenly homeland.',
-              'Because this world is not our permanent home, believers endure trials with steadfast hope rather than compromising with worldly values.'
-            ]
-          }
-        }
-      ];
-
-      var CANONICAL_EPISTLES = [
-        {
-          tag: { zh: '保罗书信', en: 'Pauline Epistles' },
-          title: { zh: '帖撒罗尼迦前后书', en: '1 & 2 Thessalonians' },
-          ref: '1Th 4:1-18',
-          desc: {
-            zh: '写给在逼迫患难中初信的教会，劝勉信徒在苦难中持守圣洁、彼此相爱，并因基督必再来的应许彼此劝慰（[[1Th 4:1-18]]）。',
-            en: 'Written to a young church under persecution, urging holiness, brotherly love, and mutual encouragement anchored in Christ’s return ([[1Th 4:1-18]]).'
-          }
-        },
-        {
-          tag: { zh: '彼得书信', en: 'Petrine Epistles' },
-          title: { zh: '彼得前后书', en: '1 & 2 Peter' },
-          ref: '1Pe 1:1',
-          desc: {
-            zh: '同样写给“分散寄居的”圣徒，鼓励教会在百般试炼与外邦人的毁谤中，效法受苦的基督，持守活泼盼望（[[1Pe 1:1]]）。',
-            en: 'Likewise addressed to the “scattered” elect, strengthening believers to follow the suffering Christ with living hope amid trials ([[1Pe 1:1]]).'
-          }
-        },
-        {
-          tag: { zh: '本课程研读', en: 'Current Study' },
-          title: { zh: '雅各书', en: 'Epistle of James' },
-          ref: 'Jas 1:1',
-          desc: {
-            zh: '主的奴仆写给散居试炼中的教会，直指苦难中的喜乐、真假信心的试金石、话语勒制与从上头来的清洁智慧（[[Jas 1:1]]；[[Jas 1:2]]）。',
-            en: 'The Lord’s bond-servant writes to the dispersed church in trials, calling for joy, authentic living faith, bridled speech, and pure wisdom from above ([[Jas 1:1]]; [[Jas 1:2]]).'
+            zh: '到了启示录，十二支派再次出现：主耶稣所属的“犹大”赫然位居榜首，代表外邦人的“约瑟”赫然入榜（[[Rev 7:5-8]]）。因此，雅各书的“十二支派”具有双重意涵——既呼应当时犹太人散居的地理现实，更重要的是呼应新约教会正是“十二支派的成全”。',
+            en: 'When the twelve tribes reappear in Revelation, Judah (the tribe of Jesus) stands at the very head of the list, and Joseph (representing the Gentiles) is prominently included ([[Rev 7:5-8]]). Thus, “the twelve tribes” in James carries a dual meaning: echoing the historical Jewish dispersion while pointing supremely to the Church as the twelve tribes fulfilled.'
           }
         }
       ];
 
       var SITEMAP_UNITS = [
-        { href: 'james_1_1.html', marker: { zh: '序言', en: 'Intro' }, ref: '1:1', title: { zh: '写作背景与问安', en: 'Background & Greeting' }, current: true },
-        { href: 'james_1_2_27.html', marker: { zh: 'A', en: 'A' }, ref: '1:2–27', title: { zh: '信心的完善与行道', en: 'Perfection of Faith & Doing' } },
-        { href: 'james_2_1_26.html', marker: { zh: 'B', en: 'B' }, ref: '2:1–26', title: { zh: '不偏待人与活信心', en: 'Impartiality & Living Faith' } },
-        { href: 'james_3_1_12.html', marker: { zh: 'C', en: 'C' }, ref: '3:1–12', title: { zh: '讲台责任与控制舌头', en: 'Teaching & Taming the Tongue' } },
-        { href: 'james_3_13_18.html', marker: { zh: 'D', en: 'D' }, ref: '3:13–18', title: { zh: '从上头来的清洁智慧', en: 'Pure Wisdom from Above' } },
-        { href: 'james_4_1_12.html', marker: { zh: "C'", en: "C'" }, ref: '4:1–12', title: { zh: '止息纷争与谦卑亲近神', en: 'Ending Conflicts & Humility' } },
-        { href: 'james_4_13_5_6.html', marker: { zh: "B'", en: "B'" }, ref: '4:13–5:6', title: { zh: '属世谋划与富足者宣判', en: 'Worldly Plans & Judgment' } },
-        { href: 'james_5_7_20.html', marker: { zh: "A'", en: "A'" }, ref: '5:7–20', title: { zh: '忍耐等候与祷告挽回', en: 'Patience, Prayer & Restoration' } }
+        { href: 'james_1_1.html', marker: { zh: '序言', en: 'Intro' }, ref: { zh: '雅 1:1', en: 'James 1:1' }, title: { zh: '写作背景与问安', en: 'Background & Greeting' }, current: true },
+        { href: 'james_1_2_27.html', marker: { zh: 'A', en: 'A' }, ref: { zh: '雅 1:2–27', en: 'James 1:2-27' }, title: { zh: '信心的完善与行道', en: 'Perfection of Faith & Doing the Word' } },
+        { href: 'james_2_1_26.html', marker: { zh: 'B', en: 'B' }, ref: { zh: '雅 2:1–26', en: 'James 2:1-26' }, title: { zh: '不偏待人与活信心', en: 'Impartiality & Living Faith' } },
+        { href: 'james_3_1_12.html', marker: { zh: 'C', en: 'C' }, ref: { zh: '雅 3:1–12', en: 'James 3:1-12' }, title: { zh: '讲台责任与控制舌头', en: 'Teaching Office & Taming the Tongue' } },
+        { href: 'james_3_13_18.html', marker: { zh: 'D', en: 'D' }, ref: { zh: '雅 3:13–18', en: 'James 3:13-18' }, title: { zh: '从上头来的清洁智慧', en: 'Pure Wisdom from Above' } },
+        { href: 'james_4_1_12.html', marker: { zh: "C'", en: "C'" }, ref: { zh: '雅 4:1–12', en: 'James 4:1-12' }, title: { zh: '止息纷争与谦卑亲近神', en: 'Ending Conflicts & Drawing Near to God' } },
+        { href: 'james_4_13_5_6.html', marker: { zh: "B'", en: "B'" }, ref: { zh: '雅 4:13–5:6', en: 'James 4:13-5:6' }, title: { zh: '属世谋划与富足者的宣判', en: 'Worldly Planning & Judgment on the Rich' } },
+        { href: 'james_5_7_20.html', marker: { zh: "A'", en: "A'" }, ref: { zh: '雅 5:7–20', en: 'James 5:7-20' }, title: { zh: '忍耐等候与祷告挽回', en: 'Patient Endurance, Prayer & Restoration' } }
       ];
 
       // -------------------------------------------------------------------
-      // 4. STORAGE & LOCK HELPERS
+      // 6. PERSISTENCE & ACCESS LOCK
       // -------------------------------------------------------------------
       function loadSavedLanguage() {
         try {
@@ -1140,7 +1060,7 @@
       }
 
       // -------------------------------------------------------------------
-      // 5. RENDERERS
+      // 7. RENDER FUNCTIONS
       // -------------------------------------------------------------------
       function renderChrome() {
         var lang = appState.lang;
@@ -1173,11 +1093,6 @@
           if (dict[key] !== undefined) el.textContent = dict[key];
         });
 
-        var heroVerseText = document.getElementById('heroVerseText');
-        var heroVerseRef = document.getElementById('heroVerseRef');
-        if (heroVerseText) heroVerseText.textContent = dict.heroVerseText;
-        if (heroVerseRef) heroVerseRef.textContent = dict.heroVerseRef;
-
         var pwdInput = document.getElementById('accessPasswordInput');
         if (pwdInput) pwdInput.setAttribute('placeholder', dict.gatePlaceholder);
 
@@ -1185,57 +1100,80 @@
         if (togglePwdBtn && pwdInput) {
           togglePwdBtn.setAttribute('aria-label', pwdInput.type === 'password' ? dict.gateShowPwd : dict.gateHidePwd);
         }
+
+        // Render Hero SBL Greek & Color-Linked Translation
+        var greekEl = document.getElementById('heroGreekLine');
+        var transEl = document.getElementById('heroTransLine');
+        var legendEl = document.getElementById('heroLegendRow');
+        if (greekEl) greekEl.innerHTML = HERO_SBL_GREEK_HTML;
+        if (transEl) transEl.innerHTML = HERO_TRANS_HTML[lang];
+        if (legendEl) {
+          legendEl.innerHTML = HERO_LEGEND.map(function (item) {
+            return (
+              '<a href="#' + item.id + '" class="kw-token ' + item.cls + ' text-xs">' +
+                item.greek + ' (' + item.strongs + ') ↔ ' + item[lang] +
+              '</a>'
+            );
+          }).join('');
+        }
       }
 
       function renderLexicon() {
         var lang = appState.lang;
+        var isZh = lang === 'zh';
         var grid = document.getElementById('lexiconGrid');
         if (!grid) return;
 
         grid.innerHTML = LEXICON_ITEMS.map(function (item) {
           return (
-            '<article class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden flex flex-col">' +
-              '<div class="px-5 py-4 bg-parchmentDeep/70 border-b border-parchmentBorder flex items-baseline justify-between gap-2">' +
-                '<div>' +
-                  '<div class="font-serif text-2xl font-bold text-navy">' + item.greek + '</div>' +
-                  '<div class="text-xs text-inkMuted italic mt-0.5">' + item.translit + '</div>' +
+            '<article id="' + item.id + '" class="scroll-mt-24 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden flex flex-col">' +
+              '<div class="h-1.5 w-full ' + item.barColor + '"></div>' +
+              '<div class="px-5 py-4 bg-parchmentDeep/70 border-b border-parchmentBorder">' +
+                '<div class="flex items-baseline justify-between gap-2 mb-1">' +
+                  '<span class="font-serif text-2xl font-bold text-navy" lang="el">' + item.greek + '</span>' +
+                  '<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-white border border-parchmentBorder text-gold">' + item.strongs + '</span>' +
                 '</div>' +
-                '<span class="px-2.5 py-0.5 rounded-full bg-white border border-parchmentBorder text-xs font-bold text-gold">' + item.strongs + '</span>' +
+                '<div class="flex flex-wrap items-center justify-between gap-2 text-xs text-inkMuted">' +
+                  '<span>' + item.translit + (item.verseForm !== item.greek ? (' · 1:1: ' + item.verseForm) : '') + '</span>' +
+                  '<span class="px-2 py-0.5 rounded-md border text-[11px] font-bold ' + item.pillCls + '">' +
+                    (isZh ? '译作：' : 'Rendered: ') + item.matchedWord[lang] +
+                  '</span>' +
+                '</div>' +
               '</div>' +
-              '<div class="p-5 flex-1 flex flex-col">' +
-                '<div class="text-sm font-bold text-navy mb-2">' + item.gloss[lang] + '</div>' +
-                '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + renderRichText(item.desc[lang]) + '</p>' +
+              '<div class="p-5 space-y-3 flex-1">' +
+                '<div class="text-sm font-bold text-navy">' + item.gloss[lang] + '</div>' +
+                '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + renderRichText(item.note[lang]) + '</p>' +
               '</div>' +
             '</article>'
           );
         }).join('');
       }
 
-      function renderAuthorship() {
+      function renderAuthorSection() {
         var lang = appState.lang;
-        var sep = lang === 'zh' ? '，' : ', ';
-        var grid = document.getElementById('jamesCandidatesGrid');
-        if (grid) {
-          grid.innerHTML = JAMES_CANDIDATES.map(function (c) {
-            var cardBorder = c.isAuthor ? 'border-gold ring-1 ring-gold/30' : 'border-parchmentBorder';
-            var headerBg = c.isAuthor ? 'bg-navy text-white' : 'bg-parchmentDeep/65 text-navy';
-            var badgeCls = c.isAuthor
-              ? 'bg-gold text-white'
-              : 'bg-white text-inkMuted border border-parchmentBorder';
-            var refsHtml = c.refs.map(buildScriptureHTML).join(sep);
+        var isZh = lang === 'zh';
+
+        var fourGrid = document.getElementById('fourJamesGrid');
+        if (fourGrid) {
+          fourGrid.innerHTML = FOUR_JAMES.map(function (item) {
+            var refsHtml = item.refs.map(buildScriptureHTML).join(isZh ? '，' : ', ');
+            var borderCls = item.isAuthor
+              ? 'border-gold ring-1 ring-gold/40 bg-white'
+              : 'border-parchmentBorder bg-white';
+            var headerCls = item.isAuthor
+              ? 'bg-navy text-white border-navy'
+              : 'bg-parchmentDeep/70 text-navy border-parchmentBorder';
+            var roleCls = item.isAuthor ? 'text-goldLight' : 'text-gold';
 
             return (
-              '<article class="bg-white rounded-2xl border ' + cardBorder + ' shadow-card overflow-hidden flex flex-col">' +
-                '<div class="px-5 py-3.5 border-b border-parchmentBorder flex items-center justify-between gap-2 ' + headerBg + '">' +
-                  '<h3 class="font-serif text-lg font-bold">' + c.name[lang] + '</h3>' +
-                  '<span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full shrink-0 ' + badgeCls + '">' + c.status[lang] + '</span>' +
+              '<article class="rounded-2xl border shadow-card overflow-hidden flex flex-col ' + borderCls + '">' +
+                '<div class="px-4 py-3.5 border-b ' + headerCls + '">' +
+                  '<div class="text-[11px] font-bold ' + roleCls + '">' + item.role[lang] + '</div>' +
+                  '<h3 class="font-serif text-lg font-bold mt-0.5">' + item.name[lang] + '</h3>' +
                 '</div>' +
-                '<div class="p-5 space-y-3 flex-1">' +
-                  '<p class="text-xs sm:text-sm text-ink leading-relaxed">' + c.note[lang] + '</p>' +
-                  '<div class="pt-2 border-t border-parchmentBorder/70 text-xs text-inkMuted leading-relaxed">' +
-                    '<span class="font-semibold text-navy mr-1.5">' + (lang === 'zh' ? '相关经文：' : 'References: ') + '</span>' +
-                    refsHtml +
-                  '</div>' +
+                '<div class="p-4 space-y-3 flex-1 flex flex-col">' +
+                  '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed flex-1">' + item.desc[lang] + '</p>' +
+                  '<div class="pt-2.5 border-t border-parchmentBorder/70 text-xs leading-relaxed">' + refsHtml + '</div>' +
                 '</div>' +
               '</article>'
             );
@@ -1245,43 +1183,78 @@
         var datingEl = document.getElementById('datingCard');
         if (datingEl) {
           datingEl.innerHTML =
-            '<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 mb-3 border-b border-parchmentBorder">' +
-              '<span class="inline-block text-xs font-bold tracking-[0.16em] text-gold">' + DATING_INFO.badge[lang] + '</span>' +
-              '<span class="font-serif text-base sm:text-lg font-bold text-navy">' + DATING_INFO.headline[lang] + '</span>' +
+            '<div class="px-5 py-3.5 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-lg font-bold text-navy">' + (isZh ? '写作时间与历史坐标' : 'Date & Historical Anchors') + '</h3>' +
             '</div>' +
-            '<p class="text-xs sm:text-sm text-ink leading-relaxed">' + renderRichText(DATING_INFO.body[lang]) + '</p>';
+            '<div class="p-5 space-y-3 text-xs sm:text-sm text-ink leading-relaxed">' +
+              '<div class="grid grid-cols-2 gap-3">' +
+                '<div class="rounded-xl bg-parchment/80 border border-parchmentBorder p-3">' +
+                  '<div class="text-[11px] text-inkMuted">' + (isZh ? '推定写作年份' : 'Estimated Date') + '</div>' +
+                  '<div class="font-serif text-lg font-bold text-navy mt-0.5">' + (isZh ? '约公元 48 年' : 'c. AD 48') + '</div>' +
+                '</div>' +
+                '<div class="rounded-xl bg-parchment/80 border border-parchmentBorder p-3">' +
+                  '<div class="text-[11px] text-inkMuted">' + (isZh ? '雅各殉道年份' : 'Martyrdom of James') + '</div>' +
+                  '<div class="font-serif text-lg font-bold text-navy mt-0.5">' + (isZh ? '约公元 62 年' : 'c. AD 62') + '</div>' +
+                '</div>' +
+              '</div>' +
+              '<p class="text-inkMuted">' + renderRichText(isZh
+                ? '时间大致落在保罗与巴拿巴在安提阿教导教会之后（[[Act 11:25-26]]），且早于耶路撒冷大会的割礼争议，因此雅各书极可能是新约最早写成的书卷之一。'
+                : 'Written roughly after Paul and Barnabas taught at Antioch ([[Act 11:25-26]]) and prior to the Jerusalem Council’s circumcision debate, making James likely one of the earliest New Testament letters.'
+              ) + '</p>' +
+            '</div>';
         }
 
-        var desigGrid = document.getElementById('designationGrid');
-        if (desigGrid) {
-          desigGrid.innerHTML = DESIGNATION_CARDS.map(function (card) {
-            return (
-              '<div class="bg-white rounded-2xl border border-parchmentBorder shadow-card p-5 space-y-2.5">' +
-                '<div class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-parchmentDeep text-gold font-serif font-bold text-sm">' + card.num + '</div>' +
-                '<h4 class="font-serif text-lg font-bold text-navy">' + card.title[lang] + '</h4>' +
-                '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + renderRichText(card.body[lang]) + '</p>' +
-              '</div>'
-            );
-          }).join('');
+        var titleEl = document.getElementById('titleCard');
+        if (titleEl) {
+          var bullets = isZh
+            ? [
+                '雅各书写这封书信的资格，不是因着他与耶稣的属世血缘，而是因着他与耶稣的属灵关系。',
+                '做基督的奴仆是一种荣耀，做世界的奴仆是一种耻辱。',
+                '将“神”与“主耶稣基督”并列，反映出早期教会对耶稣基督神性与主权的清晰认信（[[Act 2:36]]）。'
+              ]
+            : [
+                'James’s qualification to write rests not on his earthly family tie to Jesus, but on his spiritual relationship to Him.',
+                'To be a bond-servant of Christ is true honor; to be enslaved to the world is shame.',
+                'Placing “God” and “the Lord Jesus Christ” side by side reflects the early church’s clear confession of Christ’s lordship ([[Act 2:36]]).'
+              ];
+
+          titleEl.innerHTML =
+            '<div class="px-5 py-3.5 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-lg font-bold text-navy">' + (isZh ? '雅各的“头衔”：神和主耶稣基督的仆人' : 'James’s Title: Bond-Servant of God & Christ') + '</h3>' +
+            '</div>' +
+            '<ul class="p-5 space-y-2.5">' +
+              bullets.map(function (b) {
+                return (
+                  '<li class="flex items-start gap-2.5 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+                    '<span class="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0"></span>' +
+                    '<span>' + renderRichText(b) + '</span>' +
+                  '</li>'
+                );
+              }).join('') +
+            '</ul>';
         }
       }
 
-      function renderTribesAndAudience() {
+      function renderTribesSection() {
         var lang = appState.lang;
         var isZh = lang === 'zh';
 
         var compareEl = document.getElementById('tribesCompareCard');
         if (compareEl) {
           var otPills = TRIBES_OT[lang].map(function (name, idx) {
-            var isDan = idx === 6;
-            var cls = isDan
+            var isHighlight = idx === 5 || idx === 6; // Ephraim & Manasseh
+            var cls = isHighlight
               ? 'bg-amber-50 border-gold text-navy font-semibold'
               : 'bg-parchment/80 border-parchmentBorder text-ink';
-            return '<span class="px-2.5 py-1 rounded-lg border text-xs ' + cls + '">' + name + '</span>';
+            return '<span class="px-2.5 py-1 rounded-lg border text-xs ' + cls + '">' + (idx + 1) + '. ' + name + '</span>';
           }).join('');
 
-          var revPills = TRIBES_REV[lang].map(function (name) {
-            return '<span class="px-2.5 py-1 rounded-lg border border-parchmentBorder bg-parchment/80 text-xs text-ink">' + name + '</span>';
+          var revPills = TRIBES_REV[lang].map(function (name, idx) {
+            var isHighlight = idx === 0 || idx === 10; // Judah (#1) & Joseph (#11)
+            var cls = isHighlight
+              ? 'bg-navy text-goldLight border-navy font-bold'
+              : 'bg-parchment/80 border-parchmentBorder text-ink';
+            return '<span class="px-2.5 py-1 rounded-lg border text-xs ' + cls + '">' + (idx + 1) + '. ' + name + '</span>';
           }).join('');
 
           compareEl.innerHTML =
@@ -1291,23 +1264,27 @@
             '<div class="p-5 space-y-5">' +
               '<div>' +
                 '<div class="flex items-baseline justify-between gap-2 mb-2.5">' +
-                  '<span class="text-xs font-bold text-navy">' + (isZh ? '旧约中的十二支派' : 'Old Testament Twelve Tribes') + '</span>' +
-                  '<span class="text-xs">' + buildScriptureHTML('Num 1:5-15') + '</span>' +
+                  '<span class="text-xs font-bold text-navy">' + (isZh ? '旧约分地十二支派（无约瑟支派，利未不计入分地）' : 'Old Testament Land-Inheriting Tribes (No Joseph; Levi Excluded from Land)') + '</span>' +
+                  '<span class="text-xs shrink-0">' + buildScriptureHTML('Num 1:5-15') + '</span>' +
                 '</div>' +
                 '<div class="flex flex-wrap gap-2">' + otPills + '</div>' +
               '</div>' +
               '<div class="pt-4 border-t border-parchmentBorder">' +
                 '<div class="flex items-baseline justify-between gap-2 mb-2.5">' +
-                  '<span class="text-xs font-bold text-navy">' + (isZh ? '启示录中的十二支派' : 'Twelve Tribes in Revelation') + '</span>' +
-                  '<span class="text-xs">' + buildScriptureHTML('Rev 7:5-8') + '</span>' +
+                  '<span class="text-xs font-bold text-navy">' + (isZh ? '启示录中的十二支派（犹大居首，约瑟入榜）' : 'New Covenant Twelve Tribes in Revelation (Judah First; Joseph Included)') + '</span>' +
+                  '<span class="text-xs shrink-0">' + buildScriptureHTML('Rev 7:5-8') + '</span>' +
                 '</div>' +
                 '<div class="flex flex-wrap gap-2">' + revPills + '</div>' +
               '</div>' +
-              '<div class="rounded-xl bg-parchmentDeep/70 border border-parchmentBorder p-4 text-xs sm:text-sm text-ink leading-relaxed">' +
-                '<div class="font-bold text-navy mb-1">' + (isZh ? '课堂延伸注解：为何启示录名单中不见“但”支派？' : 'Expository Note: Why Is Dan Omitted in Revelation?') + '</div>' +
+              '<div class="rounded-xl bg-parchmentDeep/70 border border-parchmentBorder p-4 text-xs sm:text-sm text-ink leading-relaxed space-y-2.5">' +
+                '<div class="font-bold text-navy">' + (isZh ? '神学辨析：为何旧约与新约的十二支派不同？' : 'Theological Insight: Why Do the OT and NT Twelve Tribes Differ?') + '</div>' +
                 '<p>' + renderRichText(isZh
-                  ? '北国分裂后，耶罗波安在伯特利与但设立金牛犊，使百姓陷在偶像崇拜之罪中（[[1Ki 12:28-30]]）。先知何西阿遂将原意为“神的殿”的伯特利讥称为“伯亚文”（罪孽/偶像之家，[[Hos 10:5]]），警示偶像崇拜的深重后果。'
-                  : 'After the kingdom divided, Jeroboam set up golden calves at Bethel and Dan, leading Israel into idolatry ([[1Ki 12:28-30]]). Hosea consequently renamed Bethel (“House of God”) to Beth-aven (“House of Sin/Idols,” [[Hos 10:5]]).'
+                  ? '旧约以色列人分地名单中并无“约瑟支派”，而是由约瑟在埃及所生的两个儿子——以法莲与玛拿西——被雅各收归名下承受产业（[[Gen 48:5-6]]）；利未虽有支派却无地业，因耶和华自己就是他们的产业（[[Num 18:20]]），故分地十二支派通常不计入利未。雅各临终时，约瑟本人站在外邦世界的代表位置上，其二子归入以色列。'
+                  : 'In the Old Testament land-inheritance lists, there is no tribe of Joseph; instead, Jacob adopted Joseph’s two sons born in Egypt—Ephraim and Manasseh—as his own ([[Gen 48:5-6]]). Although Levi was a tribe, the Levites received no earthly land because God Himself was their inheritance ([[Num 18:20]]), so Levi is normally excluded from the twelve land-inheriting tribes. At Jacob’s death, Joseph stood outside the twelve tribal names as a figure linked with the Gentile world.'
+                ) + '</p>' +
+                '<p>' + renderRichText(isZh
+                  ? '到了以西结书，神在应许除去石心、赐下新心的新约脉络中（[[Eze 36:26]]），宣告必将代表外邦人的“约瑟的杖（在以法莲手中）”与代表以色列的“犹大的杖”接连为一（[[Eze 37:19]]）。旧约里犹大从未排在首位，但在启示录十二支派中，基督所属的“犹大”赫然居首，代表外邦人的“约瑟”赫然入榜（[[Rev 7:5-8]]），显明犹太人与外邦人藉基督的宝血在新约中同归一体。'
+                  : 'In Ezekiel, alongside the New Covenant promise to replace the heart of stone with a new heart ([[Eze 36:26]]), God promises to take “the stick of Joseph (that is in the hand of Ephraim)” and join it with “the stick of Judah” into one stick ([[Eze 37:19]]). Though Judah was never the #1 tribe in the Old Testament, in Revelation Judah (the tribe of Jesus) heads the list and Joseph (representing the Gentiles) is prominently named ([[Rev 7:5-8]]), revealing Jew and Gentile united as one body through Christ’s blood.'
                 ) + '</p>' +
               '</div>' +
             '</div>';
@@ -1329,123 +1306,127 @@
 
           audienceEl.innerHTML =
             '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
-              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '受众结论：第一代犹太基督徒' : 'Conclusion: First-Generation Jewish Christians') + '</h3>' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '双重意涵：地理现实与新约教会' : 'Dual Meaning: Historical Reality & Fulfilled Church') + '</h3>' +
             '</div>' +
             '<ul class="p-5 space-y-3">' + evHtml + '</ul>';
         }
       }
 
-      function renderDispersionAndCanon() {
+      function renderDispersionSection() {
         var lang = appState.lang;
-        var dispGrid = document.getElementById('dispersionGrid');
-        if (dispGrid) {
-          dispGrid.innerHTML = DISPERSION_CARDS.map(function (card) {
-            var pts = card.points[lang].map(function (pt) {
-              return (
-                '<li class="flex items-start gap-2.5 text-xs sm:text-sm text-ink leading-relaxed">' +
-                  '<span class="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0"></span>' +
-                  '<span>' + renderRichText(pt) + '</span>' +
-                '</li>'
-              );
-            }).join('');
+        var isZh = lang === 'zh';
 
-            return (
-              '<article class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden flex flex-col">' +
-                '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
-                  '<span class="inline-block text-[11px] font-bold tracking-[0.16em] text-gold mb-1">' + card.badge[lang] + '</span>' +
-                  '<h3 class="font-serif text-xl font-bold text-navy">' + card.title[lang] + '</h3>' +
-                '</div>' +
-                '<ul class="p-5 space-y-2.5 flex-1">' + pts + '</ul>' +
-              '</article>'
-            );
-          }).join('');
+        var dispEl = document.getElementById('dispersionCard');
+        if (dispEl) {
+          var rows = isZh
+            ? [
+                { tag: '专有称谓', text: '“散居”（διασπορά）是当时巴勒斯坦以外犹太人居住地的专称（[[Joh 7:35]]）。' },
+                { tag: '历史实景', text: '从初代教会历史背景来看，这群犹太基督徒因司提反殉道后的大逼迫而实际四散各处（[[Act 8:1-4]]；[[Act 11:19]]）。' },
+                { tag: '属灵象征', text: '彼得也用同一个词称呼几乎全是外邦人的读者（[[1Pe 1:1]]），表明基督徒活在这世界，乃是在天上真家乡之外寄居的客旅。' }
+              ]
+            : [
+                { tag: 'Technical Term', text: '“Dispersion” (diaspora) became the standard term for Jewish communities living outside Palestine ([[Joh 7:35]]).' },
+                { tag: 'Literal History', text: 'In its immediate historical context, these Jewish Christians were literally scattered abroad as a result of persecution after Stephen’s martyrdom ([[Act 8:1-4]]; [[Act 11:19]]).' },
+                { tag: 'Spiritual Pilgrimage', text: 'Peter uses the very same term for readers who were largely Gentiles ([[1Pe 1:1]]), portraying all believers as exiles living apart from their true heavenly homeland.' }
+              ];
+
+          dispEl.innerHTML =
+            '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '“散居”的三重释经维度' : 'Three Dimensions of “In the Dispersion”') + '</h3>' +
+            '</div>' +
+            '<div class="p-5 space-y-3">' +
+              rows.map(function (r) {
+                return (
+                  '<div class="p-4 rounded-xl bg-parchment/75 border border-parchmentBorder/80 flex flex-col sm:flex-row sm:items-baseline gap-2">' +
+                    '<span class="inline-block px-2.5 py-0.5 rounded-md bg-navy text-white text-[11px] font-bold shrink-0 self-start">' + r.tag + '</span>' +
+                    '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + renderRichText(r.text) + '</p>' +
+                  '</div>'
+                );
+              }).join('') +
+            '</div>';
         }
 
-        var canonGrid = document.getElementById('canonicalGrid');
-        if (canonGrid) {
-          canonGrid.innerHTML = CANONICAL_EPISTLES.map(function (ep, idx) {
-            var isCurrent = idx === 2;
-            var borderCls = isCurrent ? 'border-gold ring-1 ring-gold/30' : 'border-parchmentBorder';
-            return (
-              '<article class="bg-white rounded-2xl border ' + borderCls + ' shadow-card p-5 space-y-2.5 flex flex-col">' +
-                '<div class="flex items-center justify-between gap-2">' +
-                  '<span class="text-[11px] font-bold tracking-[0.12em] text-gold">' + ep.tag[lang] + '</span>' +
-                  '<span class="text-xs">' + buildScriptureHTML(ep.ref) + '</span>' +
-                '</div>' +
-                '<h4 class="font-serif text-lg font-bold text-navy">' + ep.title[lang] + '</h4>' +
-                '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed flex-1">' + renderRichText(ep.desc[lang]) + '</p>' +
-              '</article>'
-            );
-          }).join('');
+        var canonEl = document.getElementById('canonicalCard');
+        if (canonEl) {
+          var epistles = isZh
+            ? [
+                { name: '帖撒罗尼迦前后书', desc: '在逼迫患难中坚固信徒的盼望与圣洁生活（[[1Th 4:1-12]]）' },
+                { name: '彼得前后书', desc: '写给分散寄居的圣徒，在火炼的试验中持守盼望（[[1Pe 1:1]]）' },
+                { name: '雅各书', desc: '主的奴仆写给散居试炼中的教会，呼召以清洁智慧听道行道（[[Jas 1:1]]）' }
+              ]
+            : [
+                { name: '1–2 Thessalonians', desc: 'Strengthening persecuted believers in hope and holy living ([[1Th 4:1-12]])' },
+                { name: '1–2 Peter', desc: 'Addressed to scattered exiles enduring fiery trials with living hope ([[1Pe 1:1]])' },
+                { name: 'Epistle of James', desc: 'The Lord’s bond-servant calling the dispersed church to pure wisdom and active obedience ([[Jas 1:1]])' }
+              ];
+
+          canonEl.innerHTML =
+            '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '主的奴仆对比被迫害的基督徒' : 'Servant of the Lord & Persecuted Churches') + '</h3>' +
+            '</div>' +
+            '<div class="p-5 space-y-3">' +
+              '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + (isZh
+                ? '将雅各书置入新约受逼迫教会书信的共同脉络中，更能体会雅各牧养的迫切感与盼望焦点：'
+                : 'Reading James alongside other New Testament epistles written to persecuted churches clarifies its pastoral urgency and eschatological hope:'
+              ) + '</p>' +
+              epistles.map(function (ep) {
+                return (
+                  '<div class="p-3.5 rounded-xl bg-parchment/80 border border-parchmentBorder">' +
+                    '<div class="text-sm font-bold text-navy mb-1">' + ep.name + '</div>' +
+                    '<p class="text-xs text-inkMuted leading-relaxed">' + renderRichText(ep.desc) + '</p>' +
+                  '</div>'
+                );
+              }).join('') +
+            '</div>';
         }
       }
 
-      function renderPagerAndSitemap() {
+      function renderFooterSitemap() {
         var lang = appState.lang;
         var dict = UI_TEXT[lang];
+        var container = document.getElementById('footerSitemap');
+        if (!container) return;
 
-        var pager = document.getElementById('unitPager');
-        if (pager) {
-          pager.innerHTML =
-            '<a href="index.html" class="group flex items-center gap-3 p-4 rounded-2xl bg-white border border-parchmentBorder hover:border-gold shadow-card transition-all">' +
-              '<span class="w-9 h-9 rounded-xl bg-parchmentDeep text-navy group-hover:bg-navy group-hover:text-white flex items-center justify-center font-bold transition-colors shrink-0">←</span>' +
-              '<div class="min-w-0">' +
-                '<div class="text-[11px] font-semibold text-gold">' + dict.prevLabel + '</div>' +
-                '<div class="font-serif text-sm sm:text-base font-bold text-navy truncate">' + dict.prevTitle + '</div>' +
-              '</div>' +
-            '</a>' +
-            '<a href="james_1_2_27.html" class="group flex items-center justify-between gap-3 p-4 rounded-2xl bg-white border border-parchmentBorder hover:border-gold shadow-card transition-all text-right">' +
-              '<div class="min-w-0 flex-1">' +
-                '<div class="text-[11px] font-semibold text-gold">' + dict.nextLabel + '</div>' +
-                '<div class="font-serif text-sm sm:text-base font-bold text-navy truncate">' + dict.nextTitle + '</div>' +
-              '</div>' +
-              '<span class="w-9 h-9 rounded-xl bg-parchmentDeep text-navy group-hover:bg-navy group-hover:text-white flex items-center justify-center font-bold transition-colors shrink-0">→</span>' +
-            '</a>';
-        }
+        var homeItem =
+          '<a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors">' +
+            '<span class="px-1.5 py-0.5 rounded bg-white/10 text-goldLight text-[10px] font-bold shrink-0">' + dict.sitemapHomeTag + '</span>' +
+            '<span class="truncate">' + dict.sitemapHomeLabel + '</span>' +
+          '</a>';
 
-        var sitemap = document.getElementById('footerSitemap');
-        if (sitemap) {
-          var homeItem =
-            '<a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors">' +
-              '<span class="px-1.5 py-0.5 rounded bg-white/10 text-goldLight text-[10px] font-bold shrink-0">' + dict.sitemapHomeTag + '</span>' +
-              '<span class="truncate">' + dict.sitemapHomeLabel + '</span>' +
-            '</a>';
+        var unitItems = SITEMAP_UNITS.map(function (u) {
+          var cls = u.current
+            ? 'bg-white/10 border-gold/40 text-white font-semibold'
+            : 'bg-white/5 hover:bg-white/10 border-white/10 text-slate-300 hover:text-white';
+          var badgeCls = u.current ? 'bg-gold text-white' : 'bg-white/10 text-goldLight';
+          return (
+            '<a href="' + u.href + '" class="flex items-center gap-2 px-3 py-2 rounded-lg border transition-colors ' + cls + '">' +
+              '<span class="px-1.5 py-0.5 rounded text-[10px] font-bold shrink-0 ' + badgeCls + '">' + u.marker[lang] + '</span>' +
+              '<span class="truncate">' + u.ref[lang] + ' · ' + u.title[lang] + '</span>' +
+            '</a>'
+          );
+        }).join('');
 
-          var items = SITEMAP_UNITS.map(function (u) {
-            var cls = u.current
-              ? 'bg-white/10 border-gold/50 text-white font-semibold'
-              : 'bg-white/5 hover:bg-white/10 border-white/10 text-slate-300 hover:text-white';
-            var refDisplay = lang === 'zh' ? ('雅 ' + u.ref) : ('James ' + u.ref.replace(/–/g, '-'));
-            return (
-              '<a href="' + u.href + '" class="flex items-center gap-2 px-3 py-2 rounded-lg border transition-colors ' + cls + '">' +
-                '<span class="px-1.5 py-0.5 rounded ' + (u.current ? 'bg-gold text-white' : 'bg-white/10 text-goldLight') + ' text-[10px] font-bold shrink-0">' + u.marker[lang] + '</span>' +
-                '<span class="truncate">' + refDisplay + ' · ' + u.title[lang] + '</span>' +
-              '</a>'
-            );
-          }).join('');
-
-          sitemap.innerHTML = homeItem + items;
-        }
+        container.innerHTML = homeItem + unitItems;
       }
 
       function renderAll() {
         hideZhTip();
         renderChrome();
         renderLexicon();
-        renderAuthorship();
-        renderTribesAndAudience();
-        renderDispersionAndCanon();
-        renderPagerAndSitemap();
+        renderAuthorSection();
+        renderTribesSection();
+        renderDispersionSection();
+        renderFooterSitemap();
         refreshReftagger();
       }
 
       // -------------------------------------------------------------------
-      // 6. EVENTS
+      // 8. EVENT HANDLERS
       // -------------------------------------------------------------------
       function initEvents() {
-        var langToggleBtn = document.getElementById('btn-lang-toggle');
-        if (langToggleBtn) {
-          langToggleBtn.addEventListener('click', function () {
+        var langBtn = document.getElementById('btn-lang-toggle');
+        if (langBtn) {
+          langBtn.addEventListener('click', function () {
             appState.lang = appState.lang === 'zh' ? 'en' : 'zh';
             saveLanguage(appState.lang);
             renderAll();
@@ -1468,7 +1449,7 @@
           });
         }
 
-        // Access Gate
+        // Password gate logic
         var gateForm = document.getElementById('accessGateForm');
         var pwdInput = document.getElementById('accessPasswordInput');
         var errMsg = document.getElementById('accessErrorMsg');
@@ -1516,18 +1497,18 @@
           });
         }
 
-        document.querySelectorAll('a[href="#lexicon"], a[href="#author"], a[href="#tribes"], a[href="#dispersion"]').forEach(function (anchor) {
-          anchor.addEventListener('click', function (e) {
-            if (!appState.isUnlocked) {
-              e.preventDefault();
-              var gateEl = document.getElementById('accessGate');
-              if (gateEl) gateEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              if (pwdInput) window.setTimeout(function () { pwdInput.focus(); }, 250);
-            }
-          });
+        // Redirect in-page anchors to password gate while locked
+        document.addEventListener('click', function (e) {
+          var anchor = e.target.closest && e.target.closest('a[href^="#lex"], a[href="#author"], a[href="#tribes"], a[href="#dispersion"]');
+          if (anchor && !appState.isUnlocked) {
+            e.preventDefault();
+            var gateEl = document.getElementById('accessGate');
+            if (gateEl) gateEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (pwdInput) window.setTimeout(function () { pwdInput.focus(); }, 250);
+          }
         });
 
-        // Chinese Union Version hover/tap tooltip
+        // Delegated CUV hover/tap tooltip
         if (!isTouchDevice) {
           document.addEventListener('mouseover', function (e) {
             var a = e.target.closest && e.target.closest('a.sc-zh');
@@ -1563,9 +1544,9 @@
       }
 
       // -------------------------------------------------------------------
-      // 7. BOOTSTRAP
+      // 9. BOOTSTRAP
       // -------------------------------------------------------------------
-      function bootstrap() {
+      function bootstrapApp() {
         try {
           loadSavedLanguage();
           loadUnlockState();
@@ -1573,14 +1554,14 @@
           applyAccessLockState();
           renderAll();
         } catch (err) {
-          console.error('Failed to initialize James 1:1 page:', err);
+          console.error('Failed to initialize James 1:1 unit page:', err);
         }
       }
 
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', bootstrap);
+        document.addEventListener('DOMContentLoaded', bootstrapApp);
       } else {
-        bootstrap();
+        bootstrapApp();
       }
     })();
   </script>
