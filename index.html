@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>雅各书研经课程 · 文体结构与神学</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#17253B',
+            navySoft: '#223452',
+            gold: '#A37B35',
+            goldLight: '#C8A35F',
+            parchment: '#FBF8F1',
+            parchmentDeep: '#F2EBDC',
+            parchmentBorder: '#E0D5BE',
+            ink: '#24221F',
+            inkMuted: '#5C574F'
+          },
+          fontFamily: {
+            sans: ['"Inter"', '"Noto Sans SC"', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"EB Garamond"', '"Noto Serif SC"', 'Georgia', 'serif']
+          },
+          boxShadow: {
+            card: '0 4px 20px -2px rgba(23, 37, 59, 0.06), 0 2px 6px -1px rgba(23, 37, 59, 0.04)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #FBF8F1;
+      color: #24221F;
+      font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    }
+
+    .hero-pattern {
+      background-color: #17253B;
+      background-image: radial-gradient(rgba(200, 163, 95, 0.14) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Scripture Citations — 中文和合本 (wd.bible + tooltip) & English LSB (ref.ly + Reftagger) */
+    a.sc-zh {
+      color: #6A3D12;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(106, 61, 18, 0.55);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    a.sc-zh:hover {
+      color: #9B2226;
+      border-bottom-style: solid;
+      background: rgba(201, 162, 39, 0.14);
+      border-radius: 2px;
+    }
+
+    .sc-en {
+      white-space: normal;
+    }
+
+    .sc-en a,
+    a.rtBibleRef {
+      color: #6A3D12 !important;
+      text-decoration: none !important;
+      border-bottom: 1px dotted rgba(106, 61, 18, 0.55);
+      white-space: nowrap;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .sc-en a:hover,
+    a.rtBibleRef:hover {
+      color: #9B2226 !important;
+      border-bottom-style: solid;
+      background: rgba(201, 162, 39, 0.14);
+      border-radius: 2px;
+    }
+
+    /* Floating Chinese Union Version (和合本) Hover Tooltip */
+    #zh-tip {
+      position: fixed;
+      z-index: 3000;
+      display: none;
+      max-height: 46vh;
+      overflow: hidden;
+      flex-direction: column;
+      background: #FCF9F2;
+      border: 1px solid #8B7B65;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(43, 37, 32, 0.22);
+      font-family: 'Kaiti SC', 'STKaiti', 'KaiTi', '楷体', 'Noto Serif SC', serif;
+      color: #2B2520;
+    }
+
+    #zh-tip.visible {
+      display: flex;
+    }
+
+    #zh-tip .zt-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      padding: 7px 12px;
+      background: #EFE5CF;
+      border-bottom: 1px solid #D9CBB2;
+      font: 700 13px 'Noto Serif SC', serif;
+      border-radius: 9px 9px 0 0;
+    }
+
+    #zh-tip .zt-ver {
+      font: 500 11px 'Noto Sans SC', sans-serif;
+      color: #6A5B49;
+    }
+
+    #zh-tip .zt-body {
+      padding: 9px 12px;
+      font-size: 14.5px;
+      line-height: 1.75;
+      overflow-y: auto;
+    }
+
+    #zh-tip .zt-muted {
+      color: #7A6955;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-gold/20 selection:text-navy">
+
+  <!-- =====================================================================
+       STICKY NAVIGATION HEADER
+       ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-parchment/95 backdrop-blur border-b border-parchmentBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- Brand -->
+      <a href="#top" class="flex items-center gap-3 min-w-0 group">
+        <div id="brandEmblem" class="w-10 h-10 rounded-xl bg-navy text-gold font-serif font-bold text-lg flex items-center justify-center shrink-0 shadow-sm group-hover:bg-navySoft transition-colors">
+          雅
+        </div>
+        <div class="min-w-0">
+          <div class="font-serif font-bold text-base sm:text-lg text-navy truncate leading-tight" data-i18n="siteTitle"></div>
+          <div class="text-[11px] sm:text-xs text-inkMuted truncate" data-i18n="siteSubtitle"></div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-inkMuted" aria-label="Main navigation">
+        <a href="#chiasm" class="hover:text-navy transition-colors" data-i18n="navChiasm"></a>
+        <a href="#units" class="hover:text-navy transition-colors" data-i18n="navUnits"></a>
+        <a href="#theology" class="hover:text-navy transition-colors" data-i18n="navTheology"></a>
+        <a href="#application" class="hover:text-navy transition-colors" data-i18n="navApplication"></a>
+      </nav>
+
+      <!-- Language Segmented Toggle + Mobile Menu Button -->
+      <div class="flex items-center gap-2 shrink-0">
+        <button
+          id="btn-lang-toggle"
+          type="button"
+          class="flex items-center rounded-lg border border-[#8b7b65] bg-[#ede3cc] p-0.5 text-xs font-semibold shadow-sm hover:border-[#5c4a35] transition-colors"
+          title="切换到英文"
+        >
+          <span id="lang-pill-zh" class="px-2 py-1 rounded-md bg-navy text-parchment transition-colors">中文</span>
+          <span id="lang-pill-en" class="px-2 py-1 rounded-md text-[#3b3228] transition-colors">EN</span>
+        </button>
+
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="md:hidden p-2 rounded-xl border border-parchmentBorder bg-white text-navy hover:bg-parchmentDeep transition-colors"
+          aria-label="展开导航菜单"
+          aria-expanded="false"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-parchmentBorder bg-parchment px-4 py-3 space-y-1">
+      <a href="#chiasm" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navChiasm"></a>
+      <a href="#units" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navUnits"></a>
+      <a href="#theology" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navTheology"></a>
+      <a href="#application" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navApplication"></a>
+    </div>
+  </header>
+
+  <main id="top" class="flex-1">
+
+    <!-- ===================================================================
+         SECTION 1: HERO BANNER
+         =================================================================== -->
+    <section class="hero-pattern text-white border-b-4 border-gold">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-goldLight mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-goldLight"></span>
+          <span data-i18n="heroBadge"></span>
+        </div>
+
+        <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white mb-5 leading-tight" data-i18n="heroTitle"></h1>
+
+        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-8" data-i18n="heroDesc"></p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="#chiasm" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gold hover:bg-goldLight text-white text-sm font-semibold shadow-sm transition-all active:scale-95">
+            <span data-i18n="navChiasm"></span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </a>
+          <a href="#units" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-medium transition-all active:scale-95">
+            <span data-i18n="navUnits"></span>
+          </a>
+          <a href="#theology" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-medium transition-all active:scale-95">
+            <span data-i18n="navTheology"></span>
+          </a>
+          <a href="#application" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-medium transition-all active:scale-95">
+            <span data-i18n="navApplication"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CONTENT ACCESS PASSWORD GATE (UNLOCKS SECTIONS BELOW HERO)
+         =================================================================== -->
+    <section id="accessGate" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-md mx-auto bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">
+        <div class="px-6 py-5 bg-parchmentDeep/80 border-b border-parchmentBorder text-center">
+          <div class="w-12 h-12 rounded-xl bg-navy text-gold mx-auto mb-3 flex items-center justify-center shadow-sm">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <span class="inline-block text-[11px] font-bold tracking-[0.2em] text-gold mb-1" data-i18n="gateEyebrow"></span>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-navy" data-i18n="gateTitle"></h2>
+        </div>
+
+        <form id="accessGateForm" class="p-6 space-y-4" novalidate>
+          <p class="text-sm text-inkMuted leading-relaxed text-center" data-i18n="gateDesc"></p>
+
+          <div>
+            <label for="accessPasswordInput" class="block text-xs font-semibold text-navy mb-1.5" data-i18n="gateLabel"></label>
+            <div class="relative">
+              <input
+                id="accessPasswordInput"
+                type="password"
+                autocomplete="current-password"
+                class="w-full rounded-xl border border-parchmentBorder bg-parchment/60 px-4 py-3 pr-11 text-sm text-navy placeholder:text-inkMuted/60 focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold transition-all"
+              />
+              <button
+                id="togglePasswordVisibility"
+                type="button"
+                class="absolute inset-y-0 right-0 px-3.5 flex items-center text-inkMuted hover:text-navy transition-colors focus:outline-none"
+                aria-label="显示密码"
+              >
+                <svg id="eyeIconShow" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+                <svg id="eyeIconHide" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+                </svg>
+              </button>
+            </div>
+            <p id="accessErrorMsg" class="hidden mt-2 text-xs font-medium text-red-700" role="alert" data-i18n="gateError"></p>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3 px-5 rounded-xl bg-navy hover:bg-gold text-white text-sm font-semibold shadow-sm transition-colors active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gold"
+            data-i18n="gateSubmit"
+          ></button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         PROTECTED COURSE CONTENT (SHOWN AFTER PASSWORD UNLOCK)
+         =================================================================== -->
+    <div id="protectedContent" class="hidden">
+
+      <!-- =================================================================
+           SECTION 2: INTERACTIVE CHIASTIC STRUCTURE
+           ================================================================= -->
+      <section id="chiasm" class="py-16 sm:py-20 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="chiasmEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="chiasmTitle"></h2>
+            <p id="chiasmSubtitle" class="text-sm sm:text-base text-inkMuted leading-relaxed"></p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+            <!-- Left: Symmetrical Arch Diagram -->
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">
+              <div class="px-5 py-3.5 bg-parchmentDeep/70 border-b border-parchmentBorder flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-gold shrink-0"></span>
+                <span id="chiasmDiagramTitle" class="text-xs font-semibold text-navy"></span>
+              </div>
+              <div id="chiasmDiagram" class="p-4 sm:p-5 space-y-2.5"></div>
+            </div>
+
+            <!-- Right: Comparative Insights Panel -->
+            <div class="lg:col-span-5 lg:sticky lg:top-24">
+              <div id="chiasmDetailPanel" class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 3: EXPOSITORY COURSE MAP (8 UNIT HYPERLINKS)
+           ================================================================= -->
+      <section id="units" class="py-16 sm:py-20 bg-parchmentDeep/45 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="unitsEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="unitsTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="unitsSubtitle"></p>
+          </div>
+
+          <div id="unitsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 4: BIBLICAL THEOLOGY OVERVIEW (FILTERABLE)
+           ================================================================= -->
+      <section id="theology" class="py-16 sm:py-20 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div class="max-w-2xl">
+              <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="theologyEyebrow"></span>
+              <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="theologyTitle"></h2>
+              <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="theologySubtitle"></p>
+            </div>
+            <div id="theologyTabs" class="flex flex-wrap gap-2" role="tablist"></div>
+          </div>
+
+          <div id="theologyGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 5: CHURCH PRACTICE & PASTORAL APPLICATION
+           ================================================================= -->
+      <section id="application" class="py-16 sm:py-20 bg-parchmentDeep/45">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="appEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="appTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="appSubtitle"></p>
+          </div>
+
+          <div id="pastoralApplicationGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-7"></div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       SECTION 6: SEMINARY STUDY FOOTER & 9-PAGE SITEMAP
+       ===================================================================== -->
+  <footer id="protectedFooter" class="hidden bg-navy text-slate-300 border-t-4 border-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+        <div class="lg:col-span-4 space-y-3">
+          <div class="flex items-center gap-3">
+            <div id="footerEmblem" class="w-9 h-9 rounded-xl bg-white/10 border border-gold/40 text-goldLight font-serif font-bold text-base flex items-center justify-center">
+              雅
+            </div>
+            <span class="font-serif text-lg font-bold text-white" data-i18n="siteTitle"></span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="footerDesc"></p>
+        </div>
+
+        <div class="lg:col-span-8">
+          <h3 class="text-xs font-bold tracking-[0.18em] text-goldLight mb-4" data-i18n="sitemapTitle"></h3>
+          <div id="footerSitemap" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 text-xs"></div>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <span data-i18n="footerCopyright"></span>
+        <a href="#top" class="inline-flex items-center gap-1.5 text-goldLight hover:text-white transition-colors">
+          <span data-i18n="backToTop"></span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       APPLICATION LOGIC, COURSE DATA, SCRIPTURE TOOLTIPS & ACCESS GATE
+       ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY_LANG = 'james_seminary_course_lang';
+      var STORAGE_KEY_AUTH = 'james_seminary_course_unlocked';
+      var ACCESS_PASSWORD = 'Maranatha2026';
+
+      var appState = {
+        lang: 'zh',
+        activeChiasmKey: 'centerD',
+        activeTheologyTab: 'all',
+        isUnlocked: false
+      };
+
+      // -------------------------------------------------------------------
+      // 1. UI DICTIONARY (STRICT SINGLE-LANGUAGE ISOLATION)
+      // -------------------------------------------------------------------
+      var UI_TEXT = {
+        zh: {
+          pageTitle: '雅各书研经课程 · 文体结构与神学',
+          emblem: '雅',
+          siteTitle: '雅各书研经课程',
+          siteSubtitle: '圣经归纳法查经 · 第十九讲总览',
+          navChiasm: '文本结构',
+          navUnits: '解经导览',
+          navTheology: '圣经神学',
+          navApplication: '教会实践',
+          langBtnTitle: '切换到英文',
+
+          heroBadge: '圣经归纳法查经课程 · 雅各书（共十九讲）',
+          heroTitle: '雅各书：文体结构与神学',
+          heroDesc: '基于第十九讲全书综合总结，系统呈现雅各书的交叉对称文学架构、十八周分段释经脉络、圣经神学核心教义与教会牧养实践。',
+
+          gateEyebrow: '课程内容访问验证',
+          gateTitle: '请输入访问密码',
+          gateDesc: '本页面大标题以下的所有释经结构、分段大纲、圣经神学与教会实践内容受密码保护，请输入密码以解锁阅读。',
+          gateLabel: '访问密码',
+          gatePlaceholder: '请输入访问密码',
+          gateSubmit: '解锁课程内容',
+          gateError: '访问密码不正确，请检查后重试。',
+          gateShowPwd: '显示密码',
+          gateHidePwd: '隐藏密码',
+
+          chiasmEyebrow: '文体结构',
+          chiasmTitle: '交叉对称结构',
+          chiasmDiagramTitle: '全书对称图谱（雅 1:1–5:20）',
+          chiasmCompareHeading: '对称比较要点',
+          chiasmThesisHeading: '全书中心主旨',
+          chiasmThesisText: '用清洁属神的智慧在基督里生活，在教会里服事',
+          chiasmEnterUnit: '进入分段解经',
+
+          unitsEyebrow: '十八周释经脉络',
+          unitsTitle: '分段解经导览',
+          unitsSubtitle: '全书按文体结构划分为八大释经单元，每单元独立成页，整合对应周次的原文字义、上下文逻辑与神学要点。',
+          enterPageBtn: '进入单元解经',
+
+          theologyEyebrow: '系统归纳',
+          theologyTitle: '雅各书的圣经神学',
+          theologySubtitle: '汇整第十九讲四大核心神学主题，点击或悬停经文即可查阅和合本原经文。',
+          tabAll: '全部教义',
+          tabTheologyProper: '神论',
+          tabChristology: '基督论',
+          tabEschatology: '末世论',
+          tabSoteriology: '救恩论',
+
+          appEyebrow: '牧养与生活落地',
+          appTitle: '教会实践与应用',
+          appSubtitle: '雅各书不仅重在神学认知，更强调听道并行道——分别针对教会领袖与一般会众提出具体呼召。',
+
+          footerDesc: '本课程网站依据圣经归纳法查经十九讲内容编撰，旨在帮助信徒以清洁属神的智慧研读圣经、在基督里生活并在教会中忠心服事。',
+          sitemapTitle: '课程页面导航（全九页）',
+          footerCopyright: '雅各书圣经归纳法查经课程 · 仅作教会与神学研习使用',
+          backToTop: '返回顶部',
+          sitemapHomeTag: '课程主页',
+          sitemapHomeLabel: '主页 · 文体结构与神学'
+        },
+        en: {
+          pageTitle: 'Epistle of James Course · Literary Structure & Theology',
+          emblem: 'J',
+          siteTitle: 'Epistle of James Course',
+          siteSubtitle: 'Inductive Bible Study · Lecture 19 Synthesis',
+          navChiasm: 'Literary Structure',
+          navUnits: 'Expository Guide',
+          navTheology: 'Biblical Theology',
+          navApplication: 'Church Practice',
+          langBtnTitle: 'Switch to Chinese',
+
+          heroBadge: 'Inductive Bible Study Seminary Course · James (19 Lectures)',
+          heroTitle: 'The Epistle of James: Literary Structure & Theology',
+          heroDesc: 'Synthesizing Lecture 19, this portal maps the symmetrical chiastic architecture, 18-week expository progression, biblical theology, and pastoral applications of James.',
+
+          gateEyebrow: 'COURSE CONTENT ACCESS',
+          gateTitle: 'Enter Access Password',
+          gateDesc: 'All expository sections below this banner—including the chiastic structure, unit outlines, biblical theology, and pastoral application—are password-protected.',
+          gateLabel: 'Access Password',
+          gatePlaceholder: 'Enter access password',
+          gateSubmit: 'Unlock Course Content',
+          gateError: 'Incorrect password. Please check and try again.',
+          gateShowPwd: 'Show password',
+          gateHidePwd: 'Hide password',
+
+          chiasmEyebrow: 'LITERARY ARCHITECTURE',
+          chiasmTitle: 'Chiastic Structure',
+          chiasmDiagramTitle: 'Book-Wide Symmetry Map (James 1:1–5:20)',
+          chiasmCompareHeading: 'Comparative Expository Insights',
+          chiasmThesisHeading: 'Central Book Thesis',
+          chiasmThesisText: 'Live in Christ and serve in the church with pure, godly wisdom',
+          chiasmEnterUnit: 'Open Expository Unit',
+
+          unitsEyebrow: '18-WEEK EXPOSITORY PROGRESSION',
+          unitsTitle: 'Expository Course Map',
+          unitsSubtitle: 'Organized into eight canonical study units aligned with the chiastic outline, each leading to a dedicated expository page.',
+          enterPageBtn: 'Study This Unit',
+
+          theologyEyebrow: 'SYSTEMATIC SYNTHESIS',
+          theologyTitle: 'Biblical Theology of James',
+          theologySubtitle: 'Explore all twenty-nine doctrinal propositions from Lecture 19 across four theological categories, with interactive Legacy Standard Bible references.',
+          tabAll: 'All Doctrines',
+          tabTheologyProper: 'Theology Proper',
+          tabChristology: 'Christology',
+          tabEschatology: 'Eschatology',
+          tabSoteriology: 'Soteriology',
+
+          appEyebrow: 'PASTORAL & CONGREGATIONAL CALLING',
+          appTitle: 'Church Practice & Application',
+          appSubtitle: 'James moves relentlessly from hearing to doing, addressing both church leaders and the wider congregation with concrete obedience.',
+
+          footerDesc: 'Built from the 19-week Inductive Bible Study course on the Epistle of James, equipping believers to live in Christ and serve faithfully in the church with pure, godly wisdom.',
+          sitemapTitle: 'COURSE SITEMAP (9 PAGES)',
+          footerCopyright: 'Epistle of James Inductive Bible Study · For Church & Seminary Study',
+          backToTop: 'Back to Top',
+          sitemapHomeTag: 'Home Page',
+          sitemapHomeLabel: 'Home · Structure & Theology'
+        }
+      };
+
+      // -------------------------------------------------------------------
+      // 2. COURSE UNITS DATA (LECTURE 19 OUTLINE)
+      // -------------------------------------------------------------------
+      var UNITS = [
+        {
+          id: 'intro',
+          href: 'james_1_1.html',
+          chiasmKey: 'intro',
+          marker: { zh: '序言', en: 'Intro' },
+          ref: '1:1',
+          weeks: { zh: '第1周', en: 'Week 1' },
+          title: { zh: '写作背景与问安', en: 'Background & Greeting' },
+          shortDesc: { zh: '神的奴仆写给试炼中的教会（散居）', en: 'Bond-servant of God to the dispersed church in trials' },
+          points: {
+            zh: [
+              '作者身份：主的兄弟雅各，自称神和主耶稣基督的奴仆（[[Jas 1:1]]）',
+              '受众背景：散住十二个支派的第一代犹太基督徒',
+              '历史处境：因逼迫而散居在试炼中的教会'
+            ],
+            en: [
+              'Author: James, brother of the Lord, identifying as bond-servant of God and Christ ([[Jas 1:1]])',
+              'Audience: First-generation Jewish Christians among the twelve tribes in the Dispersion',
+              'Setting: A persecuted church enduring multifaceted trials abroad'
+            ]
+          }
+        },
+        {
+          id: 'u1',
+          href: 'james_1_2_27.html',
+          chiasmKey: 'pairA',
+          marker: { zh: 'A', en: 'A' },
+          ref: '1:2-27',
+          weeks: { zh: '第2–4周', en: 'Weeks 2–4' },
+          title: { zh: '信心的完善与行道', en: 'Perfection of Faith & Doing the Word' },
+          shortDesc: { zh: '试炼、忍耐、听道并行道', en: 'Trials, endurance, hearing and doing the word' },
+          points: {
+            zh: [
+              '试炼中的喜乐、祷告、夸耀、忍耐、完善（[[Jas 1:2-15]]）',
+              '各样美善的恩赐都是从上头来的（[[Jas 1:16-18]]）',
+              '快快地听、慢慢地说，听道并行道（[[Jas 1:19-27]]）'
+            ],
+            en: [
+              'Joy, prayer, boasting, endurance, and maturity in trials ([[Jas 1:2-15]])',
+              'Every good and perfect gift comes down from above ([[Jas 1:16-18]])',
+              'Quick to hear, slow to speak; be doers of the word ([[Jas 1:19-27]])'
+            ]
+          }
+        },
+        {
+          id: 'u2',
+          href: 'james_2_1_26.html',
+          chiasmKey: 'pairB',
+          marker: { zh: 'B', en: 'B' },
+          ref: '2:1-26',
+          weeks: { zh: '第5–8周', en: 'Weeks 5–8' },
+          title: { zh: '不偏待人与活信心', en: 'Impartiality & Living Faith' },
+          shortDesc: { zh: '贫富偏待、活信心对比死信心', en: 'Partiality, living faith vs. dead faith' },
+          points: {
+            zh: [
+              '个人的选择对比上帝的选择：不可按外貌待人（[[Jas 2:1-13]]）',
+              '信心对比行为：活信心必藉行为显明（[[Jas 2:14-26]]）'
+            ],
+            en: [
+              'Human partiality vs. God’s sovereign choice of the poor ([[Jas 2:1-13]])',
+              'Faith and works: genuine living faith is demonstrated by deeds ([[Jas 2:14-26]])'
+            ]
+          }
+        },
+        {
+          id: 'u3',
+          href: 'james_3_1_12.html',
+          chiasmKey: 'pairC',
+          marker: { zh: 'C', en: 'C' },
+          ref: '3:1-12',
+          weeks: { zh: '第9–10周', en: 'Weeks 9–10' },
+          title: { zh: '讲台责任与控制舌头', en: 'Teaching Office & Taming the Tongue' },
+          shortDesc: { zh: '控制舌头从教会的讲台开始', en: 'Taming the tongue begins at the pulpit' },
+          points: {
+            zh: [
+              '控制舌头从教会的讲台开始（[[Jas 3:1-5]]）',
+              '控制舌头对于属世的人是不可能的（[[Jas 3:5-8]]）',
+              '话语上的问题源自于心怀二意（[[Jas 3:9-12]]）'
+            ],
+            en: [
+              'Taming the tongue begins with the church’s teaching ministry ([[Jas 3:1-5]])',
+              'No worldly human effort can tame the restless tongue ([[Jas 3:5-8]])',
+              'Inconsistent speech exposes a double-minded heart ([[Jas 3:9-12]])'
+            ]
+          }
+        },
+        {
+          id: 'u4',
+          href: 'james_3_13_18.html',
+          chiasmKey: 'centerD',
+          marker: { zh: 'D', en: 'D' },
+          ref: '3:13-18',
+          weeks: { zh: '第11周', en: 'Week 11' },
+          title: { zh: '从上头来的清洁智慧', en: 'Pure Wisdom from Above' },
+          shortDesc: { zh: '鬼魔的智慧对比上帝的智慧', en: 'Demonic wisdom vs. godly wisdom from above' },
+          points: {
+            zh: [
+              '真智慧在温柔的善行中显明（[[Jas 3:13-14]]）',
+              '属地、属情欲、属鬼魔的智慧带来嫉妒与扰乱（[[Jas 3:15-16]]）',
+              '从上头来的智慧先是清洁，带来和平与义果（[[Jas 3:17-18]]）'
+            ],
+            en: [
+              'True wisdom displays good deeds in genuine meekness ([[Jas 3:13-14]])',
+              'Earthly, natural, demonic wisdom breeds jealousy and disorder ([[Jas 3:15-16]])',
+              'Wisdom from above is first pure, sowing righteousness in peace ([[Jas 3:17-18]])'
+            ]
+          }
+        },
+        {
+          id: 'u5',
+          href: 'james_4_1_12.html',
+          chiasmKey: 'pairC',
+          marker: { zh: "C'", en: "C'" },
+          ref: '4:1-12',
+          weeks: { zh: '第12–14周', en: 'Weeks 12–14' },
+          title: { zh: '止息纷争与谦卑亲近神', en: 'Ending Conflicts & Drawing Near to God' },
+          shortDesc: { zh: '属世私欲、顺服圣灵与停止毁谤', en: 'Worldly passions, submitting to God, ceasing slander' },
+          points: {
+            zh: [
+              '教会的纷争源自于属世的欲望（[[Jas 4:1-4]]）',
+              '用顺服圣灵的心服事神（[[Jas 4:5-7]]）',
+              '怀着自卑清洁的心亲近神，停止彼此毁谤（[[Jas 4:8-12]]）'
+            ],
+            en: [
+              'Church quarrels originate from warring worldly pleasures ([[Jas 4:1-4]])',
+              'Serving God by submitting to His jealous, grace-giving Spirit ([[Jas 4:5-7]])',
+              'Drawing near with clean hands, pure hearts, and no slander ([[Jas 4:8-12]])'
+            ]
+          }
+        },
+        {
+          id: 'u6',
+          href: 'james_4_13_5_6.html',
+          chiasmKey: 'pairB',
+          marker: { zh: "B'", en: "B'" },
+          ref: '4:13-5:6',
+          weeks: { zh: '第15–16周', en: 'Weeks 15–16' },
+          title: { zh: '属世谋划与富足者的宣判', en: 'Worldly Planning & Judgment on the Rich' },
+          shortDesc: { zh: '夸耀属世谋划与欺压教会的宣判', en: 'Arrogant business boasting and prophetic woe on oppressors' },
+          points: {
+            zh: [
+              '对计划、夸耀在世界中的富足的劝导（[[Jas 4:13-17]]）',
+              '对不知悔改、欺压教会的富足者的宣判（[[Jas 5:1-6]]）'
+            ],
+            en: [
+              'Admonition against autonomous planning and arrogant boasting ([[Jas 4:13-17]])',
+              'Prophetic condemnation of unrepentant rich oppressors ([[Jas 5:1-6]])'
+            ]
+          }
+        },
+        {
+          id: 'u7',
+          href: 'james_5_7_20.html',
+          chiasmKey: 'pairA',
+          marker: { zh: "A'", en: "A'" },
+          ref: '5:7-20',
+          weeks: { zh: '第17–18周', en: 'Weeks 17–18' },
+          title: { zh: '忍耐等候与祷告挽回', en: 'Patient Endurance, Prayer & Restoration' },
+          shortDesc: { zh: '等候主来、祷告力量与彼此挽回', en: 'Waiting for the Lord, power of prayer, restoring wanderers' },
+          points: {
+            zh: [
+              '对主和其身体的耐心，效法众先知与约伯（[[Jas 5:7-11]]）',
+              '如何与神对话：不可起誓与信心的祷告（[[Jas 5:12-15]]）',
+              '承担彼此负担，帮助心怀二意的弟兄回转（[[Jas 5:16-20]]）'
+            ],
+            en: [
+              'Patience toward the Lord and His body, following the prophets and Job ([[Jas 5:7-11]])',
+              'Honest speech before God and the restorative power of prayer ([[Jas 5:12-15]])',
+              'Confessing sins, interceding, and turning back wandering believers ([[Jas 5:16-20]])'
+            ]
+          }
+        }
+      ];
+
+      // -------------------------------------------------------------------
+      // 3. CHIASM COMPARATIVE INSIGHTS (LECTURE 19 SYMMETRY)
+      // -------------------------------------------------------------------
+      var CHIASM_GROUPS = {
+        intro: {
+          badge: { zh: '序言 · 写作背景', en: 'Intro · Historical Setting' },
+          refs: ['1:1'],
+          title: { zh: '神的奴仆写给试炼中的教会', en: 'Bond-Servant of God to the Dispersed Church' },
+          summary: {
+            zh: '开篇问安奠定了全书的属灵张力：写信者不以肉身血缘自居，而以主耶稣基督的奴仆为荣；收信者是因逼迫而散居在外的教会，正面临内在与外在的双重试炼。',
+            en: 'The opening greeting frames the entire letter: James writes not by earthly kinship but as a bond-servant of the Lord Jesus Christ to a dispersed church facing both external persecution and internal testing.'
+          },
+          bullets: {
+            zh: [
+              '身份定位：做基督的奴仆是荣耀，做世界的奴仆是耻辱（[[Jas 1:1]]）。',
+              '收信处境：散住十二个支派的第一代犹太基督徒，既指历史上的逼迫分散，也映照信徒在世作客旅的身份。',
+              '全书伏笔：开篇的“请安”与下一节“以为大喜乐”在希腊文原词同根，将问候直接引入试炼中的喜乐。'
+            ],
+            en: [
+              'Identity: Being a bond-servant of Christ is true honor, in contrast to slavery to the world ([[Jas 1:1]]).',
+              'Context: First-generation Jewish Christians scattered by persecution, living away from their heavenly homeland.',
+              'Bridge: The Greek greeting links directly into the command to count trials all joy in the very next verse.'
+            ]
+          },
+          unitIds: ['intro']
+        },
+        pairA: {
+          badge: { zh: 'A ↔ A\' · 对称平行组', en: 'A ↔ A\' · Outer Symmetry Pair' },
+          refs: ['1:2-27', '5:7-20'],
+          title: { zh: '信心的完善：试炼、忍耐、与神对话', en: 'Perfection of Faith: Trials, Endurance & Prayer' },
+          summary: {
+            zh: '书信首尾遥相呼应：从开篇“在试炼中忍耐以致成全完备”，到结尾“忍耐等候主来、在祷告中与神对话并彼此挽回”，完整勾勒信徒信心迈向成熟的路径。',
+            en: 'The opening and closing wings form a grand frame: moving from endurance under trial toward maturity in chapter 1 to patient waiting for the Lord’s return, faithful prayer, and restoring wandering brothers in chapter 5.'
+          },
+          bullets: {
+            zh: [
+              '内在的完善：在试炼中以喜乐和坚固的心忍耐到底，直等到主来（[[Jas 1:2-4]]；[[Jas 5:7-11]]）。',
+              '试炼与试探：分辨从神而来的试验与源自私欲的试探，在受苦中仰望满心怜悯的主（[[Jas 1:12-18]]；[[Jas 5:11]]）。',
+              '外在的完善与与神对话：凭信心祈求不疑惑，听道并行道，以诚实话语、祷告与彼此挽回彰显真实虔诚（[[Jas 1:5-8]]；[[Jas 1:22-27]]；[[Jas 5:12-20]]）。'
+            ],
+            en: [
+              'Inward perfection: Counting trials joy and strengthening the heart in patient endurance until the Lord’s coming ([[Jas 1:2-4]]; [[Jas 5:7-11]]).',
+              'Testing and temptation: Discerning divine refinement from self-born lust while trusting the compassionate Lord ([[Jas 1:12-18]]; [[Jas 5:11]]).',
+              'Outward perfection & prayer: Asking in unwavering faith, doing the word, speaking truthfully, and restoring the straying ([[Jas 1:5-8]]; [[Jas 1:22-27]]; [[Jas 5:12-20]]).'
+            ]
+          },
+          unitIds: ['u1', 'u7']
+        },
+        pairB: {
+          badge: { zh: 'B ↔ B\' · 对称平行组', en: 'B ↔ B\' · Inner-Outer Symmetry Pair' },
+          refs: ['2:1-26', '4:13-5:6'],
+          title: { zh: '信心与行为：富足与贫穷、凭眼见对比凭信心待人', en: 'Faith & Works: Wealth, Poverty & Sight vs. Faith' },
+          summary: {
+            zh: '对称层 B 与 B\' 将“活信心与死信心”置于财富与日常行事的试金石下检验：教会里不可按外貌重富轻贫，日常生活中也不可脱离主旨意夸耀属世的谋划与积财。',
+            en: 'Layers B and B\' test living versus dead faith against wealth and daily conduct: rejecting partiality toward the rich inside the assembly, and rejecting arrogant, God-ignoring profit-seeking and oppression in daily life.'
+          },
+          bullets: {
+            zh: [
+              '在圣灵里生活和服事：摆脱凭眼见、按世俗标准衡量人的价值观（[[Jas 2:1-4]]；[[Jas 4:13-15]]）。',
+              '在信心里富足对比在世界里富足：神拣选世上贫穷却在信上富足的人，宣判欺压义人的属世富足者（[[Jas 2:5-7]]；[[Jas 5:1-6]]）。',
+              '活信心与死信心的分水岭：“你愿意知道吗？”（[[Jas 2:20]]）与“人若知道行善却不去行，这就是他的罪了”（[[Jas 4:17]]）。'
+            ],
+            en: [
+              'Living and serving in the Spirit: Abandoning worldly evaluation by outward appearance ([[Jas 2:1-4]]; [[Jas 4:13-15]]).',
+              'Rich in faith vs. rich in the world: God chooses the poor to be rich in faith and condemns unrepentant wealthy oppressors ([[Jas 2:5-7]]; [[Jas 5:1-6]]).',
+              'The watershed of living faith: “Are you willing to recognize?” ([[Jas 2:20]]) answered by “knowing the right thing to do and not doing it is sin” ([[Jas 4:17]]).'
+            ]
+          },
+          unitIds: ['u2', 'u6']
+        },
+        pairC: {
+          badge: { zh: 'C ↔ C\' · 对称平行组', en: 'C ↔ C\' · Inner Symmetry Pair' },
+          refs: ['3:1-12', '4:1-12'],
+          title: { zh: '教会分裂：讲台教导、日常话语与内心私欲', en: 'Church Division: Pulpit Speech, Daily Words & Inner Passions' },
+          summary: {
+            zh: '对称层 C 与 C\' 直指教会内部撕裂的根源：外在表现为失控的舌头、轻率的讲台教导与彼此毁谤，深层根源则是心怀二意、与世俗为友的骄傲私欲。',
+            en: 'Layers C and C\' diagnose church division from surface to root: untamed tongues, reckless teaching, and mutual slander spring from double-minded hearts and worldly passions that make believers enemies of God.'
+          },
+          bullets: {
+            zh: [
+              '用自卑的心做讲台服事：敬畏更严厉的审判，勒住舌头不凭血气争竞（[[Jas 3:1-5]]；[[Jas 4:10]]）。',
+              '神的嫉妒对比属世的嫉妒：放弃与世俗为友的宴乐私欲，顺服住在我们里面恋爱至于嫉妒的圣灵（[[Jas 3:6-8]]；[[Jas 4:1-6]]）。',
+              '用清洁的心和行为亲近神：洁净双手、清洁心怀二意的心，停止彼此批评毁谤（[[Jas 3:9-12]]；[[Jas 4:7-12]]）。'
+            ],
+            en: [
+              'Humble pulpit ministry: Revering the stricter judgment of teachers and bridling speech ([[Jas 3:1-5]]; [[Jas 4:10]]).',
+              'God’s jealousy vs. worldly envy: Renouncing friendship with the world and submitting to God’s jealous, grace-giving Spirit ([[Jas 3:6-8]]; [[Jas 4:1-6]]).',
+              'Drawing near with purity: Cleansing hands and double-minded hearts, ceasing slander against brothers ([[Jas 3:9-12]]; [[Jas 4:7-12]]).'
+            ]
+          },
+          unitIds: ['u3', 'u5']
+        },
+        centerD: {
+          badge: { zh: 'D · 交叉对称中心', en: 'D · Chiastic Center' },
+          refs: ['3:13-18'],
+          title: { zh: '清洁的智慧：属地的智慧对比属天的智慧', en: 'Pure Wisdom: Earthly Wisdom vs. Heavenly Wisdom' },
+          summary: {
+            zh: '作为全书交叉对称结构的正中心，雅各书 3:13–18 揭示了所有试炼、信心行为与教会合一问题的总钥匙：我们究竟是凭属地、属鬼魔的智慧行事，还是凭从上头来的清洁智慧生活？',
+            en: 'Standing at the exact center of the book’s chiasm, James 3:13–18 reveals the decisive key behind trials, living faith, and church unity: whether we walk in earthly, demonic wisdom or the pure wisdom that comes from above.'
+          },
+          bullets: {
+            zh: [
+              '真智慧的检验：在智慧的温柔上显出善行，不怀苦毒的嫉妒与纷争，不自夸抵挡真道（[[Jas 3:13-14]]）。',
+              '两种智慧的源头对比：属地的、属情欲的、属鬼魔的智慧带来扰乱和各样坏事（[[Jas 3:15-16]]）。',
+              '从上头来的智慧：先是清洁，后是和平、温良、柔顺、满有怜悯、多结善果、没有偏见、没有假冒，用和平栽种义果（[[Jas 3:17-18]]）。'
+            ],
+            en: [
+              'The test of true wisdom: Demonstrating good behavior in the meekness of wisdom, free from bitter jealousy and selfish ambition ([[Jas 3:13-14]]).',
+              'Two rival sources: Earthly, natural, demonic wisdom inevitably produces disorder and every evil practice ([[Jas 3:15-16]]).',
+              'Wisdom from above: First pure, then peaceable, gentle, reasonable, full of mercy and good fruits, unwavering, without hypocrisy—sowing righteousness in peace ([[Jas 3:17-18]]).'
+            ]
+          },
+          unitIds: ['u4'],
+          includeCentralThesis: true
+        }
+      };
+
+      // Visual arch sequence (top to bottom)
+      var CHIASM_ARCH_NODES = [
+        { unitId: 'intro', key: 'intro', indent: 'ml-0' },
+        { unitId: 'u1', key: 'pairA', indent: 'ml-2 sm:ml-4' },
+        { unitId: 'u2', key: 'pairB', indent: 'ml-4 sm:ml-8' },
+        { unitId: 'u3', key: 'pairC', indent: 'ml-6 sm:ml-12' },
+        { unitId: 'u4', key: 'centerD', indent: 'ml-8 sm:ml-16' },
+        { unitId: 'u5', key: 'pairC', indent: 'ml-6 sm:ml-12' },
+        { unitId: 'u6', key: 'pairB', indent: 'ml-4 sm:ml-8' },
+        { unitId: 'u7', key: 'pairA', indent: 'ml-2 sm:ml-4' }
+      ];
+
+      // -------------------------------------------------------------------
+      // 4. BIBLICAL THEOLOGY DATA (ALL 29 PROPOSITIONS FROM LECTURE 19)
+      // -------------------------------------------------------------------
+      var THEOLOGY_CATEGORIES = [
+        {
+          id: 'theologyProper',
+          title: { zh: '神论', en: 'Theology Proper' },
+          items: [
+            { zh: '独一真神', en: 'God is one', refs: ['2:19'] },
+            { zh: '神是唯一的审判者和立法者', en: 'God is the only Lawgiver and Judge', refs: ['4:11-12'] },
+            { zh: '神是唯一的供给者（耶和华以勒）', en: 'God is the sole Provider (Yahweh-Jireh)', refs: ['1:17'] },
+            { zh: '神从不改变，没有转动的影儿', en: 'God is immutable, with no shifting shadow', refs: ['1:17'] },
+            { zh: '一切神的命令必须遵守', en: 'All of God’s commandments must be obeyed', refs: ['2:10-11'] },
+            { zh: '神厚赐真正清洁的智慧', en: 'God generously gives true, pure wisdom', refs: ['1:5', '1:17', '3:17'] },
+            { zh: '神和世界是敌对关系', en: 'Friendship with the world is hostility toward God', refs: ['4:4'] },
+            { zh: '神是忌邪嫉妒的神', en: 'God jealously desires the Spirit He placed in us', refs: ['4:5'] },
+            { zh: '神是有恩典的神，赐恩给谦卑的人', en: 'God gives greater grace to the humble', refs: ['4:6'] },
+            { zh: '神是万军之主', en: 'God is the Lord of Hosts (Sabaoth)', refs: ['5:4'] }
+          ]
+        },
+        {
+          id: 'christology',
+          title: { zh: '基督论', en: 'Christology' },
+          items: [
+            { zh: '耶稣是主', en: 'Jesus is Lord', refs: ['1:1', '2:1'] },
+            { zh: '耶稣是真正的荣耀', en: 'Jesus Christ is the true Lord of glory', refs: ['2:1'] },
+            { zh: '耶稣是王，祂的律法是至尊的律法', en: 'Jesus is King, whose law is the royal law', refs: ['2:8'] },
+            { zh: '耶稣和父神是同一位神', en: 'Jesus and God the Father share divine identity as Lord', refs: ['5:4', '5:7'] },
+            { zh: '耶稣再来要施行审判', en: 'Jesus is coming again as the Judge standing at the door', refs: ['5:8-9'] },
+            { zh: '耶稣的名等同于主的名', en: 'The name of Jesus is equated with the name of the Lord', refs: ['5:14'] }
+          ]
+        },
+        {
+          id: 'eschatology',
+          title: { zh: '末世论', en: 'Eschatology' },
+          items: [
+            { zh: '富足和贫穷将在末世被颠倒', en: 'Worldly riches and poverty will be reversed', refs: ['1:9-11', '5:3'] },
+            { zh: '坚忍到底的基督徒必得生命的冠冕（永生）', en: 'Believers who persevere receive the crown of life', refs: ['1:12'] },
+            { zh: '活在自己私欲中的人会面临永死', en: 'Those ruled by lust bring forth eternal death', refs: ['1:15'] },
+            { zh: '怜悯人在审判中蒙福，不怜悯人受无怜悯的审判', en: 'Mercy triumphs over judgment; the merciless face merciless judgment', refs: ['2:13', '5:11'] },
+            { zh: '教师会受更严厉的审判', en: 'Teachers will incur a stricter judgment', refs: ['3:1'] },
+            { zh: '不控制舌头的人会点上地狱的火', en: 'An untamed tongue is set on fire by hell', refs: ['3:6'] },
+            { zh: '神是唯一的救赎者和审判者，且必施行审判', en: 'The one Lawgiver and Judge is able to save and to destroy', refs: ['4:12'] },
+            { zh: '不悔改而欺压义人的富足者将面临严厉审判', en: 'Unrepentant oppressors face severe slaughter-day judgment', refs: ['5:1-6'] },
+            { zh: '基督的再来已近，最后的审判将至', en: 'The coming of the Lord is at hand', refs: ['5:8'] }
+          ]
+        },
+        {
+          id: 'soteriology',
+          title: { zh: '救恩论', en: 'Soteriology' },
+          items: [
+            { zh: '不动摇的信心是必须的', en: 'Unwavering, single-minded faith is essential', refs: ['1:6', '5:15'] },
+            { zh: '信心应当建立在荣耀的主耶稣基督里', en: 'Saving faith rests in our glorious Lord Jesus Christ', refs: ['2:1'] },
+            { zh: '行为应当显现出信心的真实性', en: 'Works visibly demonstrate the reality of faith', refs: ['2:18'] },
+            { zh: '合乎圣经的信心是活的、可见的', en: 'Biblical faith is living, active, and visible', refs: ['2:18-20'] }
+          ]
+        }
+      ];
+
+      // -------------------------------------------------------------------
+      // 5. PASTORAL APPLICATION DATA (LECTURE 19)
+      // -------------------------------------------------------------------
+      var PASTORAL_APPLICATIONS = [
+        {
+          id: 'leaders',
+          badge: { zh: '教会领袖', en: 'Church Leadership' },
+          title: { zh: '对教会的执事和长老', en: 'For Church Deacons & Elders' },
+          subtitle: { zh: '已经选上的和“想要做的”', en: 'Both currently serving and aspiring leaders' },
+          points: [
+            { zh: '省察你的选择对比上帝的选择，杜绝按外貌偏待人', en: 'Align your choices with God’s choices, rejecting partiality', refs: ['2:1-7'] },
+            { zh: '敬畏讲台责任，严格控制自己的舌头', en: 'Revere teaching accountability and bridle your tongue', refs: ['3:1-2'] },
+            { zh: '洁净双手、清洁心怀二意的心，顺服并亲近神', en: 'Submit to God with clean hands and a pure heart', refs: ['4:8'] },
+            { zh: '在主面前真正自卑谦卑，等候主使你升高', en: 'Humble yourself before the Lord and let Him exalt you', refs: ['4:10'] },
+            { zh: '替受难与灰心的弟兄祷告，给予特别的牧养关怀', en: 'Pray for and pastorally care for suffering, weary believers', refs: ['5:14'] }
+          ]
+        },
+        {
+          id: 'congregation',
+          badge: { zh: '全教会会众', en: 'General Congregation' },
+          title: { zh: '对一般会众', en: 'For the General Congregation' },
+          subtitle: { zh: '在试炼、话语与肢体相交中活出真信心', en: 'Living out genuine faith in trials, speech, and fellowship' },
+          points: [
+            { zh: '在百般试炼中依然常常喜乐', en: 'Count it all joy amid varied trials', refs: ['1:1-2'] },
+            { zh: '在试炼中学习忍耐，使信心迈向完全与成熟', en: 'Cultivate patience and maturity until the Lord returns', refs: ['1:3-4', '5:7-8'] },
+            { zh: '恒切祷告、彼此认罪、真实悔改', en: 'Practice steadfast prayer, confession, and repentance', refs: ['1:5-8', '5:13-16'] },
+            { zh: '信心与行为合一：在教会中不偏待人，在日常生活中顺服主旨', en: 'Unite faith and works in church fellowship and daily planning', refs: ['2:1-7', '4:13-17'] },
+            { zh: '勒住舌头，除去苦毒纷争与属世私欲的话语', en: 'Guard speech from boasting, bitter jealousy, and quarrels', refs: ['3:1-14', '4:1-7'] },
+            { zh: '在信心和行为上互相帮助扶持，挽回失迷的弟兄', en: 'Care for the vulnerable and lovingly restore straying believers', refs: ['1:26-27', '5:19-20'] }
+          ]
+        }
+      ];
+
+      // -------------------------------------------------------------------
+      // 6. CHINESE UNION VERSION (和合本) SCRIPTURE ENGINE & TOOLTIP
+      //    No verse numbers; skipped/truncated verses marked with "……"
+      // -------------------------------------------------------------------
+      var CUV_FALLBACK = {
+        '1:1': '作神和主耶稣基督仆人的雅各，请散住十二个支派之人的安。',
+        '1:1-2': '作神和主耶稣基督仆人的雅各，请散住十二个支派之人的安。我的弟兄们，你们落在百般试炼中，都要以为大喜乐；',
+        '1:2-4': '我的弟兄们，你们落在百般试炼中，都要以为大喜乐；因为知道你们的信心经过试验，就生忍耐。但忍耐也当成功，使你们成全、完备，毫无缺欠。',
+        '1:2-15': '我的弟兄们，你们落在百般试炼中，都要以为大喜乐；因为知道你们的信心经过试验，就生忍耐……忍受试探的人是有福的，因为他经过试验以后，必得生命的冠冕……私欲既怀了胎，就生出罪来；罪既长成，就生出死来。',
+        '1:2-27': '我的弟兄们，你们落在百般试炼中，都要以为大喜乐……只是你们要行道，不要单单听道，自己欺哄自己……在神我们的父面前，那清洁没有玷污的虔诚，就是看顾在患难中的孤儿寡妇，并且保守自己不沾染世俗。',
+        '1:3-4': '因为知道你们的信心经过试验，就生忍耐。但忍耐也当成功，使你们成全、完备，毫无缺欠。',
+        '1:5': '你们中间若有缺少智慧的，应当求那厚赐与众人、也不斥责人的神，主就必赐给他。',
+        '1:5-8': '你们中间若有缺少智慧的，应当求那厚赐与众人、也不斥责人的神，主就必赐给他。只要凭着信心求，一点不疑惑……心怀二意的人，在他一切所行的路上都没有定见。',
+        '1:6': '只要凭着信心求，一点不疑惑；因为那疑惑的人，就像海中的波浪，被风吹动翻腾。',
+        '1:9-11': '卑微的弟兄升高，就该喜乐；富足的降卑，也该如此；因为他必要过去，如同草上的花一样……那富足的人在他所行的事上，也要这样衰残。',
+        '1:12': '忍受试探的人是有福的，因为他经过试验以后，必得生命的冠冕，这是主应许给那些爱他之人的。',
+        '1:12-18': '忍受试探的人是有福的……人被试探，不可说：“我是被神试探”；因为神不能被恶试探，他也不试探人……各样美善的恩赐和各样全备的赏赐都是从上头来的，从众光之父那里降下来的……',
+        '1:15': '私欲既怀了胎，就生出罪来；罪既长成，就生出死来。',
+        '1:16-18': '我亲爱的弟兄们，不要看错了。各样美善的恩赐和各样全备的赏赐都是从上头来的，从众光之父那里降下来的，在他并没有改变，也没有转动的影儿。他按自己的旨意，用真道生了我们，叫我们在他所造的万物中好像初熟的果子。',
+        '1:17': '各样美善的恩赐和各样全备的赏赐都是从上头来的，从众光之父那里降下来的，在他并没有改变，也没有转动的影儿。',
+        '1:19-27': '我亲爱的弟兄们，这是你们所知道的。但你们各人要快快地听，慢慢地说，慢慢地动怒……只是你们要行道，不要单单听道，自己欺哄自己……在神我们的父面前，那清洁没有玷污的虔诚，就是看顾在患难中的孤儿寡妇，并且保守自己不沾染世俗。',
+        '1:22-27': '只是你们要行道，不要单单听道，自己欺哄自己……在神我们的父面前，那清洁没有玷污的虔诚，就是看顾在患难中的孤儿寡妇，并且保守自己不沾染世俗。',
+        '1:26-27': '若有人自以为虔诚，却不勒住他的舌头，反欺哄自己的心，这人的虔诚是虚的。在神我们的父面前，那清洁没有玷污的虔诚，就是看顾在患难中的孤儿寡妇，并且保守自己不沾染世俗。',
+        '2:1': '我的弟兄们，你们信奉我们荣耀的主耶稣基督，便不可按着外貌待人。',
+        '2:1-4': '我的弟兄们，你们信奉我们荣耀的主耶稣基督，便不可按着外貌待人……这岂不是你们偏心待人，用恶意断定人吗？',
+        '2:1-7': '我的弟兄们，你们信奉我们荣耀的主耶稣基督，便不可按着外貌待人……神岂不是拣选了世上的贫穷人，叫他们在信上富足，并承受他所应许给那些爱他之人的国吗？',
+        '2:1-13': '我的弟兄们，你们信奉我们荣耀的主耶稣基督，便不可按着外貌待人……经上记着说：“要爱人如己。”你们若全守这至尊的律法，才是好的……因为那不怜悯人的，也要受无怜悯的审判；怜悯原是向审判夸胜。',
+        '2:1-26': '我的弟兄们，你们信奉我们荣耀的主耶稣基督，便不可按着外貌待人……这样，信心若没有行为就是死的……身体没有灵魂是死的，信心没有行为也是死的。',
+        '2:5-7': '我亲爱的弟兄们，请听，神岂不是拣选了世上的贫穷人，叫他们在信上富足，并承受他所应许给那些爱他之人的国吗？你们反倒羞辱贫穷人……',
+        '2:8': '经上记着说：“要爱人如己。”你们若全守这至尊的律法，才是好的。',
+        '2:10-11': '因为凡遵守全律法的，只在一条上跌倒，他就是犯了众条。原来那说“不可奸淫”的，也说“不可杀人”；你就是不奸淫，却杀人，仍是成了犯律法的。',
+        '2:13': '因为那不怜悯人的，也要受无怜悯的审判；怜悯原是向审判夸胜。',
+        '2:14-26': '我的弟兄们，若有人说自己有信心，却没有行为，有什么益处呢？这信心能救他吗？……这样，信心若没有行为就是死的……身体没有灵魂是死的，信心没有行为也是死的。',
+        '2:18': '必有人说：“你有信心，我有行为；你将你没有行为的信心指给我看，我便藉着我的行为，将我的信心指给你看。”',
+        '2:18-20': '必有人说：“你有信心，我有行为；你将你没有行为的信心指给我看，我便藉着我的行为，将我的信心指给你看。”你信神只有一位，你信的不错；鬼魔也信，却是战惊。虚浮的人哪，你愿意知道没有行为的信心是死的吗？',
+        '2:19': '你信神只有一位，你信的不错；鬼魔也信，却是战惊。',
+        '2:20': '虚浮的人哪，你愿意知道没有行为的信心是死的吗？',
+        '3:1': '我的弟兄们，不要多人作师傅，因为晓得我们要受更重的判断。',
+        '3:1-2': '我的弟兄们，不要多人作师傅，因为晓得我们要受更重的判断。原来我们在许多事上都有过失；若有人在话语上没有过失，他就是完全人，也能勒住自己的全身。',
+        '3:1-5': '我的弟兄们，不要多人作师傅，因为晓得我们要受更重的判断……这样，舌头在百体里也是最小的，却能说大话。看哪，最小的火能点着最大的树林。',
+        '3:1-12': '我的弟兄们，不要多人作师傅，因为晓得我们要受更重的判断……舌头就是火，在我们百体中，舌头是个罪恶的世界……颂赞和咒诅从一个口里出来！我的弟兄们，这是不应当的！',
+        '3:1-14': '我的弟兄们，不要多人作师傅，因为晓得我们要受更重的判断……你们中间谁是有智慧有见识的呢？他就当在智慧的温柔上显出他的善行来。',
+        '3:5-8': '这样，舌头在百体里也是最小的，却能说大话。看哪，最小的火能点着最大的树林。舌头就是火……惟独舌头没有人能制伏，是不止息的恶物，满了害死人的毒气。',
+        '3:6': '舌头就是火，在我们百体中，舌头是个罪恶的世界，能污秽全身，也能把生命的轮子点起来，并且是从地狱里点着的。',
+        '3:6-8': '舌头就是火，在我们百体中，舌头是个罪恶的世界……惟独舌头没有人能制伏，是不止息的恶物，满了害死人的毒气。',
+        '3:9-12': '我们用舌头颂赞那为主、为父的，又用舌头咒诅那照着神形像被造的人。颂赞和咒诅从一个口里出来！我的弟兄们，这是不应当的！……',
+        '3:13-14': '你们中间谁是有智慧有见识的呢？他就当在智慧的温柔上显出他的善行来。你们心里若怀着苦毒的嫉妒和纷争，就不可自夸，也不可说谎话抵挡真道。',
+        '3:13-18': '你们中间谁是有智慧有见识的呢？他就当在智慧的温柔上显出他的善行来……惟独从上头来的智慧，先是清洁，后是和平，温良柔顺，满有怜悯，多结善果，没有偏见，没有假冒。并且使人和平的，是用和平所栽种的义果。',
+        '3:15-16': '这样的智慧不是从上头来的，乃是属地的，属情欲的，属鬼魔的。在何处有嫉妒、纷争，就在何处有扰乱和各样的坏事。',
+        '3:17': '惟独从上头来的智慧，先是清洁，后是和平，温良柔顺，满有怜悯，多结善果，没有偏见，没有假冒。',
+        '3:17-18': '惟独从上头来的智慧，先是清洁，后是和平，温良柔顺，满有怜悯，多结善果，没有偏见，没有假冒。并且使人和平的，是用和平所栽种的义果。',
+        '4:1-4': '你们中间的争战斗殴是从哪里来的呢？不是从你们百体中战斗之私欲来的吗？……你们这些淫乱的人哪，岂不知与世俗为友就是与神为敌吗？',
+        '4:1-6': '你们中间的争战斗殴是从哪里来的呢？……但他赐更多的恩典，所以经上说：“神阻挡骄傲的人，赐恩给谦卑的人。”',
+        '4:1-7': '你们中间的争战斗殴是从哪里来的呢？……故此，你们要顺服神。务要抵挡魔鬼，魔鬼就必离开你们逃跑了。',
+        '4:1-12': '你们中间的争战斗殴是从哪里来的呢？……你们亲近神，神就必亲近你们……设立律法和判断人的，只有一位，就是那能救人也能灭人的。你是谁，竟敢论断别人呢？',
+        '4:4': '你们这些淫乱的人哪，岂不知与世俗为友就是与神为敌吗？所以凡想要与世俗为友的，就是与神为敌了。',
+        '4:5': '你们想经上所说是徒然的吗？神所赐、住在我们里面的灵，是恋爱至于嫉妒吗？',
+        '4:5-7': '你们想经上所说是徒然的吗？神所赐、住在我们里面的灵，是恋爱至于嫉妒吗？但他赐更多的恩典……故此，你们要顺服神。务要抵挡魔鬼，魔鬼就必离开你们逃跑了。',
+        '4:6': '但他赐更多的恩典，所以经上说：“神阻挡骄傲的人，赐恩给谦卑的人。”',
+        '4:7-12': '故此，你们要顺服神。务要抵挡魔鬼，魔鬼就必离开你们逃跑了。你们亲近神，神就必亲近你们……弟兄们，你们不可彼此批评……',
+        '4:8': '你们亲近神，神就必亲近你们。有罪的人哪，要洁净你们的手！心怀二意的人哪，要清洁你们的心！',
+        '4:8-12': '你们亲近神，神就必亲近你们。有罪的人哪，要洁净你们的手！心怀二意的人哪，要清洁你们的心！……务要在主面前自卑，主就必叫你们升高。弟兄们，你们不可彼此批评……',
+        '4:10': '务要在主面前自卑，主就必叫你们升高。',
+        '4:11-12': '弟兄们，你们不可彼此批评。人若批评弟兄，论断弟兄，就是批评律法，论断律法……设立律法和判断人的，只有一位，就是那能救人也能灭人的。你是谁，竟敢论断别人呢？',
+        '4:12': '设立律法和判断人的，只有一位，就是那能救人也能灭人的。你是谁，竟敢论断别人呢？',
+        '4:13-15': '嗐！你们有话说：“今天明天我们要往某城里去，在那里住一年，作买卖得利。”其实明天如何，你们还不知道……你们只当说：“主若愿意，我们就可以活着，也可以作这事，或作那事。”',
+        '4:13-17': '嗐！你们有话说：“今天明天我们要往某城里去，在那里住一年，作买卖得利。”……你们只当说：“主若愿意，我们就可以活着，也可以作这事，或作那事。”……人若知道行善，却不去行，这就是他的罪了。',
+        '4:13-5:6': '嗐！你们有话说：“今天明天我们要往某城里去，在那里住一年，作买卖得利。”……人若知道行善，却不去行，这就是他的罪了。嗐！你们这些富足人哪，应当哭泣、号啕，因为将有苦难临到你们身上……',
+        '4:17': '人若知道行善，却不去行，这就是他的罪了。',
+        '5:1-6': '嗐！你们这些富足人哪，应当哭泣、号啕，因为将有苦难临到你们身上……工人给你们收割庄稼，你们亏欠他们的工钱，这工钱有声音呼叫，并且那收割之人的冤声已经入了万军之主的耳了……',
+        '5:3': '你们的金银都长了锈；那锈要证明你们的不是，又要吃你们的肉，如同火烧。你们在这末世只知积攒钱财。',
+        '5:4': '工人给你们收割庄稼，你们亏欠他们的工钱，这工钱有声音呼叫，并且那收割之人的冤声已经入了万军之主的耳了。',
+        '5:7': '弟兄们哪，你们要忍耐，直到主来。看哪，农夫忍耐等候地里宝贵的出产，直到得了秋雨春雨。',
+        '5:7-8': '弟兄们哪，你们要忍耐，直到主来。看哪，农夫忍耐等候地里宝贵的出产，直到得了秋雨春雨。你们也当忍耐，坚固你们的心，因为主来的日子近了。',
+        '5:7-11': '弟兄们哪，你们要忍耐，直到主来……你们听见过约伯的忍耐，也知道主给他的结局，明显主是满心怜悯，大有慈悲。',
+        '5:7-20': '弟兄们哪，你们要忍耐，直到主来……你们中间有受苦的呢，他就该祷告……所以你们要彼此认罪，互相代求，使你们可以得医治……这人该知道：叫一个罪人从迷路上转回，便是救一个灵魂不死，并且遮盖许多的罪。',
+        '5:8': '你们也当忍耐，坚固你们的心，因为主来的日子近了。',
+        '5:8-9': '你们也当忍耐，坚固你们的心，因为主来的日子近了。弟兄们，你们不要彼此埋怨，免得受审判。看哪，审判的主站在门前了。',
+        '5:11': '那先前忍耐的人，我们称他们是有福的。你们听见过约伯的忍耐，也知道主给他的结局，明显主是满心怜悯，大有慈悲。',
+        '5:12-15': '我的弟兄们，最要紧的是不可起誓……你们说话，是，就说是；不是，就说不是，免得你们落在审判之下。你们中间有受苦的呢，他就该祷告……出于信心的祈祷要救那病人，主必叫他起来。',
+        '5:13-16': '你们中间有受苦的呢，他就该祷告；有喜乐的呢，他就该歌颂。你们中间有病了的呢，他就该请教会的长老来……所以你们要彼此认罪，互相代求，使你们可以得医治。义人祈祷所发的力量是大有功效的。',
+        '5:14': '你们中间有病了的呢，他就该请教会的长老来；他们可以奉主的名用油抹他，为他祷告。',
+        '5:15': '出于信心的祈祷要救那病人，主必叫他起来；他若犯了罪，也必蒙赦免。',
+        '5:16-20': '所以你们要彼此认罪，互相代求，使你们可以得医治。义人祈祷所发的力量是大有功效的……这人该知道：叫一个罪人从迷路上转回，便是救一个灵魂不死，并且遮盖许多的罪。',
+        '5:19-20': '我的弟兄们，你们中间若有失迷真道的，有人使他回转，这人该知道：叫一个罪人从迷路上转回，便是救一个灵魂不死，并且遮盖许多的罪。'
+      };
+
+      var CUV_CHAPTER_CACHE = {};
+
+      function cleanZhText(t) {
+        return String(t || '')
+          .replace(/\s+/g, ' ')
+          .replace(/([\u3000-\u303f\u4e00-\u9fff\uff00-\uffef“”‘’])\s+(?=[\u3000-\u303f\u4e00-\u9fff\uff00-\uffef“”‘’])/g, '$1')
+          .trim();
+      }
+
+      function parseJamesRef(raw) {
+        var clean = String(raw || '').replace(/^(?:Jas|James|雅)\s*/i, '').replace(/–/g, '-').trim();
+        var m = clean.match(/^(\d+):(\d+)(?:-(\d+):(\d+)|-(\d+))?$/);
+        if (!m) {
+          return { key: clean, sc: 1, sv: 1, ec: 1, ev: 1 };
+        }
+        var sc = parseInt(m[1], 10);
+        var sv = parseInt(m[2], 10);
+        var ec = m[3] ? parseInt(m[3], 10) : sc;
+        var ev = m[4] ? parseInt(m[4], 10) : (m[5] ? parseInt(m[5], 10) : sv);
+        return { key: clean, sc: sc, sv: sv, ec: ec, ev: ev };
+      }
+
+      function formatDisplayRef(raw, lang) {
+        var clean = String(raw || '').replace(/^(?:Jas|James|雅)\s*/i, '').trim();
+        var zhDisplay = clean.replace(/-/g, '–');
+        var enDisplay = clean.replace(/–/g, '-');
+        return lang === 'zh' ? ('雅 ' + zhDisplay) : ('James ' + enDisplay);
+      }
+
+      function buildScriptureHTML(raw) {
+        var parsed = parseJamesRef(raw);
+        if (appState.lang === 'zh') {
+          var labelZh = formatDisplayRef(raw, 'zh');
+          var wdUrl = 'https://wd.bible/bible/verse/jas.' + parsed.sc + '.' + parsed.sv + '.cunps';
+          return (
+            '<a class="sc-zh" href="' + wdUrl + '" target="_blank" rel="noopener noreferrer" ' +
+            'data-refkey="' + parsed.key + '" data-sc="' + parsed.sc + '" data-sv="' + parsed.sv + '" ' +
+            'data-ec="' + parsed.ec + '" data-ev="' + parsed.ev + '" data-full="' + labelZh + '">' +
+            labelZh + '</a>'
+          );
+        }
+        var labelEn = formatDisplayRef(raw, 'en');
+        var refLyUrl = 'https://ref.ly/' + encodeURIComponent(labelEn) + ';lsb';
+        return (
+          '<span class="sc-en"><a href="' + refLyUrl + '" target="_blank" rel="noopener noreferrer" data-ref="' + labelEn + '">' +
+          labelEn + '</a></span>'
+        );
+      }
+
+      function renderRichText(str) {
+        return String(str || '').replace(/\[\[(.+?)\]\]/g, function (_, ref) {
+          return buildScriptureHTML(ref);
+        });
+      }
+
+      function fetchJamesChapterCuv(chapterNum) {
+        if (!CUV_CHAPTER_CACHE[chapterNum]) {
+          CUV_CHAPTER_CACHE[chapterNum] = fetch('https://api.getbible.net/v2/cus/59/' + chapterNum + '.json')
+            .then(function (r) {
+              if (!r.ok) throw new Error('HTTP ' + r.status);
+              return r.json();
+            })
+            .then(function (json) {
+              return (json.verses || []).map(function (v) {
+                return { c: Number(v.chapter || chapterNum), v: Number(v.verse), t: cleanZhText(v.text) };
+              });
+            })
+            .catch(function (err) {
+              delete CUV_CHAPTER_CACHE[chapterNum];
+              throw err;
+            });
+        }
+        return CUV_CHAPTER_CACHE[chapterNum];
+      }
+
+      function getCuvTooltipText(dataset) {
+        var key = dataset.refkey;
+        var sc = Number(dataset.sc);
+        var sv = Number(dataset.sv);
+        var ec = Number(dataset.ec);
+        var ev = Number(dataset.ev);
+        var maxVerses = 5;
+
+        // If a curated fallback with clean ellipsis exists for a long passage, prefer immediate display
+        var totalEstimated = (ec === sc) ? (ev - sv + 1) : 10;
+        if (totalEstimated > maxVerses && CUV_FALLBACK[key]) {
+          return Promise.resolve(CUV_FALLBACK[key]);
+        }
+
+        var chapters = [];
+        for (var c = sc; c <= ec; c++) chapters.push(c);
+
+        return Promise.all(chapters.map(fetchJamesChapterCuv))
+          .then(function (lists) {
+            var collected = [];
+            var truncated = false;
+            lists.forEach(function (vs, idx) {
+              var ch = chapters[idx];
+              vs.forEach(function (item) {
+                var from = (ch === sc) ? sv : 1;
+                var to = (ch === ec) ? ev : 999;
+                if (item.v >= from && item.v <= to) {
+                  if (collected.length < maxVerses) {
+                    collected.push(item.t);
+                  } else {
+                    truncated = true;
+                  }
+                }
+              });
+            });
+            if (!collected.length) {
+              return CUV_FALLBACK[key] || '点击打开微读圣经查阅完整经文。';
+            }
+            return collected.join('') + (truncated ? '……' : '');
+          })
+          .catch(function () {
+            return CUV_FALLBACK[key] || '点击打开微读圣经查阅完整经文。';
+          });
+      }
+
+      // Floating tooltip DOM element
+      var tipEl = document.createElement('div');
+      tipEl.id = 'zh-tip';
+      tipEl.setAttribute('role', 'tooltip');
+      document.body.appendChild(tipEl);
+
+      var isTouchDevice = window.matchMedia && window.matchMedia('(hover: none)').matches;
+      var tipTarget = null;
+      var hideTipTimer = null;
+
+      function positionTip(anchor) {
+        var rect = anchor.getBoundingClientRect();
+        var width = Math.min(360, window.innerWidth - 16);
+        tipEl.style.width = width + 'px';
+        var left = Math.min(Math.max(8, rect.left + rect.width / 2 - width / 2), window.innerWidth - width - 8);
+        tipEl.style.left = left + 'px';
+        var height = tipEl.offsetHeight || 120;
+        var below = rect.bottom + 8;
+        var above = rect.top - height - 8;
+        tipEl.style.top = (below + height < window.innerHeight - 8 || above < 8 ? below : above) + 'px';
+      }
+
+      function showZhTip(anchor) {
+        clearTimeout(hideTipTimer);
+        tipTarget = anchor;
+        var d = anchor.dataset;
+        var immediateText = CUV_FALLBACK[d.refkey];
+        tipEl.innerHTML =
+          '<div class="zt-head"><span>' + d.full + '</span><span class="zt-ver">和合本</span></div>' +
+          '<div class="zt-body">' + (immediateText ? immediateText : '<span class="zt-muted">经文载入中……</span>') + '</div>';
+        tipEl.classList.add('visible');
+        positionTip(anchor);
+
+        getCuvTooltipText(d).then(function (text) {
+          if (tipTarget !== anchor) return;
+          var bodyEl = tipEl.querySelector('.zt-body');
+          if (bodyEl) {
+            bodyEl.textContent = text;
+            positionTip(anchor);
+          }
+        });
+      }
+
+      function hideZhTip() {
+        tipEl.classList.remove('visible');
+        tipTarget = null;
+      }
+
+      // -------------------------------------------------------------------
+      // 7. LOGOS REFTAGGER V2 (ENGLISH LSB HOVER)
+      // -------------------------------------------------------------------
+      window.refTagger = {
+        settings: {
+          bibleVersion: 'LSB',
+          socialSharing: [],
+          tooltipStyle: 'light',
+          roundCorners: true,
+          convertHyperlinks: true,
+          tagChapters: true,
+          noSearchClassNames: ['sc-zh', 'no-rt'],
+          customStyle: {
+            heading: { backgroundColor: '#EFE5CF', color: '#2B2520' },
+            body: { color: '#2B2520' }
+          }
+        }
+      };
+
+      (function loadRefTagger() {
+        try {
+          var s = document.createElement('script');
+          s.src = 'https://api.reftagger.com/v2/RefTagger.js';
+          s.async = true;
+          document.body.appendChild(s);
+        } catch (err) {
+          // Ignore in restricted environments
+        }
+      })();
+
+      function refreshReftagger() {
+        if (appState.lang !== 'en' || !appState.isUnlocked) return;
+        var run = function () {
+          try {
+            if (window.refTagger && typeof window.refTagger.tag === 'function') {
+              window.refTagger.tag(document.getElementById('protectedContent'));
+            }
+          } catch (err) {
+            // Safe fallback: direct ref.ly links remain clickable
+          }
+        };
+        run();
+        window.setTimeout(run, 500);
+      }
+
+      // -------------------------------------------------------------------
+      // 8. PERSISTENCE & ACCESS LOCK STATE
+      // -------------------------------------------------------------------
+      function loadSavedLanguage() {
+        try {
+          var saved = window.localStorage.getItem(STORAGE_KEY_LANG);
+          if (saved === 'zh' || saved === 'en') appState.lang = saved;
+        } catch (err) {}
+      }
+
+      function saveLanguage(lang) {
+        try {
+          window.localStorage.setItem(STORAGE_KEY_LANG, lang);
+        } catch (err) {}
+      }
+
+      function loadUnlockState() {
+        try {
+          appState.isUnlocked = window.sessionStorage.getItem(STORAGE_KEY_AUTH) === '1';
+        } catch (err) {
+          appState.isUnlocked = false;
+        }
+      }
+
+      function saveUnlockState() {
+        try {
+          window.sessionStorage.setItem(STORAGE_KEY_AUTH, '1');
+        } catch (err) {}
+      }
+
+      function applyAccessLockState() {
+        var gateEl = document.getElementById('accessGate');
+        var contentEl = document.getElementById('protectedContent');
+        var footerEl = document.getElementById('protectedFooter');
+
+        if (gateEl) gateEl.classList.toggle('hidden', appState.isUnlocked);
+        if (contentEl) contentEl.classList.toggle('hidden', !appState.isUnlocked);
+        if (footerEl) footerEl.classList.toggle('hidden', !appState.isUnlocked);
+      }
+
+      // -------------------------------------------------------------------
+      // 9. RENDERERS
+      // -------------------------------------------------------------------
+      function getUnitById(id) {
+        for (var i = 0; i < UNITS.length; i++) {
+          if (UNITS[i].id === id) return UNITS[i];
+        }
+        return UNITS[0];
+      }
+
+      function renderStaticChrome() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var isZh = lang === 'zh';
+
+        document.documentElement.lang = isZh ? 'zh-CN' : 'en';
+        document.title = dict.pageTitle;
+
+        var brandEmblem = document.getElementById('brandEmblem');
+        var footerEmblem = document.getElementById('footerEmblem');
+        if (brandEmblem) brandEmblem.textContent = dict.emblem;
+        if (footerEmblem) footerEmblem.textContent = dict.emblem;
+
+        // Segmented toggle styling
+        var pillZh = document.getElementById('lang-pill-zh');
+        var pillEn = document.getElementById('lang-pill-en');
+        var toggleBtn = document.getElementById('btn-lang-toggle');
+        if (pillZh && pillEn) {
+          pillZh.className = isZh
+            ? 'px-2 py-1 rounded-md bg-navy text-parchment transition-colors'
+            : 'px-2 py-1 rounded-md text-[#3b3228] transition-colors';
+          pillEn.className = !isZh
+            ? 'px-2 py-1 rounded-md bg-navy text-parchment transition-colors'
+            : 'px-2 py-1 rounded-md text-[#3b3228] transition-colors';
+        }
+        if (toggleBtn) toggleBtn.title = dict.langBtnTitle;
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+
+        // Chiasm subtitle with interactive citation
+        var chiasmSub = document.getElementById('chiasmSubtitle');
+        if (chiasmSub) {
+          chiasmSub.innerHTML = isZh
+            ? renderRichText('雅各书并非零散的箴言汇编，而是围绕“从上头来的清洁智慧”（[[Jas 3:13-18]]）精心构建的同心交叉对称书信。点击或悬停任意一层，即可同步高亮对称双翼并查阅对比解经要点。')
+            : renderRichText('Rather than a loose collection of proverbs, James is crafted as a symmetrical chiasm centered on pure wisdom from above ([[Jas 3:13-18]]). Select or hover any tier to highlight its parallel wing and inspect comparative insights.');
+        }
+
+        var diagTitle = document.getElementById('chiasmDiagramTitle');
+        if (diagTitle) diagTitle.textContent = dict.chiasmDiagramTitle;
+
+        var pwdInput = document.getElementById('accessPasswordInput');
+        if (pwdInput) pwdInput.setAttribute('placeholder', dict.gatePlaceholder);
+
+        var togglePwdBtn = document.getElementById('togglePasswordVisibility');
+        if (togglePwdBtn && pwdInput) {
+          togglePwdBtn.setAttribute('aria-label', pwdInput.type === 'password' ? dict.gateShowPwd : dict.gateHidePwd);
+        }
+      }
+
+      function renderChiasm() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var diagramEl = document.getElementById('chiasmDiagram');
+        var detailEl = document.getElementById('chiasmDetailPanel');
+        if (!diagramEl || !detailEl) return;
+
+        // Render left arch diagram (uniform styling across all tiers including D)
+        diagramEl.innerHTML = CHIASM_ARCH_NODES.map(function (node) {
+          var unit = getUnitById(node.unitId);
+          var isActive = appState.activeChiasmKey === node.key;
+          var btnCls = isActive
+            ? 'bg-navy text-white border-navy shadow-md'
+            : 'bg-parchment/60 hover:bg-parchmentDeep/80 text-navy border-parchmentBorder';
+          var badgeCls = isActive
+            ? 'bg-gold text-white border-gold'
+            : 'bg-white text-navy border-parchmentBorder';
+          var refCls = isActive ? 'text-goldLight' : 'text-gold';
+          var subCls = isActive ? 'text-slate-200' : 'text-inkMuted';
+
+          return (
+            '<div class="' + node.indent + '">' +
+              '<button type="button" data-chiasm-key="' + node.key + '" ' +
+              'class="chiasm-node-btn w-full text-left px-3.5 py-3 rounded-xl border transition-all flex items-center gap-3 ' + btnCls + '">' +
+                '<span class="min-w-[2.4rem] px-2 h-8 rounded-lg border text-xs font-bold flex items-center justify-center shrink-0 ' + badgeCls + '">' +
+                  unit.marker[lang] +
+                '</span>' +
+                '<div class="min-w-0 flex-1">' +
+                  '<div class="text-xs font-bold tracking-wide ' + refCls + '">' + formatDisplayRef(unit.ref, lang) + '</div>' +
+                  '<div class="text-xs sm:text-sm font-semibold truncate ' + subCls + '">' + unit.title[lang] + ' · ' + unit.shortDesc[lang] + '</div>' +
+                '</div>' +
+                '<svg class="w-4 h-4 shrink-0 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">' +
+                  '<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>' +
+                '</svg>' +
+              '</button>' +
+            '</div>'
+          );
+        }).join('');
+
+        // Bind hover & click handlers
+        diagramEl.querySelectorAll('.chiasm-node-btn').forEach(function (btn) {
+          var key = btn.getAttribute('data-chiasm-key');
+          btn.addEventListener('click', function () {
+            if (appState.activeChiasmKey !== key) {
+              appState.activeChiasmKey = key;
+              renderChiasm();
+              refreshReftagger();
+            }
+          });
+          btn.addEventListener('mouseenter', function () {
+            if (appState.activeChiasmKey !== key) {
+              appState.activeChiasmKey = key;
+              renderChiasm();
+              refreshReftagger();
+            }
+          });
+        });
+
+        // Render right comparative detail panel
+        var group = CHIASM_GROUPS[appState.activeChiasmKey] || CHIASM_GROUPS.centerD;
+        var refsHtml = group.refs.map(buildScriptureHTML).join(' <span class="text-inkMuted mx-1">↔</span> ');
+
+        var bulletsHtml = group.bullets[lang].map(function (b) {
+          return (
+            '<li class="flex items-start gap-2.5 text-xs sm:text-sm text-ink leading-relaxed">' +
+              '<span class="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0"></span>' +
+              '<span>' + renderRichText(b) + '</span>' +
+            '</li>'
+          );
+        }).join('');
+
+        var unitLinksHtml = group.unitIds.map(function (uid) {
+          var u = getUnitById(uid);
+          return (
+            '<a href="' + u.href + '" class="group flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-parchmentBorder bg-parchment/70 hover:bg-parchmentDeep hover:border-gold/60 transition-all">' +
+              '<div class="min-w-0">' +
+                '<div class="flex items-center gap-2">' +
+                  '<span class="px-1.5 py-0.5 rounded bg-white border border-parchmentBorder text-[11px] font-bold text-navy">' + u.marker[lang] + '</span>' +
+                  '<span class="text-xs font-semibold text-gold">' + formatDisplayRef(u.ref, lang) + '</span>' +
+                '</div>' +
+                '<div class="text-sm font-bold text-navy mt-1 truncate">' + u.title[lang] + '（' + u.weeks[lang] + '）</div>' +
+              '</div>' +
+              '<span class="text-xs font-semibold text-gold group-hover:translate-x-0.5 transition-transform shrink-0">' + dict.chiasmEnterUnit + ' →</span>' +
+            '</a>'
+          );
+        }).join('');
+
+        // Dedicated final section inside D for Central Book Thesis
+        var centralThesisHtml = group.includeCentralThesis
+          ? (
+            '<div class="mt-5 pt-5 border-t border-parchmentBorder">' +
+              '<div class="rounded-xl bg-parchmentDeep/85 border border-gold/40 px-4 py-3.5">' +
+                '<div class="text-[11px] font-bold tracking-[0.16em] text-gold mb-1.5">' + dict.chiasmThesisHeading + '</div>' +
+                '<p class="font-serif text-base sm:text-lg font-bold text-navy leading-snug">' + dict.chiasmThesisText + '</p>' +
+              '</div>' +
+            '</div>'
+          )
+          : '';
+
+        detailEl.innerHTML =
+          '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+            '<div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">' +
+              '<span class="inline-block px-3 py-1 rounded-full bg-navy text-white text-xs font-semibold">' + group.badge[lang] + '</span>' +
+              '<div class="text-xs font-semibold">' + refsHtml + '</div>' +
+            '</div>' +
+            '<h3 class="font-serif text-xl sm:text-2xl font-bold text-navy leading-snug">' + group.title[lang] + '</h3>' +
+          '</div>' +
+          '<div class="p-5 space-y-4">' +
+            '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + group.summary[lang] + '</p>' +
+            '<div class="rounded-xl bg-parchment/80 border border-parchmentBorder p-4">' +
+              '<div class="text-xs font-bold text-navy mb-2.5">' + dict.chiasmCompareHeading + '</div>' +
+              '<ul class="space-y-2">' + bulletsHtml + '</ul>' +
+            '</div>' +
+            '<div class="space-y-2.5">' + unitLinksHtml + '</div>' +
+            centralThesisHtml +
+          '</div>';
+      }
+
+      function renderUnits() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var grid = document.getElementById('unitsGrid');
+        if (!grid) return;
+
+        grid.innerHTML = UNITS.map(function (u) {
+          var ptsHtml = u.points[lang].map(function (pt) {
+            return (
+              '<li class="flex items-start gap-2 text-xs text-inkMuted leading-relaxed">' +
+                '<span class="w-1 h-1 rounded-full bg-gold mt-2 shrink-0"></span>' +
+                '<span>' + renderRichText(pt) + '</span>' +
+              '</li>'
+            );
+          }).join('');
+
+          return (
+            '<article class="bg-white rounded-2xl border border-parchmentBorder shadow-card hover:border-gold/70 hover:-translate-y-0.5 transition-all flex flex-col overflow-hidden">' +
+              '<div class="px-5 py-4 bg-parchmentDeep/60 border-b border-parchmentBorder flex items-center justify-between gap-2">' +
+                '<div class="flex items-center gap-2">' +
+                  '<span class="px-2 py-0.5 rounded-md bg-navy text-white text-xs font-bold">' + u.marker[lang] + '</span>' +
+                  '<span class="text-xs font-bold text-gold">' + formatDisplayRef(u.ref, lang) + '</span>' +
+                '</div>' +
+                '<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-white border border-parchmentBorder text-inkMuted">' + u.weeks[lang] + '</span>' +
+              '</div>' +
+              '<div class="p-5 flex-1 flex flex-col">' +
+                '<h3 class="font-serif text-lg font-bold text-navy mb-1.5 leading-snug">' + u.title[lang] + '</h3>' +
+                '<p class="text-xs text-inkMuted mb-3.5">' + u.shortDesc[lang] + '</p>' +
+                '<ul class="space-y-2 mb-5 flex-1">' + ptsHtml + '</ul>' +
+                '<a href="' + u.href + '" class="inline-flex items-center justify-between px-4 py-2.5 rounded-xl bg-parchment hover:bg-navy text-navy hover:text-white border border-parchmentBorder hover:border-navy text-xs font-semibold transition-colors">' +
+                  '<span>' + dict.enterPageBtn + '</span>' +
+                  '<span>→</span>' +
+                '</a>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      function renderTheology() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var tabsEl = document.getElementById('theologyTabs');
+        var gridEl = document.getElementById('theologyGrid');
+        if (!tabsEl || !gridEl) return;
+
+        var tabs = [
+          { id: 'all', label: dict.tabAll },
+          { id: 'theologyProper', label: dict.tabTheologyProper },
+          { id: 'christology', label: dict.tabChristology },
+          { id: 'eschatology', label: dict.tabEschatology },
+          { id: 'soteriology', label: dict.tabSoteriology }
+        ];
+
+        tabsEl.innerHTML = tabs.map(function (t) {
+          var active = appState.activeTheologyTab === t.id;
+          var cls = active
+            ? 'bg-navy text-white border-navy shadow-sm'
+            : 'bg-white text-inkMuted border-parchmentBorder hover:bg-parchmentDeep hover:text-navy';
+          return (
+            '<button type="button" role="tab" aria-selected="' + active + '" data-theo-tab="' + t.id + '" ' +
+            'class="theo-tab-btn px-3.5 py-2 rounded-xl border text-xs font-semibold transition-colors ' + cls + '">' +
+              t.label +
+            '</button>'
+          );
+        }).join('');
+
+        tabsEl.querySelectorAll('.theo-tab-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            appState.activeTheologyTab = btn.getAttribute('data-theo-tab');
+            renderTheology();
+            refreshReftagger();
+          });
+        });
+
+        var filtered = appState.activeTheologyTab === 'all'
+          ? THEOLOGY_CATEGORIES
+          : THEOLOGY_CATEGORIES.filter(function (c) { return c.id === appState.activeTheologyTab; });
+
+        gridEl.innerHTML = filtered.map(function (cat) {
+          var itemsHtml = cat.items.map(function (item, idx) {
+            var refsHtml = item.refs.map(buildScriptureHTML).join(lang === 'zh' ? '，' : ', ');
+            return (
+              '<li class="py-2.5 flex items-baseline justify-between gap-3 border-b border-parchmentBorder/60 last:border-b-0">' +
+                '<div class="flex items-baseline gap-2.5 text-xs sm:text-sm text-ink">' +
+                  '<span class="text-[11px] font-bold text-gold shrink-0">' + (idx + 1) + '.</span>' +
+                  '<span>' + item[lang] + '</span>' +
+                '</div>' +
+                '<div class="text-xs shrink-0">' + refsHtml + '</div>' +
+              '</li>'
+            );
+          }).join('');
+
+          return (
+            '<div class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+              '<div class="px-5 py-3.5 bg-parchmentDeep/75 border-b border-parchmentBorder flex items-center justify-between">' +
+                '<h3 class="font-serif text-lg font-bold text-navy">' + cat.title[lang] + '</h3>' +
+                '<span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white border border-parchmentBorder text-gold">' + cat.items.length + '</span>' +
+              '</div>' +
+              '<ul class="px-5 py-2">' + itemsHtml + '</ul>' +
+            '</div>'
+          );
+        }).join('');
+      }
+
+      function renderPastoralApplication() {
+        var lang = appState.lang;
+        var grid = document.getElementById('pastoralApplicationGrid');
+        if (!grid) return;
+
+        grid.innerHTML = PASTORAL_APPLICATIONS.map(function (card) {
+          var listHtml = card.points.map(function (pt, idx) {
+            var refsHtml = pt.refs.map(buildScriptureHTML).join(lang === 'zh' ? '，' : ', ');
+            return (
+              '<li class="p-3.5 rounded-xl bg-parchment/75 border border-parchmentBorder/80 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">' +
+                '<div class="flex items-baseline gap-2.5 text-xs sm:text-sm text-ink font-medium">' +
+                  '<span class="w-5 h-5 rounded-full bg-navy text-white text-[11px] font-bold inline-flex items-center justify-center shrink-0">' + (idx + 1) + '</span>' +
+                  '<span>' + pt[lang] + '</span>' +
+                '</div>' +
+                '<div class="text-xs sm:text-right pl-7 sm:pl-0 shrink-0">' + refsHtml + '</div>' +
+              '</li>'
+            );
+          }).join('');
+
+          return (
+            '<div class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden flex flex-col">' +
+              '<div class="px-6 py-5 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+                '<span class="inline-block text-[11px] font-bold tracking-[0.16em] text-gold mb-1">' + card.badge[lang] + '</span>' +
+                '<h3 class="font-serif text-xl sm:text-2xl font-bold text-navy">' + card.title[lang] + '</h3>' +
+                '<p class="text-xs text-inkMuted mt-1">' + card.subtitle[lang] + '</p>' +
+              '</div>' +
+              '<ul class="p-5 space-y-2.5 flex-1">' + listHtml + '</ul>' +
+            '</div>'
+          );
+        }).join('');
+      }
+
+      function renderFooterSitemap() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var container = document.getElementById('footerSitemap');
+        if (!container) return;
+
+        var homeItem =
+          '<a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 border border-gold/40 text-white font-semibold">' +
+            '<span class="px-1.5 py-0.5 rounded bg-gold text-white text-[10px]">' + dict.sitemapHomeTag + '</span>' +
+            '<span class="truncate">' + dict.sitemapHomeLabel + '</span>' +
+          '</a>';
+
+        var unitItems = UNITS.map(function (u) {
+          return (
+            '<a href="' + u.href + '" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors">' +
+              '<span class="px-1.5 py-0.5 rounded bg-white/10 text-goldLight text-[10px] font-bold shrink-0">' + u.marker[lang] + '</span>' +
+              '<span class="truncate">' + formatDisplayRef(u.ref, lang) + ' · ' + u.title[lang] + '</span>' +
+            '</a>'
+          );
+        }).join('');
+
+        container.innerHTML = homeItem + unitItems;
+      }
+
+      function renderAll() {
+        hideZhTip();
+        renderStaticChrome();
+        renderChiasm();
+        renderUnits();
+        renderTheology();
+        renderPastoralApplication();
+        renderFooterSitemap();
+        refreshReftagger();
+      }
+
+      // -------------------------------------------------------------------
+      // 10. EVENT LISTENERS
+      // -------------------------------------------------------------------
+      function initEvents() {
+        // Language toggle
+        var langToggleBtn = document.getElementById('btn-lang-toggle');
+        if (langToggleBtn) {
+          langToggleBtn.addEventListener('click', function () {
+            appState.lang = appState.lang === 'zh' ? 'en' : 'zh';
+            saveLanguage(appState.lang);
+            renderAll();
+          });
+        }
+
+        // Mobile drawer toggle
+        var mobileBtn = document.getElementById('mobileMenuBtn');
+        var mobileMenu = document.getElementById('mobileMenu');
+        if (mobileBtn && mobileMenu) {
+          mobileBtn.addEventListener('click', function () {
+            var isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden', isOpen);
+            mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+          });
+          mobileMenu.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+              mobileMenu.classList.add('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+
+        // Password access gate submission & visibility toggle
+        var gateForm = document.getElementById('accessGateForm');
+        var pwdInput = document.getElementById('accessPasswordInput');
+        var errMsg = document.getElementById('accessErrorMsg');
+        var togglePwdBtn = document.getElementById('togglePasswordVisibility');
+        var eyeShow = document.getElementById('eyeIconShow');
+        var eyeHide = document.getElementById('eyeIconHide');
+
+        if (togglePwdBtn && pwdInput) {
+          togglePwdBtn.addEventListener('click', function () {
+            var isHidden = pwdInput.type === 'password';
+            pwdInput.type = isHidden ? 'text' : 'password';
+            if (eyeShow && eyeHide) {
+              eyeShow.classList.toggle('hidden', isHidden);
+              eyeHide.classList.toggle('hidden', !isHidden);
+            }
+            var dict = UI_TEXT[appState.lang];
+            togglePwdBtn.setAttribute('aria-label', isHidden ? dict.gateHidePwd : dict.gateShowPwd);
+          });
+        }
+
+        if (pwdInput && errMsg) {
+          pwdInput.addEventListener('input', function () {
+            errMsg.classList.add('hidden');
+            pwdInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+          });
+        }
+
+        if (gateForm && pwdInput) {
+          gateForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var entered = String(pwdInput.value || '').trim();
+            if (entered === ACCESS_PASSWORD) {
+              appState.isUnlocked = true;
+              saveUnlockState();
+              if (errMsg) errMsg.classList.add('hidden');
+              pwdInput.value = '';
+              applyAccessLockState();
+              refreshReftagger();
+            } else {
+              if (errMsg) errMsg.classList.remove('hidden');
+              pwdInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+              pwdInput.focus();
+              pwdInput.select();
+            }
+          });
+        }
+
+        // While locked, clicking section anchor links smoothly directs focus to the password gate
+        document.querySelectorAll('a[href="#chiasm"], a[href="#units"], a[href="#theology"], a[href="#application"]').forEach(function (anchor) {
+          anchor.addEventListener('click', function (e) {
+            if (!appState.isUnlocked) {
+              e.preventDefault();
+              var gateEl = document.getElementById('accessGate');
+              if (gateEl) gateEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              if (pwdInput) window.setTimeout(function () { pwdInput.focus(); }, 250);
+            }
+          });
+        });
+
+        // Delegated hover & tap events for Chinese Union Version (和合本) citations
+        if (!isTouchDevice) {
+          document.addEventListener('mouseover', function (e) {
+            var a = e.target.closest && e.target.closest('a.sc-zh');
+            if (a && a !== tipTarget) {
+              showZhTip(a);
+            } else if (a || (e.target.closest && e.target.closest('#zh-tip'))) {
+              clearTimeout(hideTipTimer);
+            }
+          });
+          document.addEventListener('mouseout', function (e) {
+            var a = e.target.closest && (e.target.closest('a.sc-zh') || e.target.closest('#zh-tip'));
+            if (a) {
+              clearTimeout(hideTipTimer);
+              hideTipTimer = window.setTimeout(hideZhTip, 220);
+            }
+          });
+          document.addEventListener('scroll', function (e) {
+            if (!tipEl.contains(e.target)) hideZhTip();
+          }, true);
+        } else {
+          document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a.sc-zh');
+            if (a) {
+              if (tipTarget === a && tipEl.classList.contains('visible')) return;
+              e.preventDefault();
+              e.stopPropagation();
+              showZhTip(a);
+              return;
+            }
+            if (!tipEl.contains(e.target)) hideZhTip();
+          }, true);
+        }
+      }
+
+      // -------------------------------------------------------------------
+      // 11. BOOTSTRAP
+      // -------------------------------------------------------------------
+      function bootstrapApp() {
+        try {
+          loadSavedLanguage();
+          loadUnlockState();
+          initEvents();
+          applyAccessLockState();
+          renderAll();
+        } catch (err) {
+          console.error('Failed to initialize Book of James course homepage:', err);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bootstrapApp);
+      } else {
+        bootstrapApp();
+      }
+    })();
+  </script>
+</body>
+</html>
