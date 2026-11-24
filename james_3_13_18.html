@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>雅各书 3:13–18 · 从上头来的清洁智慧</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#17253B',
+            navySoft: '#223452',
+            gold: '#A37B35',
+            goldLight: '#C8A35F',
+            parchment: '#FBF8F1',
+            parchmentDeep: '#F2EBDC',
+            parchmentBorder: '#E0D5BE',
+            ink: '#24221F',
+            inkMuted: '#5C574F'
+          },
+          fontFamily: {
+            sans: ['"Inter"', '"Noto Sans SC"', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"EB Garamond"', '"Noto Serif SC"', 'Georgia', 'serif']
+          },
+          boxShadow: {
+            card: '0 4px 20px -2px rgba(23, 37, 59, 0.06), 0 2px 6px -1px rgba(23, 37, 59, 0.04)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #FBF8F1;
+      color: #24221F;
+      font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    }
+
+    .hero-pattern {
+      background-color: #17253B;
+      background-image: radial-gradient(rgba(200, 163, 95, 0.14) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Color-linked Greek / Translation Tokens in Hero Scripture Box */
+    .kw-token {
+      display: inline-block;
+      padding: 0.05rem 0.42rem;
+      margin: 0 0.05rem;
+      border-radius: 0.45rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .kw-token:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .kw-zelos {
+      background: rgba(245, 158, 11, 0.22);
+      color: #FDE68A;
+      border: 1px solid rgba(251, 191, 36, 0.55);
+    }
+
+    .kw-katakauchaomai {
+      background: rgba(244, 63, 94, 0.22);
+      color: #FECDD3;
+      border: 1px solid rgba(251, 113, 133, 0.55);
+    }
+
+    .kw-akatastasia {
+      background: rgba(168, 85, 247, 0.24);
+      color: #E9D5FF;
+      border: 1px solid rgba(192, 132, 252, 0.55);
+    }
+
+    .kw-protos {
+      background: rgba(56, 189, 248, 0.20);
+      color: #BAE6FD;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+    }
+
+    .kw-hagnos {
+      background: rgba(16, 185, 129, 0.22);
+      color: #A7F3D0;
+      border: 1px solid rgba(52, 211, 153, 0.55);
+    }
+
+    .kw-epieikes {
+      background: rgba(99, 102, 241, 0.26);
+      color: #C7D2FE;
+      border: 1px solid rgba(129, 140, 248, 0.60);
+    }
+
+    /* Scripture Citations — 中文和合本 (wd.bible + tooltip) & English LSB (ref.ly + Reftagger) */
+    a.sc-zh {
+      color: #6A3D12;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(106, 61, 18, 0.55);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    a.sc-zh:hover {
+      color: #9B2226;
+      border-bottom-style: solid;
+      background: rgba(201, 162, 39, 0.14);
+      border-radius: 2px;
+    }
+
+    .sc-en {
+      white-space: normal;
+    }
+
+    .sc-en a,
+    a.rtBibleRef {
+      color: #6A3D12 !important;
+      text-decoration: none !important;
+      border-bottom: 1px dotted rgba(106, 61, 18, 0.55);
+      white-space: nowrap;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .sc-en a:hover,
+    a.rtBibleRef:hover {
+      color: #9B2226 !important;
+      border-bottom-style: solid;
+      background: rgba(201, 162, 39, 0.14);
+      border-radius: 2px;
+    }
+
+    /* Floating Chinese Union Version (和合本) Hover Tooltip */
+    #zh-tip {
+      position: fixed;
+      z-index: 3000;
+      display: none;
+      max-height: 46vh;
+      overflow: hidden;
+      flex-direction: column;
+      background: #FCF9F2;
+      border: 1px solid #8B7B65;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(43, 37, 32, 0.22);
+      font-family: 'Kaiti SC', 'STKaiti', 'KaiTi', '楷体', 'Noto Serif SC', serif;
+      color: #2B2520;
+    }
+
+    #zh-tip.visible {
+      display: flex;
+    }
+
+    #zh-tip .zt-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      padding: 7px 12px;
+      background: #EFE5CF;
+      border-bottom: 1px solid #D9CBB2;
+      font: 700 13px 'Noto Serif SC', serif;
+      border-radius: 9px 9px 0 0;
+    }
+
+    #zh-tip .zt-ver {
+      font: 500 11px 'Noto Sans SC', sans-serif;
+      color: #6A5B49;
+    }
+
+    #zh-tip .zt-body {
+      padding: 9px 12px;
+      font-size: 14.5px;
+      line-height: 1.75;
+      overflow-y: auto;
+    }
+
+    #zh-tip .zt-muted {
+      color: #7A6955;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-gold/20 selection:text-navy">
+
+  <!-- =====================================================================
+       STICKY NAVIGATION HEADER
+       ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-parchment/95 backdrop-blur border-b border-parchmentBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 min-w-0 group">
+        <div id="brandEmblem" class="w-10 h-10 rounded-xl bg-navy text-gold font-serif font-bold text-lg flex items-center justify-center shrink-0 shadow-sm group-hover:bg-navySoft transition-colors">
+          雅
+        </div>
+        <div class="min-w-0">
+          <div class="font-serif font-bold text-base sm:text-lg text-navy truncate leading-tight" data-i18n="siteTitle"></div>
+          <div class="text-[11px] sm:text-xs text-inkMuted truncate" data-i18n="siteSubtitle"></div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-inkMuted" aria-label="Unit navigation">
+        <a href="index.html" class="hover:text-navy transition-colors" data-i18n="navHome"></a>
+        <a href="#lexicon" class="hover:text-navy transition-colors" data-i18n="navLexicon"></a>
+        <a href="#meekness" class="hover:text-navy transition-colors" data-i18n="navMeekness"></a>
+        <a href="#wisdom" class="hover:text-navy transition-colors" data-i18n="navWisdom"></a>
+        <a href="#center" class="hover:text-navy transition-colors" data-i18n="navCenter"></a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button
+          id="btn-lang-toggle"
+          type="button"
+          class="flex items-center rounded-lg border border-[#8b7b65] bg-[#ede3cc] p-0.5 text-xs font-semibold shadow-sm hover:border-[#5c4a35] transition-colors"
+          title="切换到英文"
+        >
+          <span id="lang-pill-zh" class="px-2 py-1 rounded-md bg-navy text-parchment transition-colors">中文</span>
+          <span id="lang-pill-en" class="px-2 py-1 rounded-md text-[#3b3228] transition-colors">EN</span>
+        </button>
+
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="md:hidden p-2 rounded-xl border border-parchmentBorder bg-white text-navy hover:bg-parchmentDeep transition-colors"
+          aria-label="展开导航菜单"
+          aria-expanded="false"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-parchmentBorder bg-parchment px-4 py-3 space-y-1">
+      <a href="index.html" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navHome"></a>
+      <a href="#lexicon" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navLexicon"></a>
+      <a href="#meekness" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navMeekness"></a>
+      <a href="#wisdom" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navWisdom"></a>
+      <a href="#center" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navCenter"></a>
+    </div>
+  </header>
+
+  <main id="top" class="flex-1">
+
+    <!-- ===================================================================
+         HERO BANNER WITH INTERACTIVE SBL GREEK KEY PASSAGES
+         =================================================================== -->
+    <section class="hero-pattern text-white border-b-4 border-gold">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-goldLight mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-goldLight"></span>
+          <span data-i18n="heroBadge"></span>
+        </div>
+
+        <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4 leading-tight" data-i18n="heroTitle"></h1>
+
+        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-8" data-i18n="heroDesc"></p>
+
+        <!-- SBL Greek + Color-Linked Key Passages Switcher -->
+        <div class="max-w-4xl mx-auto rounded-2xl bg-white/10 border border-gold/40 backdrop-blur-sm px-5 sm:px-8 py-6 text-left shadow-lg">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3.5 mb-4 border-b border-white/15">
+            <div id="heroVerseTabs" class="flex flex-wrap gap-2" role="tablist"></div>
+            <span class="text-xs text-slate-300" data-i18n="heroGreekHint"></span>
+          </div>
+
+          <div id="heroGreekLine" class="font-serif text-base sm:text-xl text-white leading-relaxed mb-4 tracking-wide" lang="el"></div>
+          <div id="heroTransLine" class="font-serif text-base sm:text-lg text-slate-100 leading-relaxed"></div>
+          <div id="heroLegendRow" class="mt-5 pt-4 border-t border-white/15 flex flex-wrap items-center gap-2 text-xs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CONTENT ACCESS PASSWORD GATE (SHARED SESSION)
+         =================================================================== -->
+    <section id="accessGate" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-md mx-auto bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">
+        <div class="px-6 py-5 bg-parchmentDeep/80 border-b border-parchmentBorder text-center">
+          <div class="w-12 h-12 rounded-xl bg-navy text-gold mx-auto mb-3 flex items-center justify-center shadow-sm">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <span class="inline-block text-[11px] font-bold tracking-[0.2em] text-gold mb-1" data-i18n="gateEyebrow"></span>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-navy" data-i18n="gateTitle"></h2>
+        </div>
+
+        <form id="accessGateForm" class="p-6 space-y-4" novalidate>
+          <p class="text-sm text-inkMuted leading-relaxed text-center" data-i18n="gateDesc"></p>
+
+          <div>
+            <label for="accessPasswordInput" class="block text-xs font-semibold text-navy mb-1.5" data-i18n="gateLabel"></label>
+            <div class="relative">
+              <input
+                id="accessPasswordInput"
+                type="password"
+                autocomplete="current-password"
+                class="w-full rounded-xl border border-parchmentBorder bg-parchment/60 px-4 py-3 pr-11 text-sm text-navy placeholder:text-inkMuted/60 focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold transition-all"
+              />
+              <button
+                id="togglePasswordVisibility"
+                type="button"
+                class="absolute inset-y-0 right-0 px-3.5 flex items-center text-inkMuted hover:text-navy transition-colors focus:outline-none"
+                aria-label="显示密码"
+              >
+                <svg id="eyeIconShow" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+                <svg id="eyeIconHide" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+                </svg>
+              </button>
+            </div>
+            <p id="accessErrorMsg" class="hidden mt-2 text-xs font-medium text-red-700" role="alert" data-i18n="gateError"></p>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3 px-5 rounded-xl bg-navy hover:bg-gold text-white text-sm font-semibold shadow-sm transition-colors active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gold"
+            data-i18n="gateSubmit"
+          ></button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         PROTECTED EXPOSITORY CONTENT
+         =================================================================== -->
+    <div id="protectedContent" class="hidden">
+
+      <!-- PART 1: KEY GREEK LEXICON -->
+      <section id="lexicon" class="py-16 sm:py-20 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="lexEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="lexTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="lexSubtitle"></p>
+          </div>
+
+          <div id="lexiconGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+      </section>
+
+      <!-- PART 2: COMMAND 13 & TRUE BIBLICAL MEEKNESS (3:13–14) -->
+      <section id="meekness" class="py-16 sm:py-20 bg-parchmentDeep/45 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="meekEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="meekTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="meekSubtitle"></p>
+          </div>
+
+          <div id="meeknessGrid" class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start"></div>
+        </div>
+      </section>
+
+      <!-- PART 3: TWO KINDS OF WISDOM (3:15–18) -->
+      <section id="wisdom" class="py-16 sm:py-20 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="wisEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="wisTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="wisSubtitle"></p>
+          </div>
+
+          <div id="wisdomCompareGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-7 mb-8 items-start"></div>
+          <div id="sevenMarksCard" class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
+        </div>
+      </section>
+
+      <!-- PART 4: CENTER D SYNTHESIS — CHRIST IS TRUE WISDOM -->
+      <section id="center" class="py-16 sm:py-20 bg-parchmentDeep/45 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="cenEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="cenTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="cenSubtitle"></p>
+          </div>
+
+          <div id="centerSynthesisGrid" class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start"></div>
+
+          <!-- Previous / Next Unit Navigation -->
+          <div class="mt-12 pt-8 border-t border-parchmentBorder flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <a href="james_3_1_12.html" class="inline-flex items-center justify-center sm:justify-start gap-2.5 px-5 py-3.5 rounded-xl bg-white hover:bg-parchmentDeep border border-parchmentBorder text-sm font-semibold text-navy transition-colors shadow-sm">
+              <span>←</span>
+              <span data-i18n="prevUnitBtn"></span>
+            </a>
+            <a href="james_4_1_12.html" class="inline-flex items-center justify-center sm:justify-end gap-2.5 px-5 py-3.5 rounded-xl bg-navy hover:bg-gold text-white text-sm font-semibold transition-colors shadow-sm">
+              <span data-i18n="nextUnitBtn"></span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER & 9-PAGE COURSE SITEMAP
+       ===================================================================== -->
+  <footer id="protectedFooter" class="hidden bg-navy text-slate-300 border-t-4 border-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+        <div class="lg:col-span-4 space-y-3">
+          <div class="flex items-center gap-3">
+            <div id="footerEmblem" class="w-9 h-9 rounded-xl bg-white/10 border border-gold/40 text-goldLight font-serif font-bold text-base flex items-center justify-center">
+              雅
+            </div>
+            <span class="font-serif text-lg font-bold text-white" data-i18n="siteTitle"></span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="footerDesc"></p>
+        </div>
+
+        <div class="lg:col-span-8">
+          <h3 class="text-xs font-bold tracking-[0.18em] text-goldLight mb-4" data-i18n="sitemapTitle"></h3>
+          <div id="footerSitemap" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 text-xs"></div>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <span data-i18n="footerCopyright"></span>
+        <a href="#top" class="inline-flex items-center gap-1.5 text-goldLight hover:text-white transition-colors">
+          <span data-i18n="backToTop"></span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       APPLICATION LOGIC, WEEK 11 EXPOSITORY DATA & SCRIPTURE ENGINE
+       ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY_LANG = 'james_seminary_course_lang';
+      var STORAGE_KEY_AUTH = 'james_seminary_course_unlocked';
+      var ACCESS_PASSWORD = 'Maranatha2026';
+
+      var appState = {
+        lang: 'zh',
+        isUnlocked: false,
+        activeHeroPassage: 'p1'
+      };
+
+      // -------------------------------------------------------------------
+      // 1. UI DICTIONARY (STRICT SINGLE-LANGUAGE ISOLATION)
+      // -------------------------------------------------------------------
+      var UI_TEXT = {
+        zh: {
+          pageTitle: '雅各书 3:13–18 · 从上头来的清洁智慧',
+          emblem: '雅',
+          siteTitle: '雅各书研经课程',
+          siteSubtitle: '单元 D · 第11周 · 全书中心（雅 3:13–18）',
+          navHome: '课程主页',
+          navLexicon: '原文字汇',
+          navMeekness: '智慧的温柔',
+          navWisdom: '两种智慧对比',
+          navCenter: '全书中心总结',
+          langBtnTitle: '切换到英文',
+
+          heroBadge: '单元 D · 第11周 · 交叉对称中心 · 雅各书 3:13–18',
+          heroTitle: '从上头来的清洁智慧',
+          heroDesc: '全书交叉对称结构的正中心：雅各邀请一切自以为有智慧的人省察内心，鲜明对比属地属鬼魔的智慧与从上头来的清洁智慧，直指基督自己就是真智慧。',
+          heroGreekHint: '点击彩色高亮词汇跳转至词义解析',
+
+          gateEyebrow: '课程内容访问验证',
+          gateTitle: '请输入访问密码',
+          gateDesc: '本单元大标题以下的释经要点受密码保护，请输入课程访问密码解锁（同浏览器会话内只需验证一次）。',
+          gateLabel: '访问密码',
+          gatePlaceholder: '请输入访问密码',
+          gateSubmit: '解锁本单元内容',
+          gateError: '访问密码不正确，请检查后重试。',
+          gateShowPwd: '显示密码',
+          gateHidePwd: '隐藏密码',
+
+          lexEyebrow: '第一部分 · 原文字义解析',
+          lexTitle: '全书中心六大核心希腊文词汇',
+          lexSubtitle: '从苦毒的“嫉妒”、向真道“自夸”所招致的“扰乱”，到属天智慧“先”是“清洁”而后“温良”，这六个词精确勾勒两种智慧的本质鸿沟。',
+
+          meekEyebrow: '第二部分 · 雅各书 3:13–14',
+          meekTitle: '命令 13：在智慧的温柔上显出善行',
+          meekSubtitle: '紧承 3:1 对教师职分的警戒，雅各进一步向所有为自己智慧骄傲的弟兄发问：真智慧不是口头炫耀，而是在真实谦卑中活出善行。',
+
+          wisEyebrow: '第三部分 · 雅各书 3:15–18',
+          wisTitle: '鬼魔的智慧对比上帝的智慧',
+          wisSubtitle: '“但”字引出全段乃至全书的核心句：两种智慧拥有截然不同的源头、本质属性与教会果效。',
+
+          cenEyebrow: '第四部分 · 全书交叉对称中心总结',
+          cenTitle: '主耶稣就是真正的智慧',
+          cenSubtitle: '从全书结构的高峰回望，真正清洁的智慧并非人的道德修养，而是圣灵所赐、十字架所彰显、在基督里活出的属天生命。',
+
+          prevUnitBtn: '上一单元：雅各书 3:1–12（第9–10周）',
+          nextUnitBtn: '下一单元：雅各书 4:1–12（第12–14周）',
+
+          footerDesc: '本课程网站依据圣经归纳法查经十九讲内容编撰，旨在帮助信徒以清洁属神的智慧研读圣经、在基督里生活并在教会中忠心服事。',
+          sitemapTitle: '课程页面导航（全九页）',
+          footerCopyright: '雅各书圣经归纳法查经课程 · 仅作教会与神学研习使用',
+          backToTop: '返回顶部',
+          sitemapHomeTag: '课程主页',
+          sitemapHomeLabel: '主页 · 文体结构与神学'
+        },
+        en: {
+          pageTitle: 'James 3:13–18 · Pure Wisdom from Above',
+          emblem: 'J',
+          siteTitle: 'Epistle of James Course',
+          siteSubtitle: 'Unit D · Week 11 · Center of the Book (James 3:13–18)',
+          navHome: 'Course Home',
+          navLexicon: 'Greek Lexicon',
+          navMeekness: 'Meekness of Wisdom',
+          navWisdom: 'Two Wisdoms',
+          navCenter: 'Center Synthesis',
+          langBtnTitle: 'Switch to Chinese',
+
+          heroBadge: 'Unit D · Week 11 · Chiastic Center · James 3:13–18',
+          heroTitle: 'Pure Wisdom from Above',
+          heroDesc: 'Standing at the exact center of the book’s chiasm, James calls everyone who prides themselves on wisdom to self-examination, contrasting demonic wisdom with pure heavenly wisdom—culminating in Christ Himself.',
+          heroGreekHint: 'Click any color-linked word to jump to its lexicon note',
+
+          gateEyebrow: 'COURSE CONTENT ACCESS',
+          gateTitle: 'Enter Access Password',
+          gateDesc: 'Expository notes below this banner are password-protected. Enter the course password to unlock (stays unlocked for your browser session).',
+          gateLabel: 'Access Password',
+          gatePlaceholder: 'Enter access password',
+          gateSubmit: 'Unlock This Unit',
+          gateError: 'Incorrect password. Please check and try again.',
+          gateShowPwd: 'Show password',
+          gateHidePwd: 'Hide password',
+
+          lexEyebrow: 'PART 1 · KEY GREEK VOCABULARY',
+          lexTitle: 'Six Pivotal Greek Terms at the Center',
+          lexSubtitle: 'From bitter “jealousy,” arrogant “boasting,” and “disorder,” to wisdom that is “first” “pure” and “gentle,” these six Greek words define the gulf between earthly and heavenly wisdom.',
+
+          meekEyebrow: 'PART 2 · JAMES 3:13–14',
+          meekTitle: 'Command 13: Show Good Deeds in Meekness of Wisdom',
+          meekSubtitle: 'Continuing from 3:1’s warning to aspiring teachers, James challenges all who boast in their wisdom: genuine wisdom proves itself in humble deeds rather than bitter rivalry.',
+
+          wisEyebrow: 'PART 3 · JAMES 3:15–18',
+          wisTitle: 'Demonic Wisdom vs. Godly Wisdom from Above',
+          wisSubtitle: 'The contrasting conjunction “But” introduces the core sentence of the entire epistle—comparing two rival sources, their character traits, and their harvest in the church.',
+
+          cenEyebrow: 'PART 4 · CHIASTIC CENTER SYNTHESIS',
+          cenTitle: 'The Lord Jesus Christ Is True Wisdom',
+          cenSubtitle: 'From the literary climax of the letter, pure wisdom is not human self-improvement, but the wisdom of the Spirit and the cross embodied in Christ Himself.',
+
+          prevUnitBtn: 'Previous Unit: James 3:1–12 (Weeks 9–10)',
+          nextUnitBtn: 'Next Unit: James 4:1–12 (Weeks 12–14)',
+
+          footerDesc: 'Built from the 19-week Inductive Bible Study course on the Epistle of James, equipping believers to live in Christ and serve faithfully in the church with pure, godly wisdom.',
+          sitemapTitle: 'COURSE SITEMAP (9 PAGES)',
+          footerCopyright: 'Epistle of James Inductive Bible Study · For Church & Seminary Study',
+          backToTop: 'Back to Top',
+          sitemapHomeTag: 'Home Page',
+          sitemapHomeLabel: 'Home · Structure & Theology'
+        }
+      };
+
+      // -------------------------------------------------------------------
+      // 2. HERO SBL GREEK KEY PASSAGES WITH COLOR-LINKED KEYWORDS
+      // -------------------------------------------------------------------
+      var HERO_PASSAGES = [
+        {
+          id: 'p1',
+          tab: { zh: '雅 3:14–16 · 属地的智慧', en: 'Jas 3:14–16 · Earthly Wisdom' },
+          greek:
+            'εἰ δὲ <a href="#lex-zelos" class="kw-token kw-zelos">ζῆλον</a> πικρὸν ἔχετε καὶ ἐριθείαν ἐν τῇ καρδίᾳ ὑμῶν, μὴ <a href="#lex-katakauchaomai" class="kw-token kw-katakauchaomai">κατακαυχᾶσθε</a> καὶ ψεύδεσθε κατὰ τῆς ἀληθείας… ὅπου γὰρ <a href="#lex-zelos" class="kw-token kw-zelos">ζῆλος</a> καὶ ἐριθεία, ἐκεῖ <a href="#lex-akatastasia" class="kw-token kw-akatastasia">ἀκαταστασία</a> καὶ πᾶν φαῦλον πρᾶγμα.',
+          trans: {
+            zh: '你们心里若怀着苦毒的<a href="#lex-zelos" class="kw-token kw-zelos">嫉妒</a>和纷争，就不可<a href="#lex-katakauchaomai" class="kw-token kw-katakauchaomai">自夸</a>，也不可说谎话抵挡真道……在何处有<a href="#lex-zelos" class="kw-token kw-zelos">嫉妒</a>、纷争，就在何处有<a href="#lex-akatastasia" class="kw-token kw-akatastasia">扰乱</a>和各样的坏事。',
+            en: 'But if you have bitter <a href="#lex-zelos" class="kw-token kw-zelos">jealousy</a> and selfish ambition in your heart, do not <a href="#lex-katakauchaomai" class="kw-token kw-katakauchaomai">be arrogant (boast)</a> and so lie against the truth… For where <a href="#lex-zelos" class="kw-token kw-zelos">jealousy</a> and selfish ambition exist, there is <a href="#lex-akatastasia" class="kw-token kw-akatastasia">disorder</a> and every evil thing.'
+          },
+          legend: [
+            { id: 'lex-zelos', cls: 'kw-zelos', greek: 'ζῆλος', strongs: 'G2205', zh: '嫉妒 / 热心', en: 'jealousy / zeal' },
+            { id: 'lex-katakauchaomai', cls: 'kw-katakauchaomai', greek: 'κατακαυχάομαι', strongs: 'G2620', zh: '自夸 / 夸胜', en: 'boast arrogantly' },
+            { id: 'lex-akatastasia', cls: 'kw-akatastasia', greek: 'ἀκαταστασία', strongs: 'G181', zh: '扰乱 / 混乱', en: 'disorder / instability' }
+          ]
+        },
+        {
+          id: 'p2',
+          tab: { zh: '雅 3:17–18 · 从上头来的智慧', en: 'Jas 3:17–18 · Wisdom from Above' },
+          greek:
+            'ἡ δὲ ἄνωθεν σοφία <a href="#lex-protos" class="kw-token kw-protos">πρῶτον</a> μὲν <a href="#lex-hagnos" class="kw-token kw-hagnos">ἁγνή</a> ἐστιν, ἔπειτα εἰρηνική, <a href="#lex-epieikes" class="kw-token kw-epieikes">ἐπιεικής</a>, εὐπειθής, μεστὴ ἐλέους καὶ καρπῶν ἀγαθῶν, ἀδιάκριτος, ἀνυπόκριτος· καρπὸς δὲ δικαιοσύνης ἐν εἰρήνῃ σπείρεται τοῖς ποιοῦσιν εἰρήνην.',
+          trans: {
+            zh: '惟独从上头来的智慧，<a href="#lex-protos" class="kw-token kw-protos">先</a>是<a href="#lex-hagnos" class="kw-token kw-hagnos">清洁</a>，后是和平、<a href="#lex-epieikes" class="kw-token kw-epieikes">温良</a>、柔顺、满有怜悯、多结善果、没有偏见、没有假冒；并且使人和平的，是用和平所栽种的义果。',
+            en: 'But the wisdom from above is <a href="#lex-protos" class="kw-token kw-protos">first</a> <a href="#lex-hagnos" class="kw-token kw-hagnos">pure</a>, then peaceable, <a href="#lex-epieikes" class="kw-token kw-epieikes">gentle</a>, reasonable, full of mercy and good fruits, unwavering, without hypocrisy. And the seed whose fruit is righteousness is sown in peace by those who make peace.'
+          },
+          legend: [
+            { id: 'lex-protos', cls: 'kw-protos', greek: 'πρῶτος', strongs: 'G4413', zh: '先 / 首要性', en: 'first (in priority)' },
+            { id: 'lex-hagnos', cls: 'kw-hagnos', greek: 'ἁγνός', strongs: 'G53', zh: '清洁 / 纯洁圣洁', en: 'pure (root: holy)' },
+            { id: 'lex-epieikes', cls: 'kw-epieikes', greek: 'ἐπιεικής', strongs: 'G1933', zh: '温良 / 宽容仁慈', en: 'gentle / forbearing' }
+          ]
+        }
+      ];
+
+      // -------------------------------------------------------------------
+      // 3. MULTI-BOOK SCRIPTURE ENGINE (和合本 TOOLTIP + LSB REFTAGGER)
+      // -------------------------------------------------------------------
+      var BOOKS = {
+        Exo:   { wd: 'exo', zh: '出',   enShort: 'Exod',    enFull: 'Exodus',           gb: 2 },
+        Num:   { wd: 'num', zh: '民',   enShort: 'Num',     enFull: 'Numbers',          gb: 4 },
+        Psa:   { wd: 'psa', zh: '诗',   enShort: 'Ps',      enFull: 'Psalms',           gb: 19 },
+        Pro:   { wd: 'pro', zh: '箴',   enShort: 'Prov',    enFull: 'Proverbs',         gb: 20 },
+        Isa:   { wd: 'isa', zh: '赛',   enShort: 'Isa',     enFull: 'Isaiah',           gb: 23 },
+        Jer:   { wd: 'jer', zh: '耶',   enShort: 'Jer',     enFull: 'Jeremiah',         gb: 24 },
+        Mat:   { wd: 'mat', zh: '太',   enShort: 'Matt',    enFull: 'Matthew',          gb: 40 },
+        Joh:   { wd: 'jhn', zh: '约',   enShort: 'John',    enFull: 'John',             gb: 43 },
+        Act:   { wd: 'act', zh: '徒',   enShort: 'Acts',    enFull: 'Acts',             gb: 44 },
+        Rom:   { wd: 'rom', zh: '罗',   enShort: 'Rom',     enFull: 'Romans',           gb: 45 },
+        '1Co': { wd: '1co', zh: '林前', enShort: '1 Cor',   enFull: '1 Corinthians',    gb: 46 },
+        '2Co': { wd: '2co', zh: '林后', enShort: '2 Cor',   enFull: '2 Corinthians',    gb: 47 },
+        Gal:   { wd: 'gal', zh: '加',   enShort: 'Gal',     enFull: 'Galatians',        gb: 48 },
+        Eph:   { wd: 'eph', zh: '弗',   enShort: 'Eph',     enFull: 'Ephesians',        gb: 49 },
+        Col:   { wd: 'col', zh: '西',   enShort: 'Col',     enFull: 'Colossians',       gb: 51 },
+        '1Ti': { wd: '1ti', zh: '提前', enShort: '1 Tim',   enFull: '1 Timothy',        gb: 54 },
+        '2Ti': { wd: '2ti', zh: '提后', enShort: '2 Tim',   enFull: '2 Timothy',        gb: 55 },
+        Tit:   { wd: 'tit', zh: '多',   enShort: 'Titus',   enFull: 'Titus',            gb: 56 },
+        Heb:   { wd: 'heb', zh: '来',   enShort: 'Heb',     enFull: 'Hebrews',          gb: 58 },
+        Jas:   { wd: 'jas', zh: '雅',   enShort: 'James',   enFull: 'James',            gb: 59 },
+        '1Pe': { wd: '1pe', zh: '彼前', enShort: '1 Pet',   enFull: '1 Peter',          gb: 60 },
+        Jud:   { wd: 'jud', zh: '犹',   enShort: 'Jude',    enFull: 'Jude',             gb: 65 }
+      };
+
+      var CUV_FALLBACK = {
+        'Exo 4:10-16': '摩西对耶和华说：“主啊，我素日不是能言的人……”耶和华对他说：“谁造人的口呢？……现在去吧，我必赐你口才，指教你所当说的话。”',
+        'Exo 34:14': '不可敬拜别神，因为耶和华是忌邪的神，名为忌邪者。',
+        'Num 12:3': '摩西为人极其谦和，胜过世上的众人。',
+        'Num 25:11-13': '祭司亚伦的孙子、以利亚撒的儿子非尼哈，使我向以色列人所发的怒消了；因他在他们中间，以我的忌邪为心……',
+        'Psa 126:5-6': '流泪撒种的，必欢呼收割。那带种流泪出去的，必要欢欢乐乐地带禾捆回来。',
+        'Pro 1:7': '敬畏耶和华是知识的开端；愚妄人藐视智慧和训诲。',
+        'Pro 2:20': '智慧必使你行善人的道，守义人的路。',
+        'Pro 11:30': '义人所结的果子就是生命树；有智慧的，必能得人。',
+        'Isa 55:8-9': '耶和华说：“我的意念非同你们的意念；我的道路非同你们的道路。天怎样高过地，照样，我的道路高过你们的道路；我的意念高过你们的意念。”',
+        'Jer 9:23-24': '耶和华如此说：“智慧人不要因他的智慧夸口，勇士不要因他的勇力夸口，财主不要因他的财物夸口。夸口的却因他有聪明，认识我是耶和华……”',
+        'Jer 17:9-10': '人心比万物都诡诈，坏到极处，谁能识透呢？我耶和华是鉴察人心、试验人肺腑的……',
+        'Mat 5:9': '使人和睦的人有福了！因为他们必称为神的儿子。',
+        'Mat 6:33': '你们要先求他的国和他的义，这些东西都要加给你们了。',
+        'Joh 2:17': '他的门徒就想起经上记着说：“我为你的殿心里焦急，如同火烧。”',
+        'Joh 3:12': '我对你们说地上的事，你们尚且不信，若说天上的事，如何能信呢？',
+        'Act 5:17-18': '大祭司和他的一切同人，就是撒都该教门的人，都起来，满心忌恨，就下手拿住使徒，收在外监。',
+        'Act 8:23': '我看出你正在苦胆之中，被罪恶捆绑。',
+        'Rom 1:8': '第一，我靠着耶稣基督，为你们众人感谢我的神……',
+        'Rom 10:2': '我可以证明，他们向神有热心，但不是按着真知识。',
+        'Rom 11:18': '你就不可向旧枝子夸口；若是夸口，当知道不是你托着根，乃是根托着你。',
+        'Rom 13:13': '行事为人要端正，好像行在白昼……不可争竞嫉妒。',
+        '1Co 1:24': '但在那蒙召的，无论是犹太人、希腊人，基督总为神的能力，神的智慧。',
+        '1Co 1:30': '但你们得在基督耶稣里是本乎神，神又使他成为我们的智慧、公义、圣洁、救赎。',
+        '1Co 3:3': '你们仍是属肉体的，因为在你们中间有嫉妒、纷争，这岂不是属乎肉体、照着世人的样子行吗？',
+        '1Co 14:33': '因为神不是叫人混乱，乃是叫人安静。',
+        '1Co 15:47-49': '头一个人是出于地，乃属土；第二个人是出于天……我们既有属土的形状，将来也必有属天的形状。',
+        '2Co 12:9-10': '他对我说：“我的恩典够你用的，因为我的能力是在人的软弱上显得完全。”所以我更喜欢夸自己的软弱……',
+        '2Co 12:20': '我怕我再来的时候，见你们不合我所想望的……又怕有纷争、嫉妒、恼怒、结党、毁谤、谗言、狂傲、混乱的事。',
+        'Gal 5:22-23': '圣灵所结的果子，就是仁爱、喜乐、和平、忍耐、恩慈、良善、信实、温柔、节制。',
+        'Gal 6:1': '弟兄们，若有人偶然被过犯所胜，你们属灵的人就当用温柔的心把他挽回过来……',
+        'Gal 6:7-9': '人种的是什么，收的也是什么……我们行善，不可丧志；若不灰心，到了时候就要收成。',
+        'Eph 2:14': '因他使我们和睦，将两下合而为一，拆毁了中间隔断的墙；',
+        'Eph 4:1-3': '凡事谦虚、温柔、忍耐，用爱心互相宽容，用和平彼此联络，竭力保守圣灵所赐合而为一的心。',
+        'Col 3:12': '所以，你们既是神的选民，圣洁蒙爱的人，就要存怜悯、恩慈、谦虚、温柔、忍耐的心。',
+        '1Ti 3:3': '不因酒滋事，不打人，只要温和，不争竞，不贪财；',
+        '2Ti 2:25': '用温柔劝戒那抵挡的人；或者神给他们悔改的心，可以明白真道，',
+        'Tit 3:1-2': '不要毁谤，不要争竞，总要和平，向众人大显温柔。',
+        'Heb 12:14': '你们要追求与众人和睦，并要追求圣洁；非圣洁没有人能见主。',
+        'Jas 1:5-8': '你们中间若有缺少智慧的，应当求那厚赐与众人、也不斥责人的神，主就必赐给他……心怀二意的人，在他一切所行的路上都没有定见。',
+        'Jas 1:21': '所以，你们要脱去一切的污秽和盈余的邪恶，存温柔的心领受那所栽种的道，就是能救你们灵魂的道。',
+        'Jas 1:25': '惟有详细察看那全备、使人自由之律法的，并且时常如此，这人既不是听了就忘，乃是实在行出来，就在他所行的事上必然得福。',
+        'Jas 2:18': '必有人说：“你有信心，我有行为；你将你没有行为的信心指给我看，我便藉着我的行为，将我的信心指给你看。”',
+        'Jas 3:1': '我的弟兄们，不要多人作师傅，因为晓得我们要受更重的判断。',
+        'Jas 3:13-14': '你们中间谁是有智慧有见识的呢？他就当在智慧的温柔上显出他的善行来。你们心里若怀着苦毒的嫉妒和纷争，就不可自夸，也不可说谎话抵挡真道。',
+        'Jas 3:15-16': '这样的智慧不是从上头来的，乃是属地的，属情欲的，属鬼魔的。在何处有嫉妒、纷争，就在何处有扰乱和各样的坏事。',
+        'Jas 3:17-18': '惟独从上头来的智慧，先是清洁，后是和平，温良柔顺，满有怜悯，多结善果，没有偏见，没有假冒。并且使人和平的，是用和平所栽种的义果。',
+        'Jas 4:7': '故此，你们要顺服神。务要抵挡魔鬼，魔鬼就必离开你们逃跑了。',
+        '1Pe 2:12': '你们在外邦人中，应当品行端正，叫那些毁谤你们是作恶的，因看见你们的好行为，便在鉴察的日子归荣耀给神。',
+        '1Pe 2:18': '你们作仆人的，凡事要存敬畏的心顺服主人；不但顺服那善良温和的，就是那乖僻的也要顺服。',
+        'Jud 1:19': '这就是那些引人结党、属乎血气、没有圣灵的人。'
+      };
+
+      var CUV_CHAPTER_CACHE = {};
+
+      function cleanZhText(t) {
+        return String(t || '')
+          .replace(/\s+/g, ' ')
+          .replace(/([\u3000-\u303f\u4e00-\u9fff\uff00-\uffef“”‘’])\s+(?=[\u3000-\u303f\u4e00-\u9fff\uff00-\uffef“”‘’])/g, '$1')
+          .trim();
+      }
+
+      function parseRef(raw) {
+        var clean = String(raw || '').replace(/–/g, '-').trim();
+        var m = clean.match(/^([1-3]?[A-Za-z]+)\s+(\d+)(?::(\d+)(?:-(\d+):(\d+)|-(\d+))?)?$/);
+        if (!m || !BOOKS[m[1]]) {
+          return { key: clean, book: 'Jas', sc: 3, sv: 13, ec: 3, ev: 18, wholeChap: false };
+        }
+        var book = m[1];
+        var sc = parseInt(m[2], 10);
+        var wholeChap = !m[3];
+        var sv = m[3] ? parseInt(m[3], 10) : 1;
+        var ec = m[4] ? parseInt(m[4], 10) : sc;
+        var ev = m[5] ? parseInt(m[5], 10) : (m[6] ? parseInt(m[6], 10) : (wholeChap ? 999 : sv));
+        return { key: clean, book: book, sc: sc, sv: sv, ec: ec, ev: ev, wholeChap: wholeChap };
+      }
+
+      function buildScriptureHTML(raw) {
+        var p = parseRef(raw);
+        var B = BOOKS[p.book];
+        var isSingleChapBook = p.book === 'Jud';
+        var rangeStr = p.wholeChap
+          ? String(p.sc)
+          : (p.ec !== p.sc
+              ? (p.sc + ':' + p.sv + '-' + p.ec + ':' + p.ev)
+              : (p.ev !== p.sv ? (p.sc + ':' + p.sv + '-' + p.ev) : (p.sc + ':' + p.sv)));
+
+        if (appState.lang === 'zh') {
+          var labelZh = isSingleChapBook
+            ? (B.zh + ' ' + (p.ev !== p.sv ? (p.sv + '–' + p.ev) : String(p.sv)))
+            : (B.zh + ' ' + rangeStr.replace(/-/g, '–'));
+          var wdUrl = 'https://wd.bible/bible/verse/' + B.wd + '.' + p.sc + '.' + p.sv + '.cunps';
+          return (
+            '<a class="sc-zh" href="' + wdUrl + '" target="_blank" rel="noopener noreferrer" ' +
+            'data-refkey="' + p.key + '" data-gb="' + B.gb + '" data-sc="' + p.sc + '" data-sv="' + p.sv + '" ' +
+            'data-ec="' + p.ec + '" data-ev="' + p.ev + '" data-full="' + labelZh + '">' +
+            labelZh + '</a>'
+          );
+        }
+
+        var labelEn = B.enShort + ' ' + rangeStr;
+        var fullEn = B.enFull + ' ' + rangeStr;
+        var refLyUrl = 'https://ref.ly/' + encodeURIComponent(fullEn) + ';lsb';
+        return (
+          '<span class="sc-en"><a href="' + refLyUrl + '" target="_blank" rel="noopener noreferrer" data-ref="' + fullEn + '">' +
+          labelEn + '</a></span>'
+        );
+      }
+
+      function renderRichText(str) {
+        return String(str || '').replace(/\[\[(.+?)\]\]/g, function (_, ref) {
+          return buildScriptureHTML(ref);
+        });
+      }
+
+      function fetchChapterCuv(bookNum, chapNum) {
+        var cacheKey = bookNum + '/' + chapNum;
+        if (!CUV_CHAPTER_CACHE[cacheKey]) {
+          CUV_CHAPTER_CACHE[cacheKey] = fetch('https://api.getbible.net/v2/cus/' + bookNum + '/' + chapNum + '.json')
+            .then(function (r) {
+              if (!r.ok) throw new Error('HTTP ' + r.status);
+              return r.json();
+            })
+            .then(function (json) {
+              return (json.verses || []).map(function (v) {
+                return { c: Number(v.chapter || chapNum), v: Number(v.verse), t: cleanZhText(v.text) };
+              });
+            })
+            .catch(function (err) {
+              delete CUV_CHAPTER_CACHE[cacheKey];
+              throw err;
+            });
+        }
+        return CUV_CHAPTER_CACHE[cacheKey];
+      }
+
+      function getCuvTooltipText(dataset) {
+        var key = dataset.refkey;
+        var gb = Number(dataset.gb);
+        var sc = Number(dataset.sc);
+        var sv = Number(dataset.sv);
+        var ec = Number(dataset.ec);
+        var ev = Number(dataset.ev);
+        var maxVerses = 5;
+
+        var estCount = (ec === sc) ? (ev - sv + 1) : 10;
+        if (estCount > maxVerses && CUV_FALLBACK[key]) {
+          return Promise.resolve(CUV_FALLBACK[key]);
+        }
+
+        var chapters = [];
+        for (var c = sc; c <= ec; c++) chapters.push(c);
+
+        return Promise.all(chapters.map(function (ch) { return fetchChapterCuv(gb, ch); }))
+          .then(function (lists) {
+            var collected = [];
+            var truncated = false;
+            lists.forEach(function (vs, idx) {
+              var ch = chapters[idx];
+              vs.forEach(function (item) {
+                var from = (ch === sc) ? sv : 1;
+                var to = (ch === ec) ? ev : 999;
+                if (item.v >= from && item.v <= to) {
+                  if (collected.length < maxVerses) {
+                    collected.push(item.t);
+                  } else {
+                    truncated = true;
+                  }
+                }
+              });
+            });
+            if (!collected.length) {
+              return CUV_FALLBACK[key] || '点击打开微读圣经查阅完整经文。';
+            }
+            return collected.join('') + (truncated ? '……' : '');
+          })
+          .catch(function () {
+            return CUV_FALLBACK[key] || '点击打开微读圣经查阅完整经文。';
+          });
+      }
+
+      // Floating CUV Tooltip DOM
+      var tipEl = document.createElement('div');
+      tipEl.id = 'zh-tip';
+      tipEl.setAttribute('role', 'tooltip');
+      document.body.appendChild(tipEl);
+
+      var isTouchDevice = window.matchMedia && window.matchMedia('(hover: none)').matches;
+      var tipTarget = null;
+      var hideTipTimer = null;
+
+      function positionTip(anchor) {
+        var rect = anchor.getBoundingClientRect();
+        var width = Math.min(360, window.innerWidth - 16);
+        tipEl.style.width = width + 'px';
+        var left = Math.min(Math.max(8, rect.left + rect.width / 2 - width / 2), window.innerWidth - width - 8);
+        tipEl.style.left = left + 'px';
+        var height = tipEl.offsetHeight || 120;
+        var below = rect.bottom + 8;
+        var above = rect.top - height - 8;
+        tipEl.style.top = (below + height < window.innerHeight - 8 || above < 8 ? below : above) + 'px';
+      }
+
+      function showZhTip(anchor) {
+        clearTimeout(hideTipTimer);
+        tipTarget = anchor;
+        var d = anchor.dataset;
+        var immediateText = CUV_FALLBACK[d.refkey];
+        tipEl.innerHTML =
+          '<div class="zt-head"><span>' + d.full + '</span><span class="zt-ver">和合本</span></div>' +
+          '<div class="zt-body">' + (immediateText ? immediateText : '<span class="zt-muted">经文载入中……</span>') + '</div>';
+        tipEl.classList.add('visible');
+        positionTip(anchor);
+
+        getCuvTooltipText(d).then(function (text) {
+          if (tipTarget !== anchor) return;
+          var bodyEl = tipEl.querySelector('.zt-body');
+          if (bodyEl) {
+            bodyEl.textContent = text;
+            positionTip(anchor);
+          }
+        });
+      }
+
+      function hideZhTip() {
+        tipEl.classList.remove('visible');
+        tipTarget = null;
+      }
+
+      // -------------------------------------------------------------------
+      // 4. LOGOS REFTAGGER V2 (ENGLISH LSB HOVER)
+      // -------------------------------------------------------------------
+      window.refTagger = {
+        settings: {
+          bibleVersion: 'LSB',
+          socialSharing: [],
+          tooltipStyle: 'light',
+          roundCorners: true,
+          convertHyperlinks: true,
+          tagChapters: true,
+          noSearchClassNames: ['sc-zh', 'no-rt'],
+          customStyle: {
+            heading: { backgroundColor: '#EFE5CF', color: '#2B2520' },
+            body: { color: '#2B2520' }
+          }
+        }
+      };
+
+      (function loadRefTagger() {
+        try {
+          var s = document.createElement('script');
+          s.src = 'https://api.reftagger.com/v2/RefTagger.js';
+          s.async = true;
+          document.body.appendChild(s);
+        } catch (err) {}
+      })();
+
+      function refreshReftagger() {
+        if (appState.lang !== 'en' || !appState.isUnlocked) return;
+        var run = function () {
+          try {
+            if (window.refTagger && typeof window.refTagger.tag === 'function') {
+              window.refTagger.tag(document.getElementById('protectedContent'));
+            }
+          } catch (err) {}
+        };
+        run();
+        window.setTimeout(run, 500);
+      }
+
+      // -------------------------------------------------------------------
+      // 5. WEEK 11 EXPOSITORY CONTENT DATA
+      // -------------------------------------------------------------------
+      var LEXICON_ITEMS = [
+        {
+          id: 'lex-zelos',
+          barColor: 'bg-amber-500',
+          pillCls: 'bg-amber-100 text-amber-900 border-amber-300',
+          greek: 'ζῆλος',
+          verseForm: 'ζῆλον / ζῆλος (3:14, 16)',
+          translit: 'zēlos',
+          strongs: 'G2205',
+          matchedWord: { zh: '嫉妒 / 热心', en: 'jealousy / zeal' },
+          gloss: { zh: '褒义指热心委身，贬义指苦毒嫉妒', en: 'Positive: fervent zeal; negative: bitter jealousy' },
+          note: {
+            zh: '中性/褒义指对神的圣洁热诚与忌邪（[[Exo 34:14]]；[[Num 25:11-13]]；[[Joh 2:17]]；[[Rom 10:2]]）；贬义则指因别人成就产生的强烈负面嫉妒（[[Act 5:17-18]]；[[Rom 13:13]]；[[1Co 3:3]]；[[2Co 12:20]]），加上“苦毒的”（[[Act 8:23]]）更显其破坏性。',
+            en: 'Positively denotes holy zeal and devotion ([[Exo 34:14]]; [[Num 25:11-13]]; [[Joh 2:17]]; [[Rom 10:2]]); negatively denotes resentful jealousy over others’ success ([[Act 5:17-18]]; [[Rom 13:13]]; [[1Co 3:3]]; [[2Co 12:20]]), intensified here by “bitter” ([[Act 8:23]]).'
+          }
+        },
+        {
+          id: 'lex-katakauchaomai',
+          barColor: 'bg-rose-500',
+          pillCls: 'bg-rose-100 text-rose-900 border-rose-300',
+          greek: 'κατακαυχάομαι',
+          verseForm: 'κατακαυχᾶσθε (3:14)',
+          translit: 'katakauchaomai',
+          strongs: 'G2620',
+          matchedWord: { zh: '自夸', en: 'be arrogant / boast' },
+          gloss: { zh: '凌驾于人之上的骄傲自夸', en: 'To boast arrogantly against others or against truth' },
+          note: {
+            zh: '心里怀着嫉妒纷争却仍标榜自己属灵有智慧，本质上就是“说谎话抵挡真道”（[[Jas 3:13-14]]）。惟有指着主与自己的软弱夸口才合神心意（[[Rom 11:18]]；[[2Co 12:9-10]]；[[Jer 9:23-24]]）。',
+            en: 'Claiming spiritual wisdom while harboring bitter rivalry is arrogant boasting that lies against the truth ([[Jas 3:13-14]]). True boasting rests only in the Lord and in our weakness ([[Rom 11:18]]; [[2Co 12:9-10]]; [[Jer 9:23-24]]).'
+          }
+        },
+        {
+          id: 'lex-akatastasia',
+          barColor: 'bg-purple-500',
+          pillCls: 'bg-purple-100 text-purple-900 border-purple-300',
+          greek: 'ἀκαταστασία',
+          verseForm: 'ἀκαταστασία (3:16)',
+          translit: 'akatastasia',
+          strongs: 'G181',
+          matchedWord: { zh: '扰乱', en: 'disorder' },
+          gloss: { zh: '动荡、混乱、无秩序状态', en: 'Disorder, instability, tumult' },
+          note: {
+            zh: '源自 [[Jas 1:5-8]]“心怀二意、没有定见”（ἀκατάστατος，G182）。神不是叫人混乱的神，乃是叫人安静有序的神（[[1Co 14:33]]）；教会的宗派之争、恩赐之争与门户之争，正是属鬼魔智慧的果子。',
+            en: 'Cognate with “unstable / double-minded” (ἀκατάστατος, G182) in [[Jas 1:5-8]]. God is not a God of disorder but of peace ([[1Co 14:33]]); factionalism and gift-rivalry in the church are the bitter harvest of demonic wisdom.'
+          }
+        },
+        {
+          id: 'lex-protos',
+          barColor: 'bg-sky-500',
+          pillCls: 'bg-sky-100 text-sky-900 border-sky-300',
+          greek: 'πρῶτος',
+          verseForm: 'πρῶτον (3:17)',
+          translit: 'prōtos',
+          strongs: 'G4413',
+          matchedWord: { zh: '先（首要）', en: 'first (in priority)' },
+          gloss: { zh: '首要的、最根本的优先次序', en: 'First in rank, priority, and foundational importance' },
+          note: {
+            zh: '圣经中使用此词通常强调“首要性”而非仅仅是时间次序（[[Mat 6:33]]；[[Rom 1:8]]）。从上头来的智慧，一切美德都建立在最根本的根基——“清洁”之上（[[Jas 3:17-18]]）。',
+            en: 'In Scripture this word stresses foundational priority rather than mere sequence ([[Mat 6:33]]; [[Rom 1:8]]). Every quality of heavenly wisdom flows from its supreme root: purity ([[Jas 3:17-18]]).'
+          }
+        },
+        {
+          id: 'lex-hagnos',
+          barColor: 'bg-emerald-500',
+          pillCls: 'bg-emerald-100 text-emerald-900 border-emerald-300',
+          greek: 'ἁγνός',
+          verseForm: 'ἁγνή (3:17)',
+          translit: 'hagnos',
+          strongs: 'G53',
+          matchedWord: { zh: '清洁', en: 'pure' },
+          gloss: { zh: '纯洁、圣洁、毫无搀杂与虚伪', en: 'Pure, chaste, morally undefiled' },
+          note: {
+            zh: '词根源自 ἅγιος（G40，“圣”！）。没有以神的圣洁为前提的“和平”只是妥协与乡愿；惟有动机纯正、归神为圣的智慧，才能结出真正的和平与义果（[[Heb 12:14]]）。',
+            en: 'Shares its root with ἅγιος (G40, “holy”). Peace without holiness is mere compromise; only wisdom rooted in God’s own purity can cultivate true peace and righteousness ([[Heb 12:14]]).'
+          }
+        },
+        {
+          id: 'lex-epieikes',
+          barColor: 'bg-indigo-500',
+          pillCls: 'bg-indigo-100 text-indigo-900 border-indigo-300',
+          greek: 'ἐπιεικής',
+          verseForm: 'ἐπιεικής (3:17)',
+          translit: 'epieikēs',
+          strongs: 'G1933',
+          matchedWord: { zh: '温良', en: 'gentle' },
+          gloss: { zh: '温和、宽容、仁慈、不固执己见', en: 'Gentle, forbearing, considerate, willing to yield' },
+          note: {
+            zh: '新约常用于监督与信徒的成熟品格（[[1Ti 3:3]]；[[Tit 3:1-2]]；[[1Pe 2:18]]），紧接其后的“柔顺”（εὐπειθής，G2138，乐意听劝）与“没有偏见”（ἀδιάκριτος，G87，不动摇、不偏心）共同刻画灵里合一的群体样式。',
+            en: 'A hallmark of mature leadership and Christian conduct ([[1Ti 3:3]]; [[Tit 3:1-2]]; [[1Pe 2:18]]). Paired with “reasonable / willing to yield” (εὐπειθής, G2138) and “unwavering / impartial” (ἀδιάκριτος, G87), it depicts Spirit-led unity.'
+          }
+        }
+      ];
+
+      var SITEMAP_UNITS = [
+        { href: 'james_1_1.html', marker: { zh: '序言', en: 'Intro' }, ref: { zh: '雅 1:1', en: 'James 1:1' }, title: { zh: '写作背景与问安', en: 'Background & Greeting' } },
+        { href: 'james_1_2_27.html', marker: { zh: 'A', en: 'A' }, ref: { zh: '雅 1:2–27', en: 'James 1:2-27' }, title: { zh: '信心的完善与行道', en: 'Perfection of Faith & Doing the Word' } },
+        { href: 'james_2_1_26.html', marker: { zh: 'B', en: 'B' }, ref: { zh: '雅 2:1–26', en: 'James 2:1-26' }, title: { zh: '不偏待人与活信心', en: 'Impartiality & Living Faith' } },
+        { href: 'james_3_1_12.html', marker: { zh: 'C', en: 'C' }, ref: { zh: '雅 3:1–12', en: 'James 3:1-12' }, title: { zh: '讲台责任与控制舌头', en: 'Teaching Office & Taming the Tongue' } },
+        { href: 'james_3_13_18.html', marker: { zh: 'D', en: 'D' }, ref: { zh: '雅 3:13–18', en: 'James 3:13-18' }, title: { zh: '从上头来的清洁智慧', en: 'Pure Wisdom from Above' }, current: true },
+        { href: 'james_4_1_12.html', marker: { zh: "C'", en: "C'" }, ref: { zh: '雅 4:1–12', en: 'James 4:1-12' }, title: { zh: '止息纷争与谦卑亲近神', en: 'Ending Conflicts & Drawing Near to God' } },
+        { href: 'james_4_13_5_6.html', marker: { zh: "B'", en: "B'" }, ref: { zh: '雅 4:13–5:6', en: 'James 4:13-5:6' }, title: { zh: '属世谋划与富足者的宣判', en: 'Worldly Planning & Judgment on the Rich' } },
+        { href: 'james_5_7_20.html', marker: { zh: "A'", en: "A'" }, ref: { zh: '雅 5:7–20', en: 'James 5:7-20' }, title: { zh: '忍耐等候与祷告挽回', en: 'Patient Endurance, Prayer & Restoration' } }
+      ];
+
+      // -------------------------------------------------------------------
+      // 6. PERSISTENCE & ACCESS LOCK
+      // -------------------------------------------------------------------
+      function loadSavedLanguage() {
+        try {
+          var saved = window.localStorage.getItem(STORAGE_KEY_LANG);
+          if (saved === 'zh' || saved === 'en') appState.lang = saved;
+        } catch (err) {}
+      }
+
+      function saveLanguage(lang) {
+        try {
+          window.localStorage.setItem(STORAGE_KEY_LANG, lang);
+        } catch (err) {}
+      }
+
+      function loadUnlockState() {
+        try {
+          appState.isUnlocked = window.sessionStorage.getItem(STORAGE_KEY_AUTH) === '1';
+        } catch (err) {
+          appState.isUnlocked = false;
+        }
+      }
+
+      function saveUnlockState() {
+        try {
+          window.sessionStorage.setItem(STORAGE_KEY_AUTH, '1');
+        } catch (err) {}
+      }
+
+      function applyAccessLockState() {
+        var gateEl = document.getElementById('accessGate');
+        var contentEl = document.getElementById('protectedContent');
+        var footerEl = document.getElementById('protectedFooter');
+
+        if (gateEl) gateEl.classList.toggle('hidden', appState.isUnlocked);
+        if (contentEl) contentEl.classList.toggle('hidden', !appState.isUnlocked);
+        if (footerEl) footerEl.classList.toggle('hidden', !appState.isUnlocked);
+      }
+
+      // -------------------------------------------------------------------
+      // 7. RENDER FUNCTIONS
+      // -------------------------------------------------------------------
+      function renderHeroPassageBox() {
+        var lang = appState.lang;
+        var tabsEl = document.getElementById('heroVerseTabs');
+        var greekEl = document.getElementById('heroGreekLine');
+        var transEl = document.getElementById('heroTransLine');
+        var legendEl = document.getElementById('heroLegendRow');
+        if (!tabsEl || !greekEl || !transEl || !legendEl) return;
+
+        tabsEl.innerHTML = HERO_PASSAGES.map(function (p) {
+          var active = appState.activeHeroPassage === p.id;
+          var cls = active
+            ? 'bg-gold text-white border-gold'
+            : 'bg-white/10 text-slate-200 border-white/20 hover:bg-white/20';
+          return (
+            '<button type="button" role="tab" aria-selected="' + active + '" data-hero-p="' + p.id + '" ' +
+            'class="hero-p-tab px-3 py-1 rounded-lg border text-xs font-semibold transition-colors ' + cls + '">' +
+              p.tab[lang] +
+            '</button>'
+          );
+        }).join('');
+
+        tabsEl.querySelectorAll('.hero-p-tab').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            appState.activeHeroPassage = btn.getAttribute('data-hero-p');
+            renderHeroPassageBox();
+          });
+        });
+
+        var current = HERO_PASSAGES[0];
+        for (var i = 0; i < HERO_PASSAGES.length; i++) {
+          if (HERO_PASSAGES[i].id === appState.activeHeroPassage) {
+            current = HERO_PASSAGES[i];
+            break;
+          }
+        }
+
+        greekEl.innerHTML = current.greek;
+        transEl.innerHTML = current.trans[lang];
+        legendEl.innerHTML = current.legend.map(function (item) {
+          return (
+            '<a href="#' + item.id + '" class="kw-token ' + item.cls + ' text-xs">' +
+              item.greek + ' (' + item.strongs + ') ↔ ' + item[lang] +
+            '</a>'
+          );
+        }).join('');
+      }
+
+      function renderChrome() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var isZh = lang === 'zh';
+
+        document.documentElement.lang = isZh ? 'zh-CN' : 'en';
+        document.title = dict.pageTitle;
+
+        var brandEmblem = document.getElementById('brandEmblem');
+        var footerEmblem = document.getElementById('footerEmblem');
+        if (brandEmblem) brandEmblem.textContent = dict.emblem;
+        if (footerEmblem) footerEmblem.textContent = dict.emblem;
+
+        var pillZh = document.getElementById('lang-pill-zh');
+        var pillEn = document.getElementById('lang-pill-en');
+        var toggleBtn = document.getElementById('btn-lang-toggle');
+        if (pillZh && pillEn) {
+          pillZh.className = isZh
+            ? 'px-2 py-1 rounded-md bg-navy text-parchment transition-colors'
+            : 'px-2 py-1 rounded-md text-[#3b3228] transition-colors';
+          pillEn.className = !isZh
+            ? 'px-2 py-1 rounded-md bg-navy text-parchment transition-colors'
+            : 'px-2 py-1 rounded-md text-[#3b3228] transition-colors';
+        }
+        if (toggleBtn) toggleBtn.title = dict.langBtnTitle;
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+
+        var pwdInput = document.getElementById('accessPasswordInput');
+        if (pwdInput) pwdInput.setAttribute('placeholder', dict.gatePlaceholder);
+
+        var togglePwdBtn = document.getElementById('togglePasswordVisibility');
+        if (togglePwdBtn && pwdInput) {
+          togglePwdBtn.setAttribute('aria-label', pwdInput.type === 'password' ? dict.gateShowPwd : dict.gateHidePwd);
+        }
+
+        renderHeroPassageBox();
+      }
+
+      function renderLexicon() {
+        var lang = appState.lang;
+        var isZh = lang === 'zh';
+        var grid = document.getElementById('lexiconGrid');
+        if (!grid) return;
+
+        grid.innerHTML = LEXICON_ITEMS.map(function (item) {
+          return (
+            '<article id="' + item.id + '" class="scroll-mt-24 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden flex flex-col">' +
+              '<div class="h-1.5 w-full ' + item.barColor + '"></div>' +
+              '<div class="px-5 py-4 bg-parchmentDeep/70 border-b border-parchmentBorder">' +
+                '<div class="flex items-baseline justify-between gap-2 mb-1">' +
+                  '<span class="font-serif text-2xl font-bold text-navy" lang="el">' + item.greek + '</span>' +
+                  '<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-white border border-parchmentBorder text-gold">' + item.strongs + '</span>' +
+                '</div>' +
+                '<div class="flex flex-wrap items-center justify-between gap-2 text-xs text-inkMuted">' +
+                  '<span>' + item.translit + ' · ' + item.verseForm + '</span>' +
+                  '<span class="px-2 py-0.5 rounded-md border text-[11px] font-bold ' + item.pillCls + '">' +
+                    (isZh ? '译作：' : 'Rendered: ') + item.matchedWord[lang] +
+                  '</span>' +
+                '</div>' +
+              '</div>' +
+              '<div class="p-5 space-y-2.5 flex-1">' +
+                '<div class="text-sm font-bold text-navy">' + item.gloss[lang] + '</div>' +
+                '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + renderRichText(item.note[lang]) + '</p>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      function renderMeeknessSection() {
+        var isZh = appState.lang === 'zh';
+        var grid = document.getElementById('meeknessGrid');
+        if (!grid) return;
+
+        var notMeekList = isZh
+          ? [
+              {
+                tag: '不是假装的虚伪客套',
+                body: '“中国式”谦卑常常心口不一，刻意让自己看上去谦卑，本质上是谎言与虚伪；神所要的是真实的温柔（[[Num 12:3]]）。'
+              },
+              {
+                tag: '不是被动胆小与不安全感',
+                body: '真温柔不是怯懦退缩，而是信靠神主权之后所生发的确实与勇敢（[[Exo 4:10-16]]；[[Jas 1:5-8]]）。'
+              },
+              {
+                tag: '不是天生的安静个性',
+                body: '温柔并非性格内向，而是圣灵所结的果子（[[Gal 5:22-23]]），体现在挽回弟兄与彼此宽容的行动中（[[Gal 6:1]]；[[Eph 4:1-3]]；[[Col 3:12]]；[[2Ti 2:25]]；[[Tit 3:1-2]]）。'
+              }
+            ]
+          : [
+              {
+                tag: 'Not Pretended Modesty',
+                body: 'Saying self-deprecating words while harboring pride inside is merely hypocrisy and lying; God demands authentic meekness ([[Num 12:3]]).'
+              },
+              {
+                tag: 'Not Passive Timidity or Insecurity',
+                body: 'Biblical meekness is never cowardly retreat, but settled, courageous obedience grounded in God’s strength ([[Exo 4:10-16]]; [[Jas 1:5-8]]).'
+              },
+              {
+                tag: 'Not a Quiet Personality',
+                body: 'Meekness is not an introvert’s temperament, but fruit of the Spirit ([[Gal 5:22-23]]) expressed in restoring and bearing with others ([[Gal 6:1]]; [[Eph 4:1-3]]; [[Col 3:12]]; [[2Ti 2:25]]; [[Tit 3:1-2]]).'
+              }
+            ];
+
+        grid.innerHTML =
+          '<article class="lg:col-span-6 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+            '<div class="px-5 py-3.5 bg-parchmentDeep/75 border-b border-parchmentBorder flex items-center justify-between gap-2">' +
+              '<span class="px-2.5 py-0.5 rounded-md bg-navy text-white text-xs font-bold">' + (isZh ? '命令 13（双重命令）' : 'Command 13 (Double)') + '</span>' +
+              '<span class="text-xs font-semibold">' + buildScriptureHTML('Jas 3:13-14') + '</span>' +
+            '</div>' +
+            '<div class="p-5 space-y-3.5 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '在智慧的温柔上显出善行；不可自夸抵挡真道' : 'Show Good Deeds in Meekness; Do Not Boast Against Truth') + '</h3>' +
+              '<p>' + renderRichText(isZh
+                ? '[[Jas 3:1]] 针对渴望做教师的弟兄；而 [[Jas 3:13-14]] 则邀请教会里一切为自己智慧骄傲的人严肃省察：真正的智慧与信心一样，必须借着美好的品行显明出来（[[Jas 2:18]]；[[Jas 1:21]]；[[1Pe 2:12]]）。'
+                : 'While [[Jas 3:1]] addressed aspiring teachers, [[Jas 3:13-14]] invites everyone proud of their wisdom to examine themselves: just like living faith, true wisdom must be displayed through good conduct ([[Jas 2:18]]; [[Jas 1:21]]; [[1Pe 2:12]]).'
+              ) + '</p>' +
+              '<div class="space-y-2.5 pt-1">' +
+                notMeekList.map(function (it, idx) {
+                  return (
+                    '<div class="p-3.5 rounded-xl bg-parchment/80 border border-parchmentBorder space-y-1">' +
+                      '<div class="flex items-center gap-2">' +
+                        '<span class="w-5 h-5 rounded-full bg-navy text-white text-[11px] font-bold inline-flex items-center justify-center shrink-0">' + (idx + 1) + '</span>' +
+                        '<span class="text-xs font-bold text-navy">' + it.tag + '</span>' +
+                      '</div>' +
+                      '<p class="text-xs text-inkMuted leading-relaxed pl-7">' + renderRichText(it.body) + '</p>' +
+                    '</div>'
+                  );
+                }).join('') +
+              '</div>' +
+            '</div>' +
+          '</article>' +
+          '<article class="lg:col-span-6 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+            '<div class="px-5 py-3.5 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '神学洞见：基督徒温柔谦卑的真正源头' : 'Theological Insight: The True Root of Christian Meekness') + '</h3>' +
+            '</div>' +
+            '<div class="p-5 space-y-4">' +
+              '<blockquote class="p-4 sm:p-5 rounded-xl bg-parchment/80 border-l-4 border-gold font-serif text-sm sm:text-base text-navy leading-relaxed">' + (isZh
+                ? '“基督徒的温柔或谦卑，来自于我们对自己与神之间地位关系的清醒认识：罪恶的被造者与荣耀大能的上帝。这使我们意识到，单靠自己去实现属灵的征程或世上的道路是多么无能为力；而这种在神面前的谦卑，应当自然转化为我们在别人面前的谦卑。”'
+                : '“This Christian meekness, or humility, comes from understanding our position as sinful creatures in relationship to the glorious and majestic God (see James’s elaboration in 4:7). It recognizes how unable we are in and of ourselves to achieve spiritual fulfillment or to chart our own course in the world. And this humility before God should then translate into humility toward others.”'
+              ) + '</blockquote>' +
+              '<div class="text-right text-xs text-inkMuted font-semibold">' + (isZh ? '—— 道格拉斯·穆（Douglas J. Moo），《雅各书注释》（PNTC）' : '— Douglas J. Moo, The Letter of James (PNTC)') + '</div>' +
+              '<div class="p-4 rounded-xl bg-parchmentDeep/65 border border-parchmentBorder text-xs sm:text-sm text-ink leading-relaxed">' +
+                renderRichText(isZh
+                  ? '<strong>结构连结：</strong>在神面前认清自己的有限与顺服（[[Jas 4:7]]），正是破除教会里苦毒嫉妒（ζῆλος）与自夸（κατακαυχάομαι）的唯一良药。'
+                  : '<strong>Structural Link:</strong> Submitting to God in creaturely humility ([[Jas 4:7]]) is the decisive antidote to bitter jealousy (ζῆλος) and arrogant boasting (κατακαυχάομαι) in the church.'
+                ) +
+              '</div>' +
+            '</div>' +
+          '</article>';
+      }
+
+      function renderWisdomSection() {
+        var isZh = appState.lang === 'zh';
+
+        var compareGrid = document.getElementById('wisdomCompareGrid');
+        if (compareGrid) {
+          var demonicPts = isZh
+            ? [
+                '<strong>警示对象仍是“我的弟兄们”：</strong>雅各直指教会中可能被“属鬼魔的”智慧渗透——人心诡诈（[[Jer 17:9-10]]；[[Isa 55:8-9]]；[[Joh 3:12]]；[[Jud 1:19]]）。',
+                '<strong>三重递进定性：</strong>属地的（以世界标准为中心）、属情欲的（受堕落血气驱使）、属鬼魔的（终极源头来自撒但的骄傲与分裂）。',
+                '<strong>必然苦果（[[Jas 3:15-16]]）：</strong>哪里有嫉妒和纷争，哪里就有扰乱（ἀκαταστασία，与神有序的本性 [[1Co 14:33]] 相反）和各样的坏事——表现为宗派之争、恩赐之争、门户之争，兄弟阋墙、同室操戈。'
+              ]
+            : [
+                '<strong>Warning Addressed to “My Brothers”:</strong> Even professing believers can operate by demonic wisdom when guided by the deceitful heart rather than the Spirit ([[Jer 17:9-10]]; [[Isa 55:8-9]]; [[Joh 3:12]]; [[Jud 1:19]]).',
+                '<strong>Threefold Descent:</strong> Earthly (bound to worldly values), natural/unspiritual (driven by fallen flesh), and demonic (originating in Satan’s pride and division).',
+                '<strong>Inevitable Fruit ([[Jas 3:15-16]]):</strong> Wherever jealousy and selfish ambition reign, disorder (ἀκαταστασία, opposing God’s order in [[1Co 14:33]]) and every evil practice follow—denominational strife, gift rivalry, and factionalism.'
+              ];
+
+          var heavenlyPts = isZh
+            ? [
+                '<strong>“但（δὲ）”字引出全段核心句：</strong>与属地智慧截然相反，真智慧是从上头、从众光之父降下来的（[[Jas 3:17-18]]）。',
+                '<strong>首要根基是“清洁”：</strong>πρῶτος（首要性，[[Mat 6:33]]）+ ἁγνός（纯洁，词根为“圣” ἅγιος）——先有对神的圣洁与纯全，而后才有真正的和平。',
+                '<strong>义果的栽种（[[Jas 3:18]]）：</strong>使人和平的（[[Mat 5:9]]；[[Eph 2:14]]），乃是用和平所栽种的义果——在忍耐与和平中撒种，必收成公义的丰收（[[Pro 11:30]]；[[Gal 6:7-9]]；[[Heb 12:14]]；[[Psa 126:5-6]]）。'
+              ]
+            : [
+                '<strong>“But” Marks the Core Sentence:</strong> In sharp contrast to earthly wisdom, true wisdom descends from above from the Father of lights ([[Jas 3:17-18]]).',
+                '<strong>Founded First on Purity:</strong> πρῶτος (primacy, [[Mat 6:33]]) + ἁγνός (pure, rooted in ἅγιος “holy”)—godly peace always grows out of uncompromised moral and doctrinal purity.',
+                '<strong>Harvest of Righteousness ([[Jas 3:18]]):</strong> Peacemakers ([[Mat 5:9]]; [[Eph 2:14]]) sow in peace and reap a harvest of righteousness ([[Pro 11:30]]; [[Gal 6:7-9]]; [[Heb 12:14]]; [[Psa 126:5-6]]).'
+              ];
+
+          compareGrid.innerHTML =
+            '<article class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden flex flex-col">' +
+              '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder flex items-center justify-between gap-2">' +
+                '<span class="px-2.5 py-0.5 rounded-md bg-rose-800 text-white text-xs font-bold">' + (isZh ? '属地的 · 属情欲的 · 属鬼魔的' : 'Earthly · Natural · Demonic') + '</span>' +
+                '<span class="text-xs font-semibold">' + buildScriptureHTML('Jas 3:15-16') + '</span>' +
+              '</div>' +
+              '<div class="p-5 space-y-3 flex-1">' +
+                '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '不是从上头来的智慧' : 'Wisdom Not from Above') + '</h3>' +
+                '<ul class="space-y-2.5">' +
+                  demonicPts.map(function (pt) {
+                    return (
+                      '<li class="flex items-start gap-2.5 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+                        '<span class="w-1.5 h-1.5 rounded-full bg-rose-700 mt-2 shrink-0"></span>' +
+                        '<span>' + renderRichText(pt) + '</span>' +
+                      '</li>'
+                    );
+                  }).join('') +
+                '</ul>' +
+              '</div>' +
+            '</article>' +
+            '<article class="bg-white rounded-2xl border border-gold/60 shadow-card overflow-hidden flex flex-col">' +
+              '<div class="px-5 py-4 bg-navy text-white border-b border-navy flex items-center justify-between gap-2">' +
+                '<span class="px-2.5 py-0.5 rounded-md bg-gold text-white text-xs font-bold">' + (isZh ? '从上头来的清洁智慧' : 'Pure Wisdom from Above') + '</span>' +
+                '<span class="text-xs font-semibold text-goldLight">' + (isZh ? '雅 3:17–18' : 'James 3:17–18') + '</span>' +
+              '</div>' +
+              '<div class="p-5 space-y-3 flex-1">' +
+                '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '从神而来的属天智慧' : 'Heavenly Wisdom from God') + '</h3>' +
+                '<ul class="space-y-2.5">' +
+                  heavenlyPts.map(function (pt) {
+                    return (
+                      '<li class="flex items-start gap-2.5 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+                        '<span class="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0"></span>' +
+                        '<span>' + renderRichText(pt) + '</span>' +
+                      '</li>'
+                    );
+                  }).join('') +
+                '</ul>' +
+              '</div>' +
+            '</article>';
+        }
+
+        var marksEl = document.getElementById('sevenMarksCard');
+        if (marksEl) {
+          var qualities = isZh
+            ? [
+                { g: 'ἁγνή', name: '先是清洁', desc: '动机纯正、归神为圣，毫无属世搀杂' },
+                { g: 'εἰρηνική', name: '和平', desc: '竭力保守圣灵所赐合而为一的心' },
+                { g: 'ἐπιεικής', name: '温良', desc: '温和宽容、仁慈体谅、不斤斤计较' },
+                { g: 'εὐπειθής', name: '柔顺', desc: '乐意听劝、顺服真理、不刚硬固执' },
+                { g: 'μεστὴ ἐλέους', name: '满有怜悯多结善果', desc: '以实际慈爱行动服事软弱与缺乏者' },
+                { g: 'ἀδιάκριτος', name: '没有偏见', desc: '专一坚定、不动摇，不按外貌偏待人' },
+                { g: 'ἀνυπόκριτος', name: '没有假冒', desc: '表里如一，绝非演戏式的虚伪虔诚' }
+              ]
+            : [
+                { g: 'ἁγνή', name: 'First Pure', desc: 'Morally undefiled and consecrated to God' },
+                { g: 'εἰρηνική', name: 'Peaceable', desc: 'Actively pursuing unity in the Spirit' },
+                { g: 'ἐπιεικής', name: 'Gentle', desc: 'Forbearing, gracious, considerate toward others' },
+                { g: 'εὐπειθής', name: 'Reasonable', desc: 'Willing to yield, teachable under truth' },
+                { g: 'μεστὴ ἐλέους', name: 'Full of Mercy & Good Fruits', desc: 'Overflowing in tangible deeds of compassion' },
+                { g: 'ἀδιάκριτος', name: 'Unwavering / Impartial', desc: 'Undivided in loyalty, free from favoritism' },
+                { g: 'ἀνυπόκριτος', name: 'Without Hypocrisy', desc: 'Sincere and transparent, free from pretense' }
+              ];
+
+          marksEl.innerHTML =
+            '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder flex flex-wrap items-center justify-between gap-2">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '属天智慧的七重品格谱系（雅 3:17）' : 'The Sevenfold Portrait of Heavenly Wisdom (James 3:17)') + '</h3>' +
+              '<span class="text-xs font-semibold">' + buildScriptureHTML('Jas 3:17-18') + '</span>' +
+            '</div>' +
+            '<div class="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">' +
+              qualities.map(function (q, idx) {
+                var isFirst = idx === 0;
+                var cardCls = isFirst
+                  ? 'bg-navy text-white border-navy sm:col-span-2 lg:col-span-2'
+                  : 'bg-parchment/80 text-ink border-parchmentBorder';
+                var numCls = isFirst ? 'bg-gold text-white' : 'bg-navy text-white';
+                var greekCls = isFirst ? 'text-goldLight' : 'text-gold';
+                var descCls = isFirst ? 'text-slate-200' : 'text-inkMuted';
+
+                return (
+                  '<div class="p-4 rounded-xl border space-y-1.5 ' + cardCls + '">' +
+                    '<div class="flex items-center justify-between gap-2">' +
+                      '<div class="flex items-center gap-2">' +
+                        '<span class="w-5 h-5 rounded-full text-[11px] font-bold inline-flex items-center justify-center shrink-0 ' + numCls + '">' + (idx + 1) + '</span>' +
+                        '<span class="text-sm font-bold">' + q.name + '</span>' +
+                      '</div>' +
+                      '<span class="font-serif text-xs font-semibold ' + greekCls + '" lang="el">' + q.g + '</span>' +
+                    '</div>' +
+                    '<p class="text-xs leading-relaxed pl-7 ' + descCls + '">' + q.desc + '</p>' +
+                  '</div>'
+                );
+              }).join('') +
+            '</div>';
+        }
+      }
+
+      function renderCenterSynthesis() {
+        var isZh = appState.lang === 'zh';
+        var grid = document.getElementById('centerSynthesisGrid');
+        if (!grid) return;
+
+        var fiveMarks = isZh
+          ? [
+              '真正的智慧让你在神与人面前谦卑（[[Jas 1:21]]）。',
+              '真正的智慧必然结出善行——满有怜悯、多结善果（[[Jas 1:25]]）。',
+              '真正的智慧使教会真正在圣灵里合一——和平、温良、柔顺（[[Eph 4:1-3]]）。',
+              '真正的智慧只听神的声音、只仰望神——没有偏见、没有假冒（[[Pro 1:7]]；[[Pro 2:20]]）。',
+              '真正的智慧是圣灵的智慧、神的智慧、十字架的智慧——<strong>主耶稣基督自己就是真正的智慧</strong>（[[1Co 1:24]]；[[1Co 1:30]]；[[1Co 15:47-49]]）。'
+            ]
+          : [
+              'True wisdom makes you genuinely humble before God and others ([[Jas 1:21]]).',
+              'True wisdom inevitably produces good deeds—full of mercy and good fruits ([[Jas 1:25]]).',
+              'True wisdom unites the church in the Spirit—peaceable, gentle, and reasonable ([[Eph 4:1-3]]).',
+              'True wisdom listens only to God’s voice and looks to Him alone—unwavering and without hypocrisy ([[Pro 1:7]]; [[Pro 2:20]]).',
+              'True wisdom is the wisdom of the Spirit, of God, and of the cross—<strong>the Lord Jesus Christ Himself is true wisdom</strong> ([[1Co 1:24]]; [[1Co 1:30]]; [[1Co 15:47-49]]).'
+            ];
+
+        grid.innerHTML =
+          '<article class="lg:col-span-7 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+            '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '真智慧的五重属灵印记' : 'Five Spiritual Marks of True Wisdom') + '</h3>' +
+            '</div>' +
+            '<ol class="p-5 space-y-3">' +
+              fiveMarks.map(function (pt, idx) {
+                return (
+                  '<li class="p-3.5 rounded-xl bg-parchment/80 border border-parchmentBorder flex items-start gap-2.5 text-xs sm:text-sm text-ink leading-relaxed">' +
+                    '<span class="w-5 h-5 rounded-full bg-navy text-white text-[11px] font-bold inline-flex items-center justify-center shrink-0 mt-0.5">' + (idx + 1) + '</span>' +
+                    '<span>' + renderRichText(pt) + '</span>' +
+                  '</li>'
+                );
+              }).join('') +
+            '</ol>' +
+          '</article>' +
+          '<article class="lg:col-span-5 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+            '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '全书中心主旨（第十九讲总括）' : 'Central Book Thesis (Lecture 19 Synthesis)') + '</h3>' +
+            '</div>' +
+            '<div class="p-5 space-y-4">' +
+              '<div class="p-5 rounded-xl bg-navy text-white border border-gold/50 space-y-2">' +
+                '<div class="text-[11px] font-bold tracking-[0.16em] text-goldLight">' + (isZh ? '雅各书全书总旨' : 'CENTRAL THESIS OF JAMES') + '</div>' +
+                '<p class="font-serif text-lg sm:text-xl font-bold leading-snug">' + (isZh
+                  ? '用清洁属神的智慧在基督里生活，在教会里服事'
+                  : 'Live in Christ and serve in the church with pure, godly wisdom'
+                ) + '</p>' +
+              '</div>' +
+              '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + renderRichText(isZh
+                ? '站在交叉对称结构的中心 D（[[Jas 3:13-18]]），我们看见前半卷一切关于试炼、偏待人、死信心与失控舌头的症结，以及后半卷关于教会纷争、属世谋划与忍耐祷告的出路，最终都汇归于同一个源头：仰望成为我们智慧的主耶稣基督（[[1Co 1:30]]）。'
+                : 'Standing at Center D ([[Jas 3:13-18]]), every struggle of the first half—trials, partiality, dead faith, untamed speech—and every remedy of the second half—repentance, humility, patient prayer—converge on one source: Jesus Christ, who became to us wisdom from God ([[1Co 1:30]]).'
+              ) + '</p>' +
+            '</div>' +
+          '</article>';
+      }
+
+      function renderFooterSitemap() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var container = document.getElementById('footerSitemap');
+        if (!container) return;
+
+        var homeItem =
+          '<a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors">' +
+            '<span class="px-1.5 py-0.5 rounded bg-white/10 text-goldLight text-[10px] font-bold shrink-0">' + dict.sitemapHomeTag + '</span>' +
+            '<span class="truncate">' + dict.sitemapHomeLabel + '</span>' +
+          '</a>';
+
+        var unitItems = SITEMAP_UNITS.map(function (u) {
+          var cls = u.current
+            ? 'bg-white/10 border-gold/40 text-white font-semibold'
+            : 'bg-white/5 hover:bg-white/10 border-white/10 text-slate-300 hover:text-white';
+          var badgeCls = u.current ? 'bg-gold text-white' : 'bg-white/10 text-goldLight';
+          return (
+            '<a href="' + u.href + '" class="flex items-center gap-2 px-3 py-2 rounded-lg border transition-colors ' + cls + '">' +
+              '<span class="px-1.5 py-0.5 rounded text-[10px] font-bold shrink-0 ' + badgeCls + '">' + u.marker[lang] + '</span>' +
+              '<span class="truncate">' + u.ref[lang] + ' · ' + u.title[lang] + '</span>' +
+            '</a>'
+          );
+        }).join('');
+
+        container.innerHTML = homeItem + unitItems;
+      }
+
+      function renderAll() {
+        hideZhTip();
+        renderChrome();
+        renderLexicon();
+        renderMeeknessSection();
+        renderWisdomSection();
+        renderCenterSynthesis();
+        renderFooterSitemap();
+        refreshReftagger();
+      }
+
+      // -------------------------------------------------------------------
+      // 8. EVENT HANDLERS
+      // -------------------------------------------------------------------
+      function initEvents() {
+        var langBtn = document.getElementById('btn-lang-toggle');
+        if (langBtn) {
+          langBtn.addEventListener('click', function () {
+            appState.lang = appState.lang === 'zh' ? 'en' : 'zh';
+            saveLanguage(appState.lang);
+            renderAll();
+          });
+        }
+
+        var mobileBtn = document.getElementById('mobileMenuBtn');
+        var mobileMenu = document.getElementById('mobileMenu');
+        if (mobileBtn && mobileMenu) {
+          mobileBtn.addEventListener('click', function () {
+            var isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden', isOpen);
+            mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+          });
+          mobileMenu.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+              mobileMenu.classList.add('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+
+        var gateForm = document.getElementById('accessGateForm');
+        var pwdInput = document.getElementById('accessPasswordInput');
+        var errMsg = document.getElementById('accessErrorMsg');
+        var togglePwdBtn = document.getElementById('togglePasswordVisibility');
+        var eyeShow = document.getElementById('eyeIconShow');
+        var eyeHide = document.getElementById('eyeIconHide');
+
+        if (togglePwdBtn && pwdInput) {
+          togglePwdBtn.addEventListener('click', function () {
+            var isHidden = pwdInput.type === 'password';
+            pwdInput.type = isHidden ? 'text' : 'password';
+            if (eyeShow && eyeHide) {
+              eyeShow.classList.toggle('hidden', isHidden);
+              eyeHide.classList.toggle('hidden', !isHidden);
+            }
+            var dict = UI_TEXT[appState.lang];
+            togglePwdBtn.setAttribute('aria-label', isHidden ? dict.gateHidePwd : dict.gateShowPwd);
+          });
+        }
+
+        if (pwdInput && errMsg) {
+          pwdInput.addEventListener('input', function () {
+            errMsg.classList.add('hidden');
+            pwdInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+          });
+        }
+
+        if (gateForm && pwdInput) {
+          gateForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var entered = String(pwdInput.value || '').trim();
+            if (entered === ACCESS_PASSWORD) {
+              appState.isUnlocked = true;
+              saveUnlockState();
+              if (errMsg) errMsg.classList.add('hidden');
+              pwdInput.value = '';
+              applyAccessLockState();
+              refreshReftagger();
+            } else {
+              if (errMsg) errMsg.classList.remove('hidden');
+              pwdInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+              pwdInput.focus();
+              pwdInput.select();
+            }
+          });
+        }
+
+        // Redirect in-page anchors to password gate while locked
+        document.addEventListener('click', function (e) {
+          var anchor = e.target.closest && e.target.closest('a[href^="#lex"], a[href="#meekness"], a[href="#wisdom"], a[href="#center"]');
+          if (anchor && !appState.isUnlocked) {
+            e.preventDefault();
+            var gateEl = document.getElementById('accessGate');
+            if (gateEl) gateEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (pwdInput) window.setTimeout(function () { pwdInput.focus(); }, 250);
+          }
+        });
+
+        // Delegated CUV hover/tap tooltip
+        if (!isTouchDevice) {
+          document.addEventListener('mouseover', function (e) {
+            var a = e.target.closest && e.target.closest('a.sc-zh');
+            if (a && a !== tipTarget) {
+              showZhTip(a);
+            } else if (a || (e.target.closest && e.target.closest('#zh-tip'))) {
+              clearTimeout(hideTipTimer);
+            }
+          });
+          document.addEventListener('mouseout', function (e) {
+            var a = e.target.closest && (e.target.closest('a.sc-zh') || e.target.closest('#zh-tip'));
+            if (a) {
+              clearTimeout(hideTipTimer);
+              hideTipTimer = window.setTimeout(hideZhTip, 220);
+            }
+          });
+          document.addEventListener('scroll', function (e) {
+            if (!tipEl.contains(e.target)) hideZhTip();
+          }, true);
+        } else {
+          document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a.sc-zh');
+            if (a) {
+              if (tipTarget === a && tipEl.classList.contains('visible')) return;
+              e.preventDefault();
+              e.stopPropagation();
+              showZhTip(a);
+              return;
+            }
+            if (!tipEl.contains(e.target)) hideZhTip();
+          }, true);
+        }
+      }
+
+      // -------------------------------------------------------------------
+      // 9. BOOTSTRAP
+      // -------------------------------------------------------------------
+      function bootstrapApp() {
+        try {
+          loadSavedLanguage();
+          loadUnlockState();
+          initEvents();
+          applyAccessLockState();
+          renderAll();
+        } catch (err) {
+          console.error('Failed to initialize James 3:13–18 unit page:', err);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bootstrapApp);
+      } else {
+        bootstrapApp();
+      }
+    })();
+  </script>
+</body>
+</html>
