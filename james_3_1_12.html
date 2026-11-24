@@ -1387,7 +1387,7 @@
         var grid = document.getElementById('chiasmGrid');
         if (!grid) return;
 
-        var centerPoints = isZh
+        var genesisPoints = isZh
           ? [
               '<strong>从创世记 1–2 章看“命名即治理”：</strong>创世记第一章中，神藉着“称（命名）”光、暗、天、地、海彰显他的主权治理（[[Gen 1:5]]）；循着同一神学逻辑，神在 [[Gen 2:18-20]] 将各样飞鸟走兽带到亚当面前让他“起名”，正是人类代表神“制伏并治理”万兽的体现（[[Gen 1:26]]）。',
               '<strong>创世记 3 章堕落的瞬间暴露舌头的败坏：</strong>人虽能制伏各类动物，堕落的罪却立刻体现在人张口埋怨神——亚当回答说“<em>你所赐给我</em>、与我同居的女人……”（[[Gen 3:9-12]]），把罪责直接推向赐恩的造物主。',
@@ -1462,41 +1462,42 @@
               '<!-- Chiastic Arch a - b - c - b\' - a\' -->' +
               '<div class="space-y-2 pt-1">' +
                 rows.map(function (r) {
-                  if (r.isCenter) {
-                    return (
-                      '<div class="' + r.indent + '">' +
-                        '<div class="rounded-xl border border-navy bg-navy text-white shadow-sm overflow-hidden">' +
-                          '<div class="px-3.5 py-2.5 flex items-baseline gap-3 text-xs sm:text-sm">' +
-                            '<span class="w-7 h-6 rounded-md text-[11px] font-bold inline-flex items-center justify-center shrink-0 bg-gold text-white">' + r.code + '</span>' +
-                            '<span class="font-bold shrink-0 text-goldLight">' + r.ref + '</span>' +
-                            '<span class="font-semibold leading-relaxed">' + (isZh ? r.zh : r.en) + '</span>' +
-                          '</div>' +
-                          '<div class="px-4 py-3.5 bg-parchment text-ink border-t border-gold/40">' +
-                            '<ul class="space-y-2">' +
-                              centerPoints.map(function (pt) {
-                                return (
-                                  '<li class="flex items-start gap-2 text-xs leading-relaxed text-inkMuted">' +
-                                    '<span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>' +
-                                    '<span>' + renderRichText(pt) + '</span>' +
-                                  '</li>'
-                                );
-                              }).join('') +
-                            '</ul>' +
-                          '</div>' +
-                        '</div>' +
-                      '</div>'
-                    );
-                  }
+                  var rowCls = r.isCenter
+                    ? 'bg-navy text-white border-navy shadow-sm'
+                    : 'bg-parchment/80 border-parchmentBorder text-ink';
+                  var codeCls = r.isCenter
+                    ? 'bg-gold text-white'
+                    : 'bg-navy text-white';
+                  var refCls = r.isCenter ? 'text-goldLight' : 'text-gold';
+
                   return (
                     '<div class="' + r.indent + '">' +
-                      '<div class="px-3.5 py-2.5 rounded-xl border bg-parchment/80 border-parchmentBorder text-ink flex items-baseline gap-3 text-xs sm:text-sm">' +
-                        '<span class="w-7 h-6 rounded-md text-[11px] font-bold inline-flex items-center justify-center shrink-0 bg-navy text-white">' + r.code + '</span>' +
-                        '<span class="font-bold shrink-0 text-gold">' + r.ref + '</span>' +
-                        '<span class="leading-relaxed">' + (isZh ? r.zh : r.en) + '</span>' +
+                      '<div class="px-3.5 py-2.5 rounded-xl border flex items-baseline gap-3 text-xs sm:text-sm ' + rowCls + '">' +
+                        '<span class="w-7 h-6 rounded-md text-[11px] font-bold inline-flex items-center justify-center shrink-0 ' + codeCls + '">' + r.code + '</span>' +
+                        '<span class="font-bold shrink-0 ' + refCls + '">' + r.ref + '</span>' +
+                        '<span class="' + (r.isCenter ? 'font-semibold' : '') + ' leading-relaxed">' + (isZh ? r.zh : r.en) + '</span>' +
                       '</div>' +
                     '</div>'
                   );
                 }).join('') +
+              '</div>' +
+
+              '<!-- Separate Box Above Christological Answer: Genesis 1–3 on Untameable Tongue -->' +
+              '<div class="rounded-xl bg-parchment/90 border border-parchmentBorder p-4 space-y-2">' +
+                '<div class="flex flex-wrap items-baseline justify-between gap-2">' +
+                  '<span class="text-xs font-bold tracking-wide text-navy">' + (isZh ? '创世记 1–3 章脉络：命名治理与堕落之口' : 'Genesis 1–3 Context: Naming Dominion & Fallen Speech') + '</span>' +
+                  '<span class="text-xs font-semibold">' + buildScriptureHTML('Jas 3:7-8') + '</span>' +
+                '</div>' +
+                '<ul class="space-y-2">' +
+                  genesisPoints.map(function (pt) {
+                    return (
+                      '<li class="flex items-start gap-2 text-xs leading-relaxed text-inkMuted">' +
+                        '<span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>' +
+                        '<span>' + renderRichText(pt) + '</span>' +
+                      '</li>'
+                    );
+                  }).join('') +
+                '</ul>' +
               '</div>' +
 
               '<!-- Downward Arrow to Christological Resolution -->' +
