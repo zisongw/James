@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>雅各书 5:7–20 · 忍耐等候与祷告挽回</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#17253B',
+            navySoft: '#223452',
+            gold: '#A37B35',
+            goldLight: '#C8A35F',
+            parchment: '#FBF8F1',
+            parchmentDeep: '#F2EBDC',
+            parchmentBorder: '#E0D5BE',
+            ink: '#24221F',
+            inkMuted: '#5C574F'
+          },
+          fontFamily: {
+            sans: ['"Inter"', '"Noto Sans SC"', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"EB Garamond"', '"Noto Serif SC"', 'Georgia', 'serif']
+          },
+          boxShadow: {
+            card: '0 4px 20px -2px rgba(23, 37, 59, 0.06), 0 2px 6px -1px rgba(23, 37, 59, 0.04)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #FBF8F1;
+      color: #24221F;
+      font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    }
+
+    .hero-pattern {
+      background-color: #17253B;
+      background-image: radial-gradient(rgba(200, 163, 95, 0.14) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Color-linked Greek / Translation Tokens in Hero Scripture Box */
+    .kw-token {
+      display: inline-block;
+      padding: 0.05rem 0.42rem;
+      margin: 0 0.05rem;
+      border-radius: 0.45rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .kw-token:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .kw-makro {
+      background: rgba(245, 158, 11, 0.22);
+      color: #FDE68A;
+      border: 1px solid rgba(251, 191, 36, 0.55);
+    }
+
+    .kw-stenazo {
+      background: rgba(244, 63, 94, 0.22);
+      color: #FECDD3;
+      border: 1px solid rgba(251, 113, 133, 0.55);
+    }
+
+    .kw-telos {
+      background: rgba(56, 189, 248, 0.20);
+      color: #BAE6FD;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+    }
+
+    .kw-kakopatheo {
+      background: rgba(16, 185, 129, 0.22);
+      color: #A7F3D0;
+      border: 1px solid rgba(52, 211, 153, 0.55);
+    }
+
+    .kw-astheneo {
+      background: rgba(168, 85, 247, 0.24);
+      color: #E9D5FF;
+      border: 1px solid rgba(192, 132, 252, 0.55);
+    }
+
+    .kw-iaomai {
+      background: rgba(99, 102, 241, 0.26);
+      color: #C7D2FE;
+      border: 1px solid rgba(129, 140, 248, 0.60);
+    }
+
+    /* Scripture Citations — 中文和合本 (wd.bible + tooltip) & English LSB (ref.ly + Reftagger) */
+    a.sc-zh {
+      color: #6A3D12;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(106, 61, 18, 0.55);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    a.sc-zh:hover {
+      color: #9B2226;
+      border-bottom-style: solid;
+      background: rgba(201, 162, 39, 0.14);
+      border-radius: 2px;
+    }
+
+    .sc-en {
+      white-space: normal;
+    }
+
+    .sc-en a,
+    a.rtBibleRef {
+      color: #6A3D12 !important;
+      text-decoration: none !important;
+      border-bottom: 1px dotted rgba(106, 61, 18, 0.55);
+      white-space: nowrap;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .sc-en a:hover,
+    a.rtBibleRef:hover {
+      color: #9B2226 !important;
+      border-bottom-style: solid;
+      background: rgba(201, 162, 39, 0.14);
+      border-radius: 2px;
+    }
+
+    /* Floating Chinese Union Version (和合本) Hover Tooltip */
+    #zh-tip {
+      position: fixed;
+      z-index: 3000;
+      display: none;
+      max-height: 46vh;
+      overflow: hidden;
+      flex-direction: column;
+      background: #FCF9F2;
+      border: 1px solid #8B7B65;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(43, 37, 32, 0.22);
+      font-family: 'Kaiti SC', 'STKaiti', 'KaiTi', '楷体', 'Noto Serif SC', serif;
+      color: #2B2520;
+    }
+
+    #zh-tip.visible {
+      display: flex;
+    }
+
+    #zh-tip .zt-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      padding: 7px 12px;
+      background: #EFE5CF;
+      border-bottom: 1px solid #D9CBB2;
+      font: 700 13px 'Noto Serif SC', serif;
+      border-radius: 9px 9px 0 0;
+    }
+
+    #zh-tip .zt-ver {
+      font: 500 11px 'Noto Sans SC', sans-serif;
+      color: #6A5B49;
+    }
+
+    #zh-tip .zt-body {
+      padding: 9px 12px;
+      font-size: 14.5px;
+      line-height: 1.75;
+      overflow-y: auto;
+    }
+
+    #zh-tip .zt-muted {
+      color: #7A6955;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-gold/20 selection:text-navy">
+
+  <!-- =====================================================================
+       STICKY NAVIGATION HEADER
+       ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-parchment/95 backdrop-blur border-b border-parchmentBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 min-w-0 group">
+        <div id="brandEmblem" class="w-10 h-10 rounded-xl bg-navy text-gold font-serif font-bold text-lg flex items-center justify-center shrink-0 shadow-sm group-hover:bg-navySoft transition-colors">
+          雅
+        </div>
+        <div class="min-w-0">
+          <div class="font-serif font-bold text-base sm:text-lg text-navy truncate leading-tight" data-i18n="siteTitle"></div>
+          <div class="text-[11px] sm:text-xs text-inkMuted truncate" data-i18n="siteSubtitle"></div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-inkMuted" aria-label="Unit navigation">
+        <a href="index.html" class="hover:text-navy transition-colors" data-i18n="navHome"></a>
+        <a href="#lexicon" class="hover:text-navy transition-colors" data-i18n="navLexicon"></a>
+        <a href="#week17" class="hover:text-navy transition-colors" data-i18n="navWeek17"></a>
+        <a href="#week18" class="hover:text-navy transition-colors" data-i18n="navWeek18"></a>
+        <a href="#closure" class="hover:text-navy transition-colors" data-i18n="navClosure"></a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button
+          id="btn-lang-toggle"
+          type="button"
+          class="flex items-center rounded-lg border border-[#8b7b65] bg-[#ede3cc] p-0.5 text-xs font-semibold shadow-sm hover:border-[#5c4a35] transition-colors"
+          title="切换到英文"
+        >
+          <span id="lang-pill-zh" class="px-2 py-1 rounded-md bg-navy text-parchment transition-colors">中文</span>
+          <span id="lang-pill-en" class="px-2 py-1 rounded-md text-[#3b3228] transition-colors">EN</span>
+        </button>
+
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="md:hidden p-2 rounded-xl border border-parchmentBorder bg-white text-navy hover:bg-parchmentDeep transition-colors"
+          aria-label="展开导航菜单"
+          aria-expanded="false"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-parchmentBorder bg-parchment px-4 py-3 space-y-1">
+      <a href="index.html" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navHome"></a>
+      <a href="#lexicon" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navLexicon"></a>
+      <a href="#week17" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navWeek17"></a>
+      <a href="#week18" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navWeek18"></a>
+      <a href="#closure" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-navy hover:bg-parchmentDeep" data-i18n="navClosure"></a>
+    </div>
+  </header>
+
+  <main id="top" class="flex-1">
+
+    <!-- ===================================================================
+         HERO BANNER WITH INTERACTIVE SBL GREEK KEY PASSAGES
+         =================================================================== -->
+    <section class="hero-pattern text-white border-b-4 border-gold">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-goldLight mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-goldLight"></span>
+          <span data-i18n="heroBadge"></span>
+        </div>
+
+        <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4 leading-tight" data-i18n="heroTitle"></h1>
+
+        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-8" data-i18n="heroDesc"></p>
+
+        <!-- SBL Greek + Color-Linked Key Passages Switcher -->
+        <div class="max-w-4xl mx-auto rounded-2xl bg-white/10 border border-gold/40 backdrop-blur-sm px-5 sm:px-8 py-6 text-left shadow-lg">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3.5 mb-4 border-b border-white/15">
+            <div id="heroVerseTabs" class="flex flex-wrap gap-2" role="tablist"></div>
+            <span class="text-xs text-slate-300" data-i18n="heroGreekHint"></span>
+          </div>
+
+          <div id="heroGreekLine" class="font-serif text-base sm:text-xl text-white leading-relaxed mb-4 tracking-wide" lang="el"></div>
+          <div id="heroTransLine" class="font-serif text-base sm:text-lg text-slate-100 leading-relaxed"></div>
+          <div id="heroLegendRow" class="mt-5 pt-4 border-t border-white/15 flex flex-wrap items-center gap-2 text-xs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CONTENT ACCESS PASSWORD GATE (SHARED SESSION)
+         =================================================================== -->
+    <section id="accessGate" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-md mx-auto bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">
+        <div class="px-6 py-5 bg-parchmentDeep/80 border-b border-parchmentBorder text-center">
+          <div class="w-12 h-12 rounded-xl bg-navy text-gold mx-auto mb-3 flex items-center justify-center shadow-sm">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <span class="inline-block text-[11px] font-bold tracking-[0.2em] text-gold mb-1" data-i18n="gateEyebrow"></span>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-navy" data-i18n="gateTitle"></h2>
+        </div>
+
+        <form id="accessGateForm" class="p-6 space-y-4" novalidate>
+          <p class="text-sm text-inkMuted leading-relaxed text-center" data-i18n="gateDesc"></p>
+
+          <div>
+            <label for="accessPasswordInput" class="block text-xs font-semibold text-navy mb-1.5" data-i18n="gateLabel"></label>
+            <div class="relative">
+              <input
+                id="accessPasswordInput"
+                type="password"
+                autocomplete="current-password"
+                class="w-full rounded-xl border border-parchmentBorder bg-parchment/60 px-4 py-3 pr-11 text-sm text-navy placeholder:text-inkMuted/60 focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold transition-all"
+              />
+              <button
+                id="togglePasswordVisibility"
+                type="button"
+                class="absolute inset-y-0 right-0 px-3.5 flex items-center text-inkMuted hover:text-navy transition-colors focus:outline-none"
+                aria-label="显示密码"
+              >
+                <svg id="eyeIconShow" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+                <svg id="eyeIconHide" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+                </svg>
+              </button>
+            </div>
+            <p id="accessErrorMsg" class="hidden mt-2 text-xs font-medium text-red-700" role="alert" data-i18n="gateError"></p>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3 px-5 rounded-xl bg-navy hover:bg-gold text-white text-sm font-semibold shadow-sm transition-colors active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gold"
+            data-i18n="gateSubmit"
+          ></button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         PROTECTED EXPOSITORY CONTENT
+         =================================================================== -->
+    <div id="protectedContent" class="hidden">
+
+      <!-- PART 1: KEY GREEK LEXICON -->
+      <section id="lexicon" class="py-16 sm:py-20 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="lexEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="lexTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="lexSubtitle"></p>
+          </div>
+
+          <div id="lexiconGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+      </section>
+
+      <!-- PART 2: WEEK 17 — PATIENT ENDURANCE UNTIL THE LORD COMES (5:7–11) -->
+      <section id="week17" class="py-16 sm:py-20 bg-parchmentDeep/45 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="w17Eyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="w17Title"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="w17Subtitle"></p>
+          </div>
+
+          <div id="w17TopGrid" class="grid grid-cols-1 lg:grid-cols-12 gap-7 mb-8 items-start"></div>
+          <div id="w17ModelsCard" class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
+        </div>
+      </section>
+
+      <!-- PART 3: WEEK 18 — HONEST SPEECH, PRAYER & RESTORING BROTHERS (5:12–20) -->
+      <section id="week18" class="py-16 sm:py-20 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="w18Eyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="w18Title"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="w18Subtitle"></p>
+          </div>
+
+          <!-- Commands 21–24 -->
+          <div id="w18CommandsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"></div>
+
+          <!-- Command 25: Turning Back the Straying Brother -->
+          <div id="w18RestoreCard" class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden"></div>
+        </div>
+      </section>
+
+      <!-- PART 4: BOOK CLOSURE — A ↔ A' SYMMETRY & TRUE FELLOWSHIP -->
+      <section id="closure" class="py-16 sm:py-20 bg-parchmentDeep/45 border-b border-parchmentBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <span class="inline-block text-xs font-bold tracking-[0.18em] text-gold mb-2" data-i18n="cloEyebrow"></span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-3" data-i18n="cloTitle"></h2>
+            <p class="text-sm sm:text-base text-inkMuted leading-relaxed" data-i18n="cloSubtitle"></p>
+          </div>
+
+          <div id="closureGrid" class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start"></div>
+
+          <!-- Previous / Return Home Navigation -->
+          <div class="mt-12 pt-8 border-t border-parchmentBorder flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <a href="james_4_13_5_6.html" class="inline-flex items-center justify-center sm:justify-start gap-2.5 px-5 py-3.5 rounded-xl bg-white hover:bg-parchmentDeep border border-parchmentBorder text-sm font-semibold text-navy transition-colors shadow-sm">
+              <span>←</span>
+              <span data-i18n="prevUnitBtn"></span>
+            </a>
+            <a href="index.html" class="inline-flex items-center justify-center sm:justify-end gap-2.5 px-5 py-3.5 rounded-xl bg-navy hover:bg-gold text-white text-sm font-semibold transition-colors shadow-sm">
+              <span data-i18n="nextUnitBtn"></span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER & 9-PAGE COURSE SITEMAP
+       ===================================================================== -->
+  <footer id="protectedFooter" class="hidden bg-navy text-slate-300 border-t-4 border-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+        <div class="lg:col-span-4 space-y-3">
+          <div class="flex items-center gap-3">
+            <div id="footerEmblem" class="w-9 h-9 rounded-xl bg-white/10 border border-gold/40 text-goldLight font-serif font-bold text-base flex items-center justify-center">
+              雅
+            </div>
+            <span class="font-serif text-lg font-bold text-white" data-i18n="siteTitle"></span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="footerDesc"></p>
+        </div>
+
+        <div class="lg:col-span-8">
+          <h3 class="text-xs font-bold tracking-[0.18em] text-goldLight mb-4" data-i18n="sitemapTitle"></h3>
+          <div id="footerSitemap" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 text-xs"></div>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <span data-i18n="footerCopyright"></span>
+        <a href="#top" class="inline-flex items-center gap-1.5 text-goldLight hover:text-white transition-colors">
+          <span data-i18n="backToTop"></span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       APPLICATION LOGIC, WEEKS 17–18 EXPOSITORY DATA & SCRIPTURE ENGINE
+       ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY_LANG = 'james_seminary_course_lang';
+      var STORAGE_KEY_AUTH = 'james_seminary_course_unlocked';
+      var ACCESS_PASSWORD = 'Maranatha2026';
+
+      var appState = {
+        lang: 'zh',
+        isUnlocked: false,
+        activeHeroPassage: 'p1'
+      };
+
+      // -------------------------------------------------------------------
+      // 1. UI DICTIONARY (STRICT SINGLE-LANGUAGE ISOLATION)
+      // -------------------------------------------------------------------
+      var UI_TEXT = {
+        zh: {
+          pageTitle: '雅各书 5:7–20 · 忍耐等候与祷告挽回',
+          emblem: '雅',
+          siteTitle: '雅各书研经课程',
+          siteSubtitle: '单元 A\' · 第17–18周（雅 5:7–20）',
+          navHome: '课程主页',
+          navLexicon: '原文字汇',
+          navWeek17: '忍耐等候',
+          navWeek18: '祷告与挽回',
+          navClosure: '全书收束',
+          langBtnTitle: '切换到英文',
+
+          heroBadge: '单元 A\' · 第17–18周 · 雅各书 5:7–20',
+          heroTitle: '忍耐等候与祷告挽回',
+          heroDesc: '与单元 A（1:2–27）首尾遥相呼应：在主来的盼望中坚固心志、彼此忍耐不埋怨；以诚实话语和充满信心的祷告与神对话，并承担彼此的重担，挽回失迷真道的弟兄。',
+          heroGreekHint: '点击彩色高亮词汇跳转至词义解析',
+
+          gateEyebrow: '课程内容访问验证',
+          gateTitle: '请输入访问密码',
+          gateDesc: '本单元大标题以下的释经要点受密码保护，请输入课程访问密码解锁（同浏览器会话内只需验证一次）。',
+          gateLabel: '访问密码',
+          gatePlaceholder: '请输入访问密码',
+          gateSubmit: '解锁本单元内容',
+          gateError: '访问密码不正确，请检查后重试。',
+          gateShowPwd: '显示密码',
+          gateHidePwd: '隐藏密码',
+
+          lexEyebrow: '第一部分 · 原文字义解析',
+          lexTitle: '书信结尾六大核心希腊文词汇',
+          lexSubtitle: '从“长期忍耐”与“彼此埋怨”，到主给约伯的“结局（目的）”，再到教会在受苦、软弱、认罪代求中的属灵医治与挽回，六个词组精准勾勒教会的成熟样式。',
+
+          w17Eyebrow: '第十七周 · 雅各书 5:7–11',
+          w17Title: '命令 20：对主与教会的忍耐，效法众先知与约伯',
+          w17Subtitle: '“所以”承接对欺压富足者的审判：雅各多次呼喊“看哪”，训练信徒在信心里凭神的启示仰望主再来，而不是凭眼见陷入埋怨。',
+
+          w18Eyebrow: '第十八周 · 雅各书 5:12–20',
+          w18Title: '命令 21–25：如何与神对话、祷告的力量与挽回弟兄',
+          w18Subtitle: '书信结尾没有寒暄问安，而是直接以五组强有力的命令收尾：不可起誓、受苦祷告、喜乐歌颂、请长老代祷、彼此认罪并挽回失迷者。',
+
+          cloEyebrow: '第四部分 · 全书收束与圣灵里的合一',
+          cloTitle: '首尾呼应（A ↔ A\'）与依靠清洁智慧运行的教会',
+          cloSubtitle: '回到全书开篇的试炼与盼望，雅各书最终将我们带入一个真实相交、彼此代求、凭属灵恩赐互相建造的合一教会。',
+
+          prevUnitBtn: '上一单元：雅各书 4:13–5:6（第15–16周）',
+          nextUnitBtn: '返回课程主页：第十九讲全书总览',
+
+          footerDesc: '本课程网站依据圣经归纳法查经十九讲内容编撰，旨在帮助信徒以清洁属神的智慧研读圣经、在基督里生活并在教会中忠心服事。',
+          sitemapTitle: '课程页面导航（全九页）',
+          footerCopyright: '雅各书圣经归纳法查经课程 · 仅作教会与神学研习使用',
+          backToTop: '返回顶部',
+          sitemapHomeTag: '课程主页',
+          sitemapHomeLabel: '主页 · 文体结构与神学'
+        },
+        en: {
+          pageTitle: 'James 5:7–20 · Patient Endurance, Prayer & Restoration',
+          emblem: 'J',
+          siteTitle: 'Epistle of James Course',
+          siteSubtitle: 'Unit A\' · Weeks 17–18 (James 5:7–20)',
+          navHome: 'Course Home',
+          navLexicon: 'Greek Lexicon',
+          navWeek17: 'Patient Endurance',
+          navWeek18: 'Prayer & Restoration',
+          navClosure: 'Book Closure',
+          langBtnTitle: 'Switch to Chinese',
+
+          heroBadge: 'Unit A\' · Weeks 17–18 · James 5:7–20',
+          heroTitle: 'Patient Endurance, Prayer & Restoration',
+          heroDesc: 'Mirroring Unit A (1:2–27), James closes the epistle by anchoring persecuted believers in the Lord’s imminent return—calling them to strengthen their hearts, speak truthfully, pray fervently, and restore straying brothers.',
+          heroGreekHint: 'Click any color-linked word to jump to its lexicon note',
+
+          gateEyebrow: 'COURSE CONTENT ACCESS',
+          gateTitle: 'Enter Access Password',
+          gateDesc: 'Expository notes below this banner are password-protected. Enter the course password to unlock (stays unlocked for your browser session).',
+          gateLabel: 'Access Password',
+          gatePlaceholder: 'Enter access password',
+          gateSubmit: 'Unlock This Unit',
+          gateError: 'Incorrect password. Please check and try again.',
+          gateShowPwd: 'Show password',
+          gateHidePwd: 'Hide password',
+
+          lexEyebrow: 'PART 1 · KEY GREEK VOCABULARY',
+          lexTitle: 'Six Pivotal Greek Terms in James 5:7–20',
+          lexSubtitle: 'From “long-suffering patience,” “groaning,” and the Lord’s “outcome/purpose” for Job, to “suffering,” “weariness,” and corporate “healing” and restoration, these terms frame the epistle’s climax.',
+
+          w17Eyebrow: 'WEEK 17 · JAMES 5:7–11',
+          w17Title: 'Command 20: Patience Toward the Lord & His Body',
+          w17Subtitle: 'Building with “Therefore” on 5:1–6, James repeats “Behold!” to train believers to walk by revelation rather than sight—waiting like the farmer, the prophets, and Job.',
+
+          w18Eyebrow: 'WEEK 18 · JAMES 5:12–20',
+          w18Title: 'Commands 21–25: Speaking with God, Fervent Prayer & Restoration',
+          w18Subtitle: 'Closing without customary farewells, James leaves the church with five decisive commands: stop swearing, pray and sing, call the elders, confess and intercede, and turn back the straying.',
+
+          cloEyebrow: 'PART 4 · EPISTLE CLOSURE & CHURCH UNITY',
+          cloTitle: 'Symmetrical Closure (A ↔ A\') & Fellowship in Pure Wisdom',
+          cloSubtitle: 'Completing the book’s outer chiastic frame, James leaves us with the portrait of a healed, praying, gift-serving church walking in pure, godly wisdom.',
+
+          prevUnitBtn: 'Previous Unit: James 4:13–5:6 (Weeks 15–16)',
+          nextUnitBtn: 'Return to Course Home: Lecture 19 Overview',
+
+          footerDesc: 'Built from the 19-week Inductive Bible Study course on the Epistle of James, equipping believers to live in Christ and serve faithfully in the church with pure, godly wisdom.',
+          sitemapTitle: 'COURSE SITEMAP (9 PAGES)',
+          footerCopyright: 'Epistle of James Inductive Bible Study · For Church & Seminary Study',
+          backToTop: 'Back to Top',
+          sitemapHomeTag: 'Home Page',
+          sitemapHomeLabel: 'Home · Structure & Theology'
+        }
+      };
+
+      // -------------------------------------------------------------------
+      // 2. HERO SBL GREEK KEY PASSAGES WITH COLOR-LINKED KEYWORDS
+      // -------------------------------------------------------------------
+      var HERO_PASSAGES = [
+        {
+          id: 'p1',
+          tab: { zh: '第17周 · 雅 5:7, 9, 11', en: 'Week 17 · Jas 5:7, 9, 11' },
+          greek:
+            '<a href="#lex-makro" class="kw-token kw-makro">Μακροθυμήσατε</a> οὖν, ἀδελφοί, ἕως τῆς παρουσίας τοῦ κυρίου… μὴ <a href="#lex-stenazo" class="kw-token kw-stenazo">στενάζετε</a>, ἀδελφοί, κατ’ ἀλλήλων, ἵνα μὴ κριθῆτε… τὴν ὑπομονὴν Ἰὼβ ἠκούσατε, καὶ τὸ <a href="#lex-telos" class="kw-token kw-telos">τέλος</a> κυρίου εἴδετε.',
+          trans: {
+            zh: '所以，弟兄们哪，你们要<a href="#lex-makro" class="kw-token kw-makro">忍耐</a>，直到主来……弟兄们，你们不要彼此<a href="#lex-stenazo" class="kw-token kw-stenazo">埋怨</a>，免得受审判……你们听见过约伯的忍耐，也知道主给他的<a href="#lex-telos" class="kw-token kw-telos">结局（目的）</a>。',
+            en: 'Therefore <a href="#lex-makro" class="kw-token kw-makro">be patient</a>, brothers, until the coming of the Lord… Do not <a href="#lex-stenazo" class="kw-token kw-stenazo">groan</a>, brothers, against one another, so that you yourselves may not be judged… You have heard of the endurance of Job and have seen the <a href="#lex-telos" class="kw-token kw-telos">outcome</a> of the Lord’s dealings.'
+          },
+          legend: [
+            { id: 'lex-makro', cls: 'kw-makro', greek: 'μακροθυμέω', strongs: 'G3114', zh: '长期忍耐 / 恒久受苦', en: 'long-suffering patience' },
+            { id: 'lex-stenazo', cls: 'kw-stenazo', greek: 'στενάζω', strongs: 'G4727', zh: '埋怨 / 叹息不满', en: 'groan / grumble' },
+            { id: 'lex-telos', cls: 'kw-telos', greek: 'τέλος', strongs: 'G5056', zh: '结局 / 终极目的', en: 'outcome / intended goal' }
+          ]
+        },
+        {
+          id: 'p2',
+          tab: { zh: '第18周 · 雅 5:13–16, 19', en: 'Week 18 · Jas 5:13–16, 19' },
+          greek:
+            '<a href="#lex-kakopatheo" class="kw-token kw-kakopatheo">Κακοπαθεῖ</a> τις ἐν ὑμῖν; προσευχέσθω… <a href="#lex-astheneo" class="kw-token kw-astheneo">ἀσθενεῖ</a> τις ἐν ὑμῖν; προσκαλεσάσθω τοὺς πρεσβυτέρους… καὶ ἡ εὐχὴ τῆς πίστεως σώσει τὸν <a href="#lex-astheneo" class="kw-token kw-astheneo">κάμνοντα</a>… ὅπως <a href="#lex-iaomai" class="kw-token kw-iaomai">ἰαθῆτε</a>… ἐάν τις ἐν ὑμῖν <a href="#lex-iaomai" class="kw-token kw-iaomai">πλανηθῇ</a> ἀπὸ τῆς ἀληθείας.',
+          trans: {
+            zh: '你们中间有<a href="#lex-kakopatheo" class="kw-token kw-kakopatheo">受苦</a>的呢，他就该祷告……有<a href="#lex-astheneo" class="kw-token kw-astheneo">病了（软弱）</a>的呢，他就该请教会的长老来……出于信心的祈祷要救那<a href="#lex-astheneo" class="kw-token kw-astheneo">病人（疲乏者）</a>……使你们可以得<a href="#lex-iaomai" class="kw-token kw-iaomai">医治</a>……若有<a href="#lex-iaomai" class="kw-token kw-iaomai">失迷</a>真道的……',
+            en: 'Is anyone among you <a href="#lex-kakopatheo" class="kw-token kw-kakopatheo">suffering</a>? Then he must pray… Is anyone among you <a href="#lex-astheneo" class="kw-token kw-astheneo">sick (weak)</a>? Then he must call for the elders… the prayer offered in faith will restore the one who is <a href="#lex-astheneo" class="kw-token kw-astheneo">weary</a>… so that you may be <a href="#lex-iaomai" class="kw-token kw-iaomai">healed</a>… if any among you <a href="#lex-iaomai" class="kw-token kw-iaomai">strays</a> from the truth.'
+          },
+          legend: [
+            { id: 'lex-kakopatheo', cls: 'kw-kakopatheo', greek: 'κακοπαθέω / ψάλλω', strongs: 'G2553 / G5567', zh: '试炼中受苦 / 唱诗篇', en: 'suffer hardship / sing psalms' },
+            { id: 'lex-astheneo', cls: 'kw-astheneo', greek: 'ἀσθενέω / κάμνω', strongs: 'G770 / G2577', zh: '病弱 / 属灵疲乏', en: 'weak-sick / spiritually weary' },
+            { id: 'lex-iaomai', cls: 'kw-iaomai', greek: 'ἰάομαι / πλανάω', strongs: 'G2390 / G4105', zh: '群体医治 / 失迷真道', en: 'corporate healing / stray' }
+          ]
+        }
+      ];
+
+      // -------------------------------------------------------------------
+      // 3. MULTI-BOOK SCRIPTURE ENGINE (和合本 TOOLTIP + LSB REFTAGGER)
+      // -------------------------------------------------------------------
+      var BOOKS = {
+        Lev:   { wd: 'lev', zh: '利',   enShort: 'Lev',     enFull: 'Leviticus',        gb: 3 },
+        Deu:   { wd: 'deu', zh: '申',   enShort: 'Deut',    enFull: 'Deuteronomy',      gb: 5 },
+        '1Ki': { wd: '1ki', zh: '王上', enShort: '1 Kgs',   enFull: '1 Kings',          gb: 11 },
+        Job:   { wd: 'job', zh: '伯',   enShort: 'Job',     enFull: 'Job',              gb: 18 },
+        Psa:   { wd: 'psa', zh: '诗',   enShort: 'Ps',      enFull: 'Psalms',           gb: 19 },
+        Lam:   { wd: 'lam', zh: '哀',   enShort: 'Lam',     enFull: 'Lamentations',     gb: 25 },
+        Hos:   { wd: 'hos', zh: '何',   enShort: 'Hos',     enFull: 'Hosea',            gb: 28 },
+        Joe:   { wd: 'jol', zh: '珥',   enShort: 'Joel',    enFull: 'Joel',             gb: 29 },
+        Hab:   { wd: 'hab', zh: '哈',   enShort: 'Hab',     enFull: 'Habakkuk',         gb: 35 },
+        Zec:   { wd: 'zec', zh: '亚',   enShort: 'Zech',    enFull: 'Zechariah',        gb: 38 },
+        Mat:   { wd: 'mat', zh: '太',   enShort: 'Matt',    enFull: 'Matthew',          gb: 40 },
+        Mar:   { wd: 'mrk', zh: '可',   enShort: 'Mark',    enFull: 'Mark',             gb: 41 },
+        Luk:   { wd: 'luk', zh: '路',   enShort: 'Luke',    enFull: 'Luke',             gb: 42 },
+        Joh:   { wd: 'jhn', zh: '约',   enShort: 'John',    enFull: 'John',             gb: 43 },
+        Act:   { wd: 'act', zh: '徒',   enShort: 'Acts',    enFull: 'Acts',             gb: 44 },
+        Rom:   { wd: 'rom', zh: '罗',   enShort: 'Rom',     enFull: 'Romans',           gb: 45 },
+        '1Co': { wd: '1co', zh: '林前', enShort: '1 Cor',   enFull: '1 Corinthians',    gb: 46 },
+        '2Co': { wd: '2co', zh: '林后', enShort: '2 Cor',   enFull: '2 Corinthians',    gb: 47 },
+        Gal:   { wd: 'gal', zh: '加',   enShort: 'Gal',     enFull: 'Galatians',        gb: 48 },
+        Eph:   { wd: 'eph', zh: '弗',   enShort: 'Eph',     enFull: 'Ephesians',        gb: 49 },
+        Php:   { wd: 'php', zh: '腓',   enShort: 'Phil',    enFull: 'Philippians',      gb: 50 },
+        '1Th': { wd: '1th', zh: '帖前', enShort: '1 Thess', enFull: '1 Thessalonians',  gb: 52 },
+        '2Th': { wd: '2th', zh: '帖后', enShort: '2 Thess', enFull: '2 Thessalonians',  gb: 53 },
+        '2Ti': { wd: '2ti', zh: '提后', enShort: '2 Tim',   enFull: '2 Timothy',        gb: 55 },
+        Heb:   { wd: 'heb', zh: '来',   enShort: 'Heb',     enFull: 'Hebrews',          gb: 58 },
+        Jas:   { wd: 'jas', zh: '雅',   enShort: 'James',   enFull: 'James',            gb: 59 },
+        '1Pe': { wd: '1pe', zh: '彼前', enShort: '1 Pet',   enFull: '1 Peter',          gb: 60 },
+        Jud:   { wd: 'jud', zh: '犹',   enShort: 'Jude',    enFull: 'Jude',             gb: 65 },
+        Rev:   { wd: 'rev', zh: '启',   enShort: 'Rev',     enFull: 'Revelation',       gb: 66 }
+      };
+
+      var CUV_FALLBACK = {
+        'Lev 19:12': '不可指着我的名起假誓，亵渎你神的名。我是耶和华。',
+        'Deu 11:13-14': '你们若留意听从我今日所吩咐的诫命……我必按时降秋雨春雨在你们的地上，使你们可以收藏五谷、新酒和油，',
+        '1Ki 17:1': '基列寄居的提斯比人以利亚对亚哈说：“我指着所事奉永生耶和华以色列的神起誓，这几年我若不祷告，必不降露，不下雨。”',
+        '1Ki 18:41-42': '以利亚上了迦密山顶，屈身在地，将脸伏在两膝之中……',
+        'Job 19:25-26': '我知道我的救赎主活着，末了必站立在地上。我这皮肉灭绝之后，我必在肉体之外得见神。',
+        'Job 42:10-12': '约伯为他的朋友祈祷。耶和华就使约伯从苦境转回，并且耶和华赐给他的比他从前所有的加倍……这样，耶和华后来赐福给约伯比先前更多。',
+        'Psa 66:18': '我若心里注重罪孽，主必不听。',
+        'Psa 103:8': '耶和华有怜悯，有恩典，不轻易发怒，且有丰盛的慈爱。',
+        'Lam 3:22-26': '我们不致消灭，是出于耶和华诸般的慈爱；是因他的怜悯不致断绝……人仰望耶和华，静默等候他的救恩，这原是好的。',
+        'Hos 6:3': '他出现确如晨光；他必临到我们像甘雨，像滋润田地的春雨。',
+        'Joe 2:23': '锡安的民哪，你们要快乐，为耶和华你们的神欢喜；因他赐给你们合宜的秋雨，为你们降下甘霖，就是秋雨、春雨，和先前一样。',
+        'Hab 3:17-18': '虽然无花果树不发旺，葡萄树不结果……然而，我要因耶和华欢欣，因救我的神喜乐。',
+        'Zec 10:1': '当春雨的时候，你们要向发闪电的耶和华求雨。他必为众人降下甘霖，使田园生长菜蔬。',
+        'Mat 5:10-11': '为义受逼迫的人有福了！因为天国是他们的。人若因我辱骂你们，逼迫你们……你们就有福了！',
+        'Mat 5:33-37': '只是我告诉你们，什么誓都不可起……你们的话，是，就说是；不是，就说不是；若再多说，就是出于那恶者。',
+        'Mat 10:8': '医治病人，叫死人复活，叫长大麻风的洁净，把鬼赶出去。',
+        'Mat 23:16-22': '指着天起誓的，就是指着神的宝座和那坐在上面的起誓。',
+        'Mar 5:34': '耶稣对她说：“女儿，你的信救了你，平平安安地回去吧！你的灾病痊愈了。”',
+        'Mar 6:12-13': '门徒就出去传道，叫人悔改，又赶出许多的鬼，用油抹了许多病人，治好他们。',
+        'Luk 4:25': '当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒……',
+        'Joh 15:1': '我是真葡萄树，我父是栽培的人。',
+        'Act 5:41': '他们离开公会，心里欢喜，因被算是配为这名受辱。',
+        'Act 27:22-25': '现在我还劝你们放心，你们的性命一个也不失丧……所以众位可以放心，我信神他怎样对我说，事情也要怎样成就。',
+        'Rom 1:9': '我在他儿子福音上，用心灵所事奉的神可以见证，我怎样不住地提到你们；',
+        'Rom 4:19': '他将近百岁的时候，虽然想到自己的身体如同已死，撒拉的生育已经断绝，他的信心还是不软弱；',
+        'Rom 8:22-25': '我们知道一切受造之物一同叹息、劳苦，直到如今……但我们若盼望那所不见的，就必忍耐等候。',
+        'Rom 12:3-7': '按我们所得的恩赐，各有不同……',
+        'Rom 12:17-21': '不要以恶报恶……亲爱的弟兄，不要自己伸冤，宁可让步，听凭主怒。',
+        'Rom 15:4-5': '但愿赐忍耐安慰的神叫你们彼此同心，效法基督耶稣，',
+        '1Co 11:29-31': '因为人吃喝，若不分辨是主的身体，就是吃喝自己的罪了。因此，在你们中间有好些软弱的与患病的，死的也不少。',
+        '1Co 12:4-11': '恩赐原有分别，圣灵却是一位……圣灵显在各人身上，是叫人得益处。',
+        '1Co 13:4': '爱是恒久忍耐，又有恩慈；',
+        '2Co 1:23': '我呼吁神给我的心作见证，我没有往哥林多去，是为要宽容你们。',
+        '2Co 5:2-4': '我们在这帐棚里叹息，深想得那从天上来的房屋，好像穿上衣服；',
+        'Gal 1:20': '我写给你们的不是谎话，这是我在神面前说的。',
+        'Gal 6:1-2': '弟兄们，若有人偶然被过犯所胜，你们属灵的人就当用温柔的心把他挽回过来……你们各人的重担要互相担当，如此，就完全了基督的律法。',
+        'Eph 4:11-13': '为要成全圣徒，各尽其职，建立基督的身体，直等到我们众人在真道上同归于一……',
+        'Php 1:8': '我体会基督耶稣的心肠，切切地想念你们众人；这是神可以给我作见证的。',
+        'Php 1:29-30': '因为你们蒙恩，不但得以信服基督，并要为他受苦。',
+        'Php 2:14-16': '凡所行的，都不要发怨言，起争论，使你们无可指摘，诚实无伪，在这弯曲悖谬的世代作神无瑕疵的儿女。',
+        'Php 4:4-6': '你们要靠主常常喜乐……应当一无挂虑，只要凡事藉着祷告、祈求，和感谢，将你们所要的告诉神。',
+        '1Th 5:14-18': '又要向众人忍耐……要常常喜乐，不住地祷告，凡事谢恩。',
+        '2Th 1:3-5': '甚至我们在神的各教会里为你们夸口，都因你们在所受的一切逼迫患难中，仍旧存忍耐和信心。',
+        '2Ti 2:6-9': '劳力的农夫理当先得粮食……我为这福音受苦难，甚至被捆绑，像犯人一样。然而神的道却不被捆绑。',
+        '2Ti 4:5': '你却要凡事谨慎，忍受苦难，作传道的工夫，尽你的职分。',
+        'Heb 6:13-18': '当初神应许亚伯拉罕的时候，因为没有比自己更大可以指着起誓的，就指着自己起誓……',
+        'Heb 10:35-39': '你们必须忍耐，使你们行完了神的旨意，就可以得着所应许的。',
+        'Heb 12:3': '那忍受罪人这样顶撞的，你们要思想，免得疲倦灰心。',
+        'Heb 12:11-13': '所以，你们要把下垂的手、发酸的腿挺起来；也要为自己的脚，把道路修直了，使瘸子不致歪脚，反得痊愈。',
+        'Heb 13:17': '你们要依从那些引导你们的，且要顺服；因他们为你们的灵魂时刻警醒，好像那将来交账的人。你们要使他们交的时候有快乐，不致忧愁；',
+        'Jas 1:2-6': '我的弟兄们，你们落在百般试炼中，都要以为大喜乐；因为知道你们的信心经过试验，就生忍耐……你们中间若有缺少智慧的，应当求那厚赐与众人、也不斥责人的神……',
+        'Jas 1:16': '我亲爱的弟兄们，不要看错了。',
+        'Jas 1:26-27': '在神我们的父面前，那清洁没有玷污的虔诚，就是看顾在患难中的孤儿寡妇，并且保守自己不沾染世俗。',
+        'Jas 4:3': '你们求也得不着，是因为你们妄求，要浪费在你们的宴乐中。',
+        'Jas 5:7-8': '弟兄们哪，你们要忍耐，直到主来。看哪，农夫忍耐等候地里宝贵的出产，直到得了秋雨春雨。你们也当忍耐，坚固你们的心，因为主来的日子近了。',
+        'Jas 5:9': '弟兄们，你们不要彼此埋怨，免得受审判。看哪，审判的主站在门前了。',
+        'Jas 5:10-11': '弟兄们，你们要把那先前奉主名说话的众先知当作能受苦、能忍耐的榜样。那先前忍耐的人，我们称他们是有福的。你们听见过约伯的忍耐，也知道主给他的结局，明显主是满心怜悯，大有慈悲。',
+        'Jas 5:12': '我的弟兄们，最要紧的是不可起誓；不可指着天起誓，也不可指着地起誓，无论何誓都不可起。你们说话，是，就说是；不是，就说不是，免得你们落在审判之下。',
+        'Jas 5:13': '你们中间有受苦的呢，他就该祷告；有喜乐的呢，他就该歌颂。',
+        'Jas 5:14-15': '你们中间有病了的呢，他就该请教会的长老来；他们可以奉主的名用油抹他，为他祷告。出于信心的祈祷要救那病人，主必叫他起来；他若犯了罪，也必蒙赦免。',
+        'Jas 5:16-18': '所以你们要彼此认罪，互相代求，使你们可以得医治。义人祈祷所发的力量是大有功效的。以利亚与我们是一样性情的人，他恳切祷告，求不要下雨，雨就三年零六个月不下在地上。',
+        'Jas 5:19-20': '我的弟兄们，你们中间若有失迷真道的，有人使他回转，这人该知道：叫一个罪人从迷路上转回，便是救一个灵魂不死，并且遮盖许多的罪。',
+        '1Pe 3:7': '这样，便叫你们的祷告没有阻碍。',
+        '1Pe 4:8-10': '最要紧的是彼此切实相爱，因为爱能遮掩许多的罪……各人要照所得的恩赐彼此服事，作神百般恩赐的好管家。',
+        '1Pe 4:12-14': '亲爱的弟兄啊，有火炼的试验临到你们，不要以为奇怪……倒要欢喜；因为你们是与基督一同受苦。',
+        'Jud 1:22-23': '有些人存疑心，你们要怜悯他们；有些人你们要从火中抢出来，搭救他们……',
+        'Rev 1:9': '我约翰就是你们的弟兄，和你们在耶稣的患难、国度、忍耐里一同有分，',
+        'Rev 2:3': '你也能忍耐，曾为我的名劳苦，并不乏倦。'
+      };
+
+      var CUV_CHAPTER_CACHE = {};
+
+      function cleanZhText(t) {
+        return String(t || '')
+          .replace(/\s+/g, ' ')
+          .replace(/([\u3000-\u303f\u4e00-\u9fff\uff00-\uffef“”‘’])\s+(?=[\u3000-\u303f\u4e00-\u9fff\uff00-\uffef“”‘’])/g, '$1')
+          .trim();
+      }
+
+      function parseRef(raw) {
+        var clean = String(raw || '').replace(/–/g, '-').trim();
+        var m = clean.match(/^([1-3]?[A-Za-z]+)\s+(\d+)(?::(\d+)(?:-(\d+):(\d+)|-(\d+))?)?$/);
+        if (!m || !BOOKS[m[1]]) {
+          return { key: clean, book: 'Jas', sc: 5, sv: 7, ec: 5, ev: 20, wholeChap: false };
+        }
+        var book = m[1];
+        var sc = parseInt(m[2], 10);
+        var wholeChap = !m[3];
+        var sv = m[3] ? parseInt(m[3], 10) : 1;
+        var ec = m[4] ? parseInt(m[4], 10) : sc;
+        var ev = m[5] ? parseInt(m[5], 10) : (m[6] ? parseInt(m[6], 10) : (wholeChap ? 999 : sv));
+        return { key: clean, book: book, sc: sc, sv: sv, ec: ec, ev: ev, wholeChap: wholeChap };
+      }
+
+      function buildScriptureHTML(raw) {
+        var p = parseRef(raw);
+        var B = BOOKS[p.book];
+        var isSingleChapBook = p.book === 'Jud';
+        var rangeStr = p.wholeChap
+          ? String(p.sc)
+          : (p.ec !== p.sc
+              ? (p.sc + ':' + p.sv + '-' + p.ec + ':' + p.ev)
+              : (p.ev !== p.sv ? (p.sc + ':' + p.sv + '-' + p.ev) : (p.sc + ':' + p.sv)));
+
+        if (appState.lang === 'zh') {
+          var labelZh = isSingleChapBook
+            ? (B.zh + ' ' + (p.ev !== p.sv ? (p.sv + '–' + p.ev) : String(p.sv)))
+            : (B.zh + ' ' + rangeStr.replace(/-/g, '–'));
+          var wdUrl = 'https://wd.bible/bible/verse/' + B.wd + '.' + p.sc + '.' + p.sv + '.cunps';
+          return (
+            '<a class="sc-zh" href="' + wdUrl + '" target="_blank" rel="noopener noreferrer" ' +
+            'data-refkey="' + p.key + '" data-gb="' + B.gb + '" data-sc="' + p.sc + '" data-sv="' + p.sv + '" ' +
+            'data-ec="' + p.ec + '" data-ev="' + p.ev + '" data-full="' + labelZh + '">' +
+            labelZh + '</a>'
+          );
+        }
+
+        var labelEn = B.enShort + ' ' + rangeStr;
+        var fullEn = B.enFull + ' ' + rangeStr;
+        var refLyUrl = 'https://ref.ly/' + encodeURIComponent(fullEn) + ';lsb';
+        return (
+          '<span class="sc-en"><a href="' + refLyUrl + '" target="_blank" rel="noopener noreferrer" data-ref="' + fullEn + '">' +
+          labelEn + '</a></span>'
+        );
+      }
+
+      function renderRichText(str) {
+        return String(str || '').replace(/\[\[(.+?)\]\]/g, function (_, ref) {
+          return buildScriptureHTML(ref);
+        });
+      }
+
+      function fetchChapterCuv(bookNum, chapNum) {
+        var cacheKey = bookNum + '/' + chapNum;
+        if (!CUV_CHAPTER_CACHE[cacheKey]) {
+          CUV_CHAPTER_CACHE[cacheKey] = fetch('https://api.getbible.net/v2/cus/' + bookNum + '/' + chapNum + '.json')
+            .then(function (r) {
+              if (!r.ok) throw new Error('HTTP ' + r.status);
+              return r.json();
+            })
+            .then(function (json) {
+              return (json.verses || []).map(function (v) {
+                return { c: Number(v.chapter || chapNum), v: Number(v.verse), t: cleanZhText(v.text) };
+              });
+            })
+            .catch(function (err) {
+              delete CUV_CHAPTER_CACHE[cacheKey];
+              throw err;
+            });
+        }
+        return CUV_CHAPTER_CACHE[cacheKey];
+      }
+
+      function getCuvTooltipText(dataset) {
+        var key = dataset.refkey;
+        var gb = Number(dataset.gb);
+        var sc = Number(dataset.sc);
+        var sv = Number(dataset.sv);
+        var ec = Number(dataset.ec);
+        var ev = Number(dataset.ev);
+        var maxVerses = 5;
+
+        var estCount = (ec === sc) ? (ev - sv + 1) : 10;
+        if (estCount > maxVerses && CUV_FALLBACK[key]) {
+          return Promise.resolve(CUV_FALLBACK[key]);
+        }
+
+        var chapters = [];
+        for (var c = sc; c <= ec; c++) chapters.push(c);
+
+        return Promise.all(chapters.map(function (ch) { return fetchChapterCuv(gb, ch); }))
+          .then(function (lists) {
+            var collected = [];
+            var truncated = false;
+            lists.forEach(function (vs, idx) {
+              var ch = chapters[idx];
+              vs.forEach(function (item) {
+                var from = (ch === sc) ? sv : 1;
+                var to = (ch === ec) ? ev : 999;
+                if (item.v >= from && item.v <= to) {
+                  if (collected.length < maxVerses) {
+                    collected.push(item.t);
+                  } else {
+                    truncated = true;
+                  }
+                }
+              });
+            });
+            if (!collected.length) {
+              return CUV_FALLBACK[key] || '点击打开微读圣经查阅完整经文。';
+            }
+            return collected.join('') + (truncated ? '……' : '');
+          })
+          .catch(function () {
+            return CUV_FALLBACK[key] || '点击打开微读圣经查阅完整经文。';
+          });
+      }
+
+      // Floating CUV Tooltip DOM
+      var tipEl = document.createElement('div');
+      tipEl.id = 'zh-tip';
+      tipEl.setAttribute('role', 'tooltip');
+      document.body.appendChild(tipEl);
+
+      var isTouchDevice = window.matchMedia && window.matchMedia('(hover: none)').matches;
+      var tipTarget = null;
+      var hideTipTimer = null;
+
+      function positionTip(anchor) {
+        var rect = anchor.getBoundingClientRect();
+        var width = Math.min(360, window.innerWidth - 16);
+        tipEl.style.width = width + 'px';
+        var left = Math.min(Math.max(8, rect.left + rect.width / 2 - width / 2), window.innerWidth - width - 8);
+        tipEl.style.left = left + 'px';
+        var height = tipEl.offsetHeight || 120;
+        var below = rect.bottom + 8;
+        var above = rect.top - height - 8;
+        tipEl.style.top = (below + height < window.innerHeight - 8 || above < 8 ? below : above) + 'px';
+      }
+
+      function showZhTip(anchor) {
+        clearTimeout(hideTipTimer);
+        tipTarget = anchor;
+        var d = anchor.dataset;
+        var immediateText = CUV_FALLBACK[d.refkey];
+        tipEl.innerHTML =
+          '<div class="zt-head"><span>' + d.full + '</span><span class="zt-ver">和合本</span></div>' +
+          '<div class="zt-body">' + (immediateText ? immediateText : '<span class="zt-muted">经文载入中……</span>') + '</div>';
+        tipEl.classList.add('visible');
+        positionTip(anchor);
+
+        getCuvTooltipText(d).then(function (text) {
+          if (tipTarget !== anchor) return;
+          var bodyEl = tipEl.querySelector('.zt-body');
+          if (bodyEl) {
+            bodyEl.textContent = text;
+            positionTip(anchor);
+          }
+        });
+      }
+
+      function hideZhTip() {
+        tipEl.classList.remove('visible');
+        tipTarget = null;
+      }
+
+      // -------------------------------------------------------------------
+      // 4. LOGOS REFTAGGER V2 (ENGLISH LSB HOVER)
+      // -------------------------------------------------------------------
+      window.refTagger = {
+        settings: {
+          bibleVersion: 'LSB',
+          socialSharing: [],
+          tooltipStyle: 'light',
+          roundCorners: true,
+          convertHyperlinks: true,
+          tagChapters: true,
+          noSearchClassNames: ['sc-zh', 'no-rt'],
+          customStyle: {
+            heading: { backgroundColor: '#EFE5CF', color: '#2B2520' },
+            body: { color: '#2B2520' }
+          }
+        }
+      };
+
+      (function loadRefTagger() {
+        try {
+          var s = document.createElement('script');
+          s.src = 'https://api.reftagger.com/v2/RefTagger.js';
+          s.async = true;
+          document.body.appendChild(s);
+        } catch (err) {}
+      })();
+
+      function refreshReftagger() {
+        if (appState.lang !== 'en' || !appState.isUnlocked) return;
+        var run = function () {
+          try {
+            if (window.refTagger && typeof window.refTagger.tag === 'function') {
+              window.refTagger.tag(document.getElementById('protectedContent'));
+            }
+          } catch (err) {}
+        };
+        run();
+        window.setTimeout(run, 500);
+      }
+
+      // -------------------------------------------------------------------
+      // 5. WEEKS 17–18 EXPOSITORY CONTENT DATA
+      // -------------------------------------------------------------------
+      var LEXICON_ITEMS = [
+        {
+          id: 'lex-makro',
+          barColor: 'bg-amber-500',
+          pillCls: 'bg-amber-100 text-amber-900 border-amber-300',
+          greek: 'μακροθυμέω',
+          verseForm: 'μακροθυμήσατε (5:7–8, 10)',
+          translit: 'makrothymeō',
+          strongs: 'G3114 / G3115',
+          matchedWord: { zh: '忍耐 / 长期受苦', en: 'be patient / longsuffering' },
+          gloss: { zh: '直译“长期忍耐、不轻易发怒”，对人与对神的恒久等候', en: 'Literally “long-tempered / longsuffering” toward people and God' },
+          note: {
+            zh: '与第一章侧重面对环境苦难的“坚忍”（ὑπομονή）相辅相成，此词更侧重在漫长等候与人际磨难中不急躁、不报复的恒久耐心（[[1Co 13:4]]；[[Rom 15:4-5]]；[[1Th 5:14-18]]；[[Jas 5:7-8]]）。',
+            en: 'Complementing chapter 1’s endurance under trials (ὑπομονή), this verb stresses long-tempered patience toward people and prolonged waiting for the Lord’s return ([[1Co 13:4]]; [[Rom 15:4-5]]; [[1Th 5:14-18]]; [[Jas 5:7-8]]).'
+          }
+        },
+        {
+          id: 'lex-stenazo',
+          barColor: 'bg-rose-500',
+          pillCls: 'bg-rose-100 text-rose-900 border-rose-300',
+          greek: 'στενάζω',
+          verseForm: 'στενάζετε (5:9)',
+          translit: 'stenazō',
+          strongs: 'G4727',
+          matchedWord: { zh: '埋怨 / 叹息不满', en: 'groan / grumble' },
+          gloss: { zh: '内心叹息、表达不满、暗中发怨言', en: 'To groan inwardly, complain, grumble against' },
+          note: {
+            zh: '表达不满或叹息本身未必是罪（[[Rom 8:22-25]]；[[2Co 5:2-4]]）；关键在于你对什么不满。当教外逼迫引发教会内部的互相怨怼（[[Heb 13:17]]；[[Php 2:14-16]]），便会落在门口那位审判者的审判之下（[[Jas 5:9]]）。',
+            en: 'Groaning itself is not always sinful ([[Rom 8:22-25]]; [[2Co 5:2-4]]); what matters is its object. Turning external pressure into internal grumbling against brothers ([[Heb 13:17]]; [[Php 2:14-16]]) invites the Judge standing at the door ([[Jas 5:9]]).'
+          }
+        },
+        {
+          id: 'lex-telos',
+          barColor: 'bg-sky-500',
+          pillCls: 'bg-sky-100 text-sky-900 border-sky-300',
+          greek: 'τέλος',
+          verseForm: 'τέλος κυρίου (5:11)',
+          translit: 'telos',
+          strongs: 'G5056',
+          matchedWord: { zh: '结局 / 目的', en: 'outcome / intended goal' },
+          gloss: { zh: '兼具两层含义：① 终了的结局；② 神所预定的目的', en: 'Carries two dimensions: (1) final outcome, and (2) divine purpose' },
+          note: {
+            zh: '主给约伯的结局不仅在于外在的加倍赏赐，更在于约伯在苦难终局中真正认识了满心怜悯、大有慈悲的主（[[Job 19:25-26]]；[[Job 42:10-12]]；[[Lam 3:22-26]]；[[Psa 103:8]]；[[Jas 5:10-11]]）。',
+            en: 'The Lord’s τέλος for Job was not merely material restoration, but the revelation of His compassion and mercy through suffering ([[Job 19:25-26]]; [[Job 42:10-12]]; [[Lam 3:22-26]]; [[Psa 103:8]]; [[Jas 5:10-11]]).'
+          }
+        },
+        {
+          id: 'lex-kakopatheo',
+          barColor: 'bg-emerald-500',
+          pillCls: 'bg-emerald-100 text-emerald-900 border-emerald-300',
+          greek: 'κακοπαθέω / ψάλλω',
+          verseForm: 'κακοπαθεῖ / ψαλλέτω (5:13)',
+          translit: 'kakopatheō / psallō',
+          strongs: 'G2553 / G5567',
+          matchedWord: { zh: '受苦 / 歌颂（唱诗篇）', en: 'suffering / sing praises' },
+          gloss: { zh: '在试炼中遭受苦难；以唱诗篇赞美神', en: 'To endure hardship in trials; to sing psalms of praise' },
+          note: {
+            zh: 'κακοπαθέω 与 5:10 众先知“能受苦”同词根（[[2Ti 2:6-9]]；[[2Ti 4:5]]）；“喜乐”（εὐθυμέω，G2114，因受鼓励而有的属灵安稳，[[Act 27:22-25]]）则以 ψάλλω（唱诗篇）回应——形成“受苦 → 祷告 → 喜乐 → 唱诗”的敬虔节奏（[[Jas 5:13]]；[[Php 4:4-6]]）。',
+            en: 'κακοπαθέω shares its root with the prophets’ “suffering” in 5:10 ([[2Ti 2:6-9]]; [[2Ti 4:5]]). Cheerfulness (εὐθυμέω, G2114, good-spirited courage, [[Act 27:22-25]]) responds with ψάλλω (singing psalms), shaping the rhythm: suffering → prayer → joy → praise ([[Jas 5:13]]; [[Php 4:4-6]]).'
+          }
+        },
+        {
+          id: 'lex-astheneo',
+          barColor: 'bg-purple-500',
+          pillCls: 'bg-purple-100 text-purple-900 border-purple-300',
+          greek: 'ἀσθενέω / κάμνω',
+          verseForm: 'ἀσθενεῖ / κάμνοντα (5:14–15)',
+          translit: 'astheneō / kamnō',
+          strongs: 'G770 / G2577',
+          matchedWord: { zh: '病了（软弱）/ 疲乏者', en: 'sick (weak) / weary one' },
+          gloss: { zh: '兼具身体病弱与属灵软弱疲乏，尤重属灵低谷', en: 'Encompasses physical illness and especially spiritual weariness' },
+          note: {
+            zh: 'ἀσθενέω 可指属灵软弱（[[Rom 4:19]]）或身体病痛（[[Mat 10:8]]）；κάμνω 在新约其余两处均指属灵上的“疲倦灰心”（[[Heb 12:3]]；[[Rev 2:3]]）。长老奉主名用油抹他（[[Mar 6:12-13]]）并凭信代祷，主必挽救扶起（σῴζω，G4982，[[Mar 5:34]]；[[Jas 5:14-15]]）。',
+            en: 'ἀσθενέω covers both spiritual weakness ([[Rom 4:19]]) and bodily sickness ([[Mat 10:8]]); κάμνω elsewhere always means spiritual weariness ([[Heb 12:3]]; [[Rev 2:3]]). Elders anoint with oil ([[Mar 6:12-13]]) and pray in faith, and the Lord restores (σῴζω, G4982, [[Mar 5:34]]; [[Jas 5:14-15]]).'
+          }
+        },
+        {
+          id: 'lex-iaomai',
+          barColor: 'bg-indigo-500',
+          pillCls: 'bg-indigo-100 text-indigo-900 border-indigo-300',
+          greek: 'ἰάομαι / πλανάω',
+          verseForm: 'ἰαθῆτε / πλανηθῇ (5:16, 19)',
+          translit: 'iaomai / planaō',
+          strongs: 'G2390 / G4105',
+          matchedWord: { zh: '得医治 / 失迷真道', en: 'be healed / strays' },
+          gloss: { zh: '教会群体的属灵医治；偏离正轨如行星漂移', en: 'Corporate spiritual healing; wandering off truth’s orbit' },
+          note: {
+            zh: '“使你们（复数）可以得医治（ἰάομαι）”重在因分裂、埋怨与隐藏之罪受损的整个教会的属灵复原（[[Heb 12:11-13]]）。πλανάω（英语 planet 来源，呼应 [[Jas 1:16]]）描绘信徒偏离真道，急需教会以爱心挽回（[[Jas 5:19-20]]）。',
+            en: '“That you (plural) may be healed (ἰάομαι)” points primarily to the spiritual restoration of the entire church wounded by conflict and sin ([[Heb 12:11-13]]). πλανάω (root of “planet,” echoing [[Jas 1:16]]) pictures a believer drifting off truth’s orbit and needing loving rescue ([[Jas 5:19-20]]).'
+          }
+        }
+      ];
+
+      var SITEMAP_UNITS = [
+        { href: 'james_1_1.html', marker: { zh: '序言', en: 'Intro' }, ref: { zh: '雅 1:1', en: 'James 1:1' }, title: { zh: '写作背景与问安', en: 'Background & Greeting' } },
+        { href: 'james_1_2_27.html', marker: { zh: 'A', en: 'A' }, ref: { zh: '雅 1:2–27', en: 'James 1:2-27' }, title: { zh: '信心的完善与行道', en: 'Perfection of Faith & Doing the Word' } },
+        { href: 'james_2_1_26.html', marker: { zh: 'B', en: 'B' }, ref: { zh: '雅 2:1–26', en: 'James 2:1-26' }, title: { zh: '不偏待人与活信心', en: 'Impartiality & Living Faith' } },
+        { href: 'james_3_1_12.html', marker: { zh: 'C', en: 'C' }, ref: { zh: '雅 3:1–12', en: 'James 3:1-12' }, title: { zh: '讲台责任与控制舌头', en: 'Teaching Office & Taming the Tongue' } },
+        { href: 'james_3_13_18.html', marker: { zh: 'D', en: 'D' }, ref: { zh: '雅 3:13–18', en: 'James 3:13-18' }, title: { zh: '从上头来的清洁智慧', en: 'Pure Wisdom from Above' } },
+        { href: 'james_4_1_12.html', marker: { zh: "C'", en: "C'" }, ref: { zh: '雅 4:1–12', en: 'James 4:1-12' }, title: { zh: '止息纷争与谦卑亲近神', en: 'Ending Conflicts & Drawing Near to God' } },
+        { href: 'james_4_13_5_6.html', marker: { zh: "B'", en: "B'" }, ref: { zh: '雅 4:13–5:6', en: 'James 4:13-5:6' }, title: { zh: '属世谋划与富足者的宣判', en: 'Worldly Planning & Judgment on the Rich' } },
+        { href: 'james_5_7_20.html', marker: { zh: "A'", en: "A'" }, ref: { zh: '雅 5:7–20', en: 'James 5:7-20' }, title: { zh: '忍耐等候与祷告挽回', en: 'Patient Endurance, Prayer & Restoration' }, current: true }
+      ];
+
+      // -------------------------------------------------------------------
+      // 6. PERSISTENCE & ACCESS LOCK
+      // -------------------------------------------------------------------
+      function loadSavedLanguage() {
+        try {
+          var saved = window.localStorage.getItem(STORAGE_KEY_LANG);
+          if (saved === 'zh' || saved === 'en') appState.lang = saved;
+        } catch (err) {}
+      }
+
+      function saveLanguage(lang) {
+        try {
+          window.localStorage.setItem(STORAGE_KEY_LANG, lang);
+        } catch (err) {}
+      }
+
+      function loadUnlockState() {
+        try {
+          appState.isUnlocked = window.sessionStorage.getItem(STORAGE_KEY_AUTH) === '1';
+        } catch (err) {
+          appState.isUnlocked = false;
+        }
+      }
+
+      function saveUnlockState() {
+        try {
+          window.sessionStorage.setItem(STORAGE_KEY_AUTH, '1');
+        } catch (err) {}
+      }
+
+      function applyAccessLockState() {
+        var gateEl = document.getElementById('accessGate');
+        var contentEl = document.getElementById('protectedContent');
+        var footerEl = document.getElementById('protectedFooter');
+
+        if (gateEl) gateEl.classList.toggle('hidden', appState.isUnlocked);
+        if (contentEl) contentEl.classList.toggle('hidden', !appState.isUnlocked);
+        if (footerEl) footerEl.classList.toggle('hidden', !appState.isUnlocked);
+      }
+
+      // -------------------------------------------------------------------
+      // 7. RENDER FUNCTIONS
+      // -------------------------------------------------------------------
+      function renderHeroPassageBox() {
+        var lang = appState.lang;
+        var tabsEl = document.getElementById('heroVerseTabs');
+        var greekEl = document.getElementById('heroGreekLine');
+        var transEl = document.getElementById('heroTransLine');
+        var legendEl = document.getElementById('heroLegendRow');
+        if (!tabsEl || !greekEl || !transEl || !legendEl) return;
+
+        tabsEl.innerHTML = HERO_PASSAGES.map(function (p) {
+          var active = appState.activeHeroPassage === p.id;
+          var cls = active
+            ? 'bg-gold text-white border-gold'
+            : 'bg-white/10 text-slate-200 border-white/20 hover:bg-white/20';
+          return (
+            '<button type="button" role="tab" aria-selected="' + active + '" data-hero-p="' + p.id + '" ' +
+            'class="hero-p-tab px-3 py-1 rounded-lg border text-xs font-semibold transition-colors ' + cls + '">' +
+              p.tab[lang] +
+            '</button>'
+          );
+        }).join('');
+
+        tabsEl.querySelectorAll('.hero-p-tab').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            appState.activeHeroPassage = btn.getAttribute('data-hero-p');
+            renderHeroPassageBox();
+          });
+        });
+
+        var current = HERO_PASSAGES[0];
+        for (var i = 0; i < HERO_PASSAGES.length; i++) {
+          if (HERO_PASSAGES[i].id === appState.activeHeroPassage) {
+            current = HERO_PASSAGES[i];
+            break;
+          }
+        }
+
+        greekEl.innerHTML = current.greek;
+        transEl.innerHTML = current.trans[lang];
+        legendEl.innerHTML = current.legend.map(function (item) {
+          return (
+            '<a href="#' + item.id + '" class="kw-token ' + item.cls + ' text-xs">' +
+              item.greek + ' (' + item.strongs + ') ↔ ' + item[lang] +
+            '</a>'
+          );
+        }).join('');
+      }
+
+      function renderChrome() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var isZh = lang === 'zh';
+
+        document.documentElement.lang = isZh ? 'zh-CN' : 'en';
+        document.title = dict.pageTitle;
+
+        var brandEmblem = document.getElementById('brandEmblem');
+        var footerEmblem = document.getElementById('footerEmblem');
+        if (brandEmblem) brandEmblem.textContent = dict.emblem;
+        if (footerEmblem) footerEmblem.textContent = dict.emblem;
+
+        var pillZh = document.getElementById('lang-pill-zh');
+        var pillEn = document.getElementById('lang-pill-en');
+        var toggleBtn = document.getElementById('btn-lang-toggle');
+        if (pillZh && pillEn) {
+          pillZh.className = isZh
+            ? 'px-2 py-1 rounded-md bg-navy text-parchment transition-colors'
+            : 'px-2 py-1 rounded-md text-[#3b3228] transition-colors';
+          pillEn.className = !isZh
+            ? 'px-2 py-1 rounded-md bg-navy text-parchment transition-colors'
+            : 'px-2 py-1 rounded-md text-[#3b3228] transition-colors';
+        }
+        if (toggleBtn) toggleBtn.title = dict.langBtnTitle;
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+
+        var pwdInput = document.getElementById('accessPasswordInput');
+        if (pwdInput) pwdInput.setAttribute('placeholder', dict.gatePlaceholder);
+
+        var togglePwdBtn = document.getElementById('togglePasswordVisibility');
+        if (togglePwdBtn && pwdInput) {
+          togglePwdBtn.setAttribute('aria-label', pwdInput.type === 'password' ? dict.gateShowPwd : dict.gateHidePwd);
+        }
+
+        renderHeroPassageBox();
+      }
+
+      function renderLexicon() {
+        var lang = appState.lang;
+        var isZh = lang === 'zh';
+        var grid = document.getElementById('lexiconGrid');
+        if (!grid) return;
+
+        grid.innerHTML = LEXICON_ITEMS.map(function (item) {
+          return (
+            '<article id="' + item.id + '" class="scroll-mt-24 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden flex flex-col">' +
+              '<div class="h-1.5 w-full ' + item.barColor + '"></div>' +
+              '<div class="px-5 py-4 bg-parchmentDeep/70 border-b border-parchmentBorder">' +
+                '<div class="flex items-baseline justify-between gap-2 mb-1">' +
+                  '<span class="font-serif text-2xl font-bold text-navy" lang="el">' + item.greek + '</span>' +
+                  '<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-white border border-parchmentBorder text-gold">' + item.strongs + '</span>' +
+                '</div>' +
+                '<div class="flex flex-wrap items-center justify-between gap-2 text-xs text-inkMuted">' +
+                  '<span>' + item.translit + ' · ' + item.verseForm + '</span>' +
+                  '<span class="px-2 py-0.5 rounded-md border text-[11px] font-bold ' + item.pillCls + '">' +
+                    (isZh ? '译作：' : 'Rendered: ') + item.matchedWord[lang] +
+                  '</span>' +
+                '</div>' +
+              '</div>' +
+              '<div class="p-5 space-y-2.5 flex-1">' +
+                '<div class="text-sm font-bold text-navy">' + item.gloss[lang] + '</div>' +
+                '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + renderRichText(item.note[lang]) + '</p>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      function renderWeek17() {
+        var isZh = appState.lang === 'zh';
+
+        var topGrid = document.getElementById('w17TopGrid');
+        if (topGrid) {
+          var fourPurposes = isZh
+            ? [
+                '操练对神、对人的耐心与在苦难中的恒久忍耐',
+                '检验教会是否活出不偏待人的真实基督之爱',
+                '考验我们究竟信靠谁、是否依然心怀二意',
+                '炼净并坚固教会昼夜仰望神的祷告生活（[[Hab 3:17-18]]）'
+              ]
+            : [
+                'Cultivating patience toward God and people, plus steadfastness in suffering',
+                'Testing whether the church practices impartial, Christlike love',
+                'Exposing whom we truly trust—single-minded devotion vs. double-mindedness',
+                'Refining and deepening the church’s dependent prayer life ([[Hab 3:17-18]])'
+              ];
+
+          topGrid.innerHTML =
+            '<article class="lg:col-span-6 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+              '<div class="px-5 py-3.5 bg-parchmentDeep/75 border-b border-parchmentBorder flex items-center justify-between gap-2">' +
+                '<span class="px-2.5 py-0.5 rounded-md bg-navy text-white text-xs font-bold">' + (isZh ? '命令 20（双重命令）' : 'Command 20 (Double)') + '</span>' +
+                '<span class="text-xs font-semibold">' + buildScriptureHTML('Jas 5:7-8') + '</span>' +
+              '</div>' +
+              '<div class="p-5 space-y-3 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+                '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '忍耐等候，坚固你们的心，因为主来的日子近了' : 'Be Patient & Strengthen Your Hearts Until the Lord Comes') + '</h3>' +
+                '<p>' + renderRichText(isZh
+                  ? '<strong>“农夫等候早雨晚雨”的比喻：</strong>巴勒斯坦的早雨（十至十一月）使种子发芽，晚雨（三至四月）使庄稼成熟（[[Deu 11:13-14]]；[[Hos 6:3]]；[[Joe 2:23]]；[[Zec 10:1]]）。基督徒如同农夫（[[Joh 15:1]]；[[2Ti 2:6-9]]），在逼迫中带着确据等候主的再来（[[2Th 1:3-5]]；[[Php 1:29-30]]；[[1Pe 4:12-14]]；[[Rev 1:9]]）。'
+                  : '<strong>The Farmer Waiting for Early & Late Rains:</strong> Early rain (Oct–Nov) germinates the seed; late rain (Mar–Apr) ripens the harvest ([[Deu 11:13-14]]; [[Hos 6:3]]; [[Joe 2:23]]; [[Zec 10:1]]). Like the patient farmer ([[Joh 15:1]]; [[2Ti 2:6-9]]), believers await Christ’s return with firm hearts ([[2Th 1:3-5]]; [[Php 1:29-30]]; [[1Pe 4:12-14]]; [[Rev 1:9]]).'
+                ) + '</p>' +
+                '<p>' + renderRichText(isZh
+                  ? '<strong>核心原则：</strong>对人的耐心，始于并源于对神的耐心（[[1Co 13:4]]；[[Rom 15:4-5]]；[[Rom 12:17-21]]；[[Act 5:41]]；[[Heb 10:35-39]]）。'
+                  : '<strong>Core Principle:</strong> Patience toward people begins with and flows out of patience toward God ([[1Co 13:4]]; [[Rom 15:4-5]]; [[Rom 12:17-21]]; [[Act 5:41]]; [[Heb 10:35-39]]).'
+                ) + '</p>' +
+              '</div>' +
+            '</article>' +
+            '<article class="lg:col-span-6 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+              '<div class="px-5 py-3.5 bg-parchmentDeep/75 border-b border-parchmentBorder flex items-center justify-between gap-2">' +
+                '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '不要彼此埋怨：审判的主站在门前（雅 5:9）' : 'Do Not Groan Against One Another (5:9)') + '</h3>' +
+                '<span class="text-xs font-semibold">' + buildScriptureHTML('Jas 5:9') + '</span>' +
+              '</div>' +
+              '<div class="p-5 space-y-3 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+                '<p>' + renderRichText(isZh
+                  ? '<strong>多次重复“看哪！”：</strong>雅各训练信徒在圣灵里、在信心与神的启示里去看现实，而不是凭眼见将教外压力转化为教会内部的怨言（[[Php 2:14-16]]；[[Heb 13:17]]）。'
+                  : '<strong>Repeated “Behold!”:</strong> James trains believers to see by faith and divine revelation rather than sight, preventing outside pressure from turning into internal grumbling ([[Php 2:14-16]]; [[Heb 13:17]]).'
+                ) + '</p>' +
+                '<div class="p-3.5 rounded-xl bg-parchment/80 border border-parchmentBorder space-y-1.5">' +
+                  '<div class="text-xs font-bold text-navy">' + (isZh ? '为什么上帝允许未得救的富足人迫害教会？' : 'Why Does God Permit Unsaved Oppressors to Persecute the Church?') + '</div>' +
+                  '<ul class="space-y-1.5">' +
+                    fourPurposes.map(function (pt, idx) {
+                      return (
+                        '<li class="flex items-start gap-2 text-xs text-inkMuted leading-relaxed">' +
+                          '<span class="w-4 h-4 rounded-full bg-navy text-white text-[10px] font-bold inline-flex items-center justify-center shrink-0 mt-0.5">' + (idx + 1) + '</span>' +
+                          '<span>' + renderRichText(pt) + '</span>' +
+                        '</li>'
+                      );
+                    }).join('') +
+                  '</ul>' +
+                '</div>' +
+              '</div>' +
+            '</article>';
+        }
+
+        var modelsEl = document.getElementById('w17ModelsCard');
+        if (modelsEl) {
+          modelsEl.innerHTML =
+            '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder flex flex-wrap items-center justify-between gap-2">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '受苦与忍耐的旧约榜样：众先知与约伯（雅 5:10–11）' : 'Old Testament Models of Endurance: The Prophets & Job (5:10–11)') + '</h3>' +
+              '<span class="text-xs font-semibold">' + buildScriptureHTML('Jas 5:10-11') + '</span>' +
+            '</div>' +
+            '<div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+              '<div class="p-4 rounded-xl bg-parchment/80 border border-parchmentBorder space-y-2">' +
+                '<div class="font-bold text-navy">' + (isZh ? '奉主名说话的众先知' : 'The Prophets Who Spoke in the Lord’s Name') + '</div>' +
+                '<p>' + renderRichText(isZh
+                  ? '忠心传讲神话语的众先知历来承受逼迫与误解，却坚持到底；因此“那先前忍耐的人，我们称他们是有福的”（[[Mat 5:10-11]]；[[Jas 1:2-6]]）。'
+                  : 'Faithful prophets who spoke God’s Word endured rejection and suffering without quitting; therefore “we count those blessed who endured” ([[Mat 5:10-11]]; [[Jas 1:2-6]]).'
+                ) + '</p>' +
+              '</div>' +
+              '<div class="p-4 rounded-xl bg-parchment/80 border border-parchmentBorder space-y-2">' +
+                '<div class="font-bold text-navy">' + (isZh ? '约伯的忍耐与主的结局（τέλος）' : 'Job’s Endurance & the Lord’s Outcome (τέλος)') + '</div>' +
+                '<p>' + renderRichText(isZh
+                  ? '什么才是你认为的“神的祝福”？约伯在极深苦难中仍仰望救赎主（[[Job 19:25-26]]；[[Job 42:10-12]]），主给他的终极目的（τέλος）向万代显明：<strong>主是满心怜悯、大有慈悲</strong>（[[Lam 3:22-26]]；[[Psa 103:8]]）。'
+                  : 'How do you define God’s “blessing”? Through Job’s steadfastness ([[Job 19:25-26]]; [[Job 42:10-12]]), the Lord’s outcome and purpose (τέλος) reveals for all ages that <strong>the Lord is full of compassion and merciful</strong> ([[Lam 3:22-26]]; [[Psa 103:8]]).'
+                ) + '</p>' +
+              '</div>' +
+            '</div>';
+        }
+      }
+
+      function renderWeek18() {
+        var isZh = appState.lang === 'zh';
+
+        var cmds = [
+          {
+            num: { zh: '命令 21', en: 'Command 21' },
+            ref: 'Jas 5:12',
+            title: { zh: '最要紧的是不可起誓：心口一致的真诚', en: 'Above All, Do Not Swear: Consistent Integrity' },
+            body: isZh
+              ? '开启结尾部分“如何与神、与人对话”（[[1Pe 4:8-10]]；[[Lev 19:12]]；[[Mat 5:33-37]]；[[Mat 23:16-22]]）。随便起誓往往出于对神缺乏信心而“讨价还价”，或对人缺乏耐心而急于结束对话（[[Heb 6:13-18]]）。基督徒的本质是心口行为始终一致、不再心怀二意。注意：雅各并非禁止在法庭起誓或为重要福音见证恳求神作证（[[Rom 1:9]]；[[2Co 1:23]]；[[Gal 1:20]]；[[Php 1:8]]）。'
+              : 'Opens the closing section on speaking with God and others ([[1Pe 4:8-10]]; [[Lev 19:12]]; [[Mat 5:33-37]]; [[Mat 23:16-22]]). Casual oaths betray either bargaining with God in unbelief or impatiently cutting off people ([[Heb 6:13-18]]). Christian integrity needs no oath to prop it up—though James does not forbid solemn judicial oaths or calling God as witness on weighty matters ([[Rom 1:9]]; [[2Co 1:23]]; [[Gal 1:20]]; [[Php 1:8]]).'
+          },
+          {
+            num: { zh: '命令 22（双重命令）', en: 'Command 22 (Double)' },
+            ref: 'Jas 5:13',
+            title: { zh: '受苦的该祷告，喜乐的该歌颂（唱诗篇）', en: 'Suffering → Pray; Cheerful → Sing Psalms' },
+            body: isZh
+              ? '无论处于试炼受苦（κακοπαθέω）还是蒙鼓励喜乐（εὐθυμέω，[[Act 27:22-25]]）的境况，信徒都当主动转向神与他对话（[[Php 4:4-6]]）。“歌颂”（ψάλλω）原意为“唱诗篇”，构成属灵生命的良性循环：<strong>试炼受苦 → 祷告 → 喜乐 → 唱诗赞美</strong>。'
+              : 'In every season—whether enduring hardship (κακοπαθέω) or encouraged in spirit (εὐθυμέω, [[Act 27:22-25]])—believers turn immediately to God ([[Php 4:4-6]]). “Sing praises” (ψάλλω) means singing psalms, forming the spiritual rhythm: <strong>Trial/Suffering → Prayer → Joy → Singing</strong>.'
+          },
+          {
+            num: { zh: '命令 23（双重命令）', en: 'Command 23 (Double)' },
+            ref: 'Jas 5:14-15',
+            title: { zh: '请教会的长老奉主名抹油、凭信心祷告', en: 'Call the Elders to Anoint & Pray in Faith' },
+            body: isZh
+              ? '结合 ἀσθενέω（病弱/软弱）与 κάμνω（属灵疲乏，[[Heb 12:3]]；[[Rev 2:3]]），此处既涵盖身体疾病，更偏向在试炼与罪疚中极度疲乏软弱的弟兄。请教会属灵领袖奉主名用油抹他（[[Mar 6:12-13]]）并献上出于信心的祷告，主必救拔扶起他（σῴζω），所犯的罪也必蒙赦免。'
+              : 'Combining ἀσθενέω (weak/sick) with κάμνω (spiritually weary, [[Heb 12:3]]; [[Rev 2:3]]), this covers bodily illness and especially believers worn down in trials or guilt. Calling church elders to anoint with oil ([[Mar 6:12-13]]) and pray in faith brings the Lord’s restoration (σῴζω) and forgiveness.'
+          },
+          {
+            num: { zh: '命令 24（双重命令）', en: 'Command 24 (Double)' },
+            ref: 'Jas 5:16-18',
+            title: { zh: '彼此认罪，互相代求，使全教会得医治', en: 'Confess Sins & Pray for One Another to Be Healed' },
+            body: isZh
+              ? '“所以”向全教会不同恩赐与成长阶段的信徒发出统一呼召——这正是教会祷告会与圣餐的真实样式（[[Psa 66:18]]；[[Jas 4:3]]；[[1Pe 3:7]]；[[1Co 11:29-31]]）。“你们（复数）得医治（ἰάομαι）”重在全教会的属灵复原。先知以利亚“与我们是一样性情的人”（[[1Ki 17:1]]；[[1Ki 18:41-42]]；[[Luk 4:25]]），证明义人恳切祈祷的巨大功效。'
+              : '“Therefore” unites the whole congregation across all gifts and maturity levels—the true model of prayer meetings and the Lord’s Supper ([[Psa 66:18]]; [[Jas 4:3]]; [[1Pe 3:7]]; [[1Co 11:29-31]]). “That you (plural) may be healed (ἰάομαι)” highlights corporate spiritual healing. Elijah—a man with a nature just like ours ([[1Ki 17:1]]; [[1Ki 18:41-42]]; [[Luk 4:25]])—proves the power of righteous, earnest prayer.'
+          }
+        ];
+
+        var cmdGrid = document.getElementById('w18CommandsGrid');
+        if (cmdGrid) {
+          cmdGrid.innerHTML = cmds.map(function (c) {
+            return (
+              '<article class="bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden flex flex-col">' +
+                '<div class="px-5 py-3.5 bg-parchmentDeep/75 border-b border-parchmentBorder flex items-center justify-between gap-2">' +
+                  '<span class="px-2.5 py-0.5 rounded-md bg-navy text-white text-xs font-bold">' + c.num[appState.lang] + '</span>' +
+                  '<span class="text-xs font-semibold">' + buildScriptureHTML(c.ref) + '</span>' +
+                '</div>' +
+                '<div class="p-5 space-y-2.5 flex-1">' +
+                  '<h3 class="font-serif text-lg font-bold text-navy leading-snug">' + c.title[appState.lang] + '</h3>' +
+                  '<p class="text-xs sm:text-sm text-inkMuted leading-relaxed">' + renderRichText(c.body) + '</p>' +
+                '</div>' +
+              '</article>'
+            );
+          }).join('');
+        }
+
+        var restoreEl = document.getElementById('w18RestoreCard');
+        if (restoreEl) {
+          restoreEl.innerHTML =
+            '<div class="px-5 py-4 bg-navy text-white border-b border-navy flex flex-wrap items-center justify-between gap-2">' +
+              '<div class="flex items-center gap-2.5">' +
+                '<span class="px-2.5 py-0.5 rounded-md bg-gold text-white text-xs font-bold">' + (isZh ? '命令 25 · 全书终结命令' : 'Command 25 · Final Command') + '</span>' +
+                '<h3 class="font-serif text-xl font-bold">' + (isZh ? '承担彼此重担，挽回失迷真道的弟兄' : 'Turn Back the Straying Brother & Cover a Multitude of Sins') + '</h3>' +
+              '</div>' +
+              '<span class="text-xs font-semibold text-goldLight">' + (isZh ? '雅 5:19–20' : 'James 5:19–20') + '</span>' +
+            '</div>' +
+            '<div class="p-5 space-y-3 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+              '<p>' + renderRichText(isZh
+                ? '<strong>全书最后一记警钟与爱心的呼召（[[Jas 5:19-20]]）：</strong>若有弟兄像偏离轨道的行星一样“失迷真道（πλανάω）”，教会绝不可袖手旁观或背后论断，而当主动以温柔和真理使他回转（[[Gal 6:1-2]]；[[Jud 1:22-23]]）。'
+                : '<strong>The Epistle’s Final Call of Watchful Love ([[Jas 5:19-20]]):</strong> When a believer drifts off the orbit of truth (πλανάω), the church must neither stay indifferent nor slander from afar, but actively turn him back in meekness and truth ([[Gal 6:1-2]]; [[Jud 1:22-23]]).'
+              ) + '</p>' +
+              '<div class="p-4 rounded-xl bg-parchmentDeep/70 border-l-4 border-gold text-ink">' +
+                renderRichText(isZh
+                  ? '<strong>“救一个灵魂不死，并且遮盖许多的罪”（对照 [[1Pe 4:8-10]]）：</strong>这正是真正相交（圣餐）与彼此切实相爱的极致体现——一个依靠从上头来的清洁智慧而运行的合一教会。'
+                  : '<strong>“Save a Soul from Death and Cover a Multitude of Sins” (cf. [[1Pe 4:8-10]]):</strong> This is the ultimate expression of genuine communion and fervent love—a united church operating in the pure wisdom from above.'
+                ) +
+              '</div>' +
+            '</div>';
+        }
+      }
+
+      function renderClosure() {
+        var isZh = appState.lang === 'zh';
+        var grid = document.getElementById('closureGrid');
+        if (!grid) return;
+
+        var mirrors = isZh
+          ? [
+              { a: '试炼中的喜乐与忍耐（[[Jas 1:2-6]]）', a2: '忍耐等候主来、效法先知与约伯（[[Jas 5:7-11]]）' },
+              { a: '凭信心求智慧、不心怀二意（[[Jas 1:2-6]]）', a2: '不可起誓、凭信心祷告与彼此代求（[[Jas 5:12-18]]）' },
+              { a: '不要看错（πλανάω，[[Jas 1:16]]）与清洁虔诚（[[Jas 1:26-27]]）', a2: '挽回失迷真道者（πλανάω，[[Jas 5:19-20]]）与肢体守望' }
+            ]
+          : [
+              { a: 'Joy & endurance under trials ([[Jas 1:2-6]])', a2: 'Patient waiting for the Lord, following prophets & Job ([[Jas 5:7-11]])' },
+              { a: 'Asking in unwavering faith ([[Jas 1:2-6]])', a2: 'Honest speech, fervent prayer & mutual intercession ([[Jas 5:12-18]])' },
+              { a: 'Do not be deceived (πλανάω, [[Jas 1:16]]) & pure religion ([[Jas 1:26-27]])', a2: 'Restoring the straying (πλανάω, [[Jas 5:19-20]]) & watchful love' }
+            ];
+
+        grid.innerHTML =
+          '<article class="lg:col-span-7 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+            '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '首尾对称收束：单元 A（1:2–27）↔ 单元 A\'（5:7–20）' : 'Outer Symmetry Complete: Unit A (1:2–27) ↔ Unit A\' (5:7–20)') + '</h3>' +
+            '</div>' +
+            '<div class="p-5 space-y-3">' +
+              mirrors.map(function (m, idx) {
+                return (
+                  '<div class="p-3.5 rounded-xl bg-parchment/80 border border-parchmentBorder grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm">' +
+                    '<div class="flex items-start gap-2 text-navy font-semibold">' +
+                      '<span class="px-1.5 py-0.5 rounded bg-navy text-white text-[10px] font-bold shrink-0 mt-0.5">A.' + (idx + 1) + '</span>' +
+                      '<span>' + renderRichText(m.a) + '</span>' +
+                    '</div>' +
+                    '<div class="flex items-start gap-2 text-inkMuted">' +
+                      '<span class="px-1.5 py-0.5 rounded bg-gold text-white text-[10px] font-bold shrink-0 mt-0.5">A\'.' + (idx + 1) + '</span>' +
+                      '<span>' + renderRichText(m.a2) + '</span>' +
+                    '</div>' +
+                  '</div>'
+                );
+              }).join('') +
+            '</div>' +
+          '</article>' +
+          '<article class="lg:col-span-5 bg-white rounded-2xl border border-parchmentBorder shadow-card overflow-hidden">' +
+            '<div class="px-5 py-4 bg-parchmentDeep/75 border-b border-parchmentBorder">' +
+              '<h3 class="font-serif text-xl font-bold text-navy">' + (isZh ? '延伸展望：圣灵里的属灵恩赐与教会建造' : 'Looking Ahead: Spiritual Gifts & Building Up the Church') + '</h3>' +
+            '</div>' +
+            '<div class="p-5 space-y-3 text-xs sm:text-sm text-inkMuted leading-relaxed">' +
+              '<p>' + renderRichText(isZh
+                ? '雅各书以一个彼此认罪、互相代求、彼此挽回的合一教会作结。圣灵将各样恩赐赐给信徒——包括动机恩赐（[[Rom 12:3-7]]；[[1Pe 4:8-10]]）与显现恩赐（[[1Co 12:4-11]]）——全都是为了整个教会的益处与各种服事善工，直等到我们在基督里同归于一（[[Eph 4:11-13]]）。'
+                : 'James closes with a healed, interceding, mutually restoring church. The Holy Spirit distributes diverse gifts—motivational gifts ([[Rom 12:3-7]]; [[1Pe 4:8-10]]) and manifestation gifts ([[1Co 12:4-11]])—solely for the common good and building up the body of Christ into unity ([[Eph 4:11-13]]).'
+              ) + '</p>' +
+              '<div class="p-4 rounded-xl bg-navy text-white font-serif text-sm sm:text-base font-bold text-center">' +
+                (isZh ? '用清洁属神的智慧在基督里生活，在教会里服事' : 'Live in Christ and serve in the church with pure, godly wisdom') +
+              '</div>' +
+            '</div>' +
+          '</article>';
+      }
+
+      function renderFooterSitemap() {
+        var lang = appState.lang;
+        var dict = UI_TEXT[lang];
+        var container = document.getElementById('footerSitemap');
+        if (!container) return;
+
+        var homeItem =
+          '<a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors">' +
+            '<span class="px-1.5 py-0.5 rounded bg-white/10 text-goldLight text-[10px] font-bold shrink-0">' + dict.sitemapHomeTag + '</span>' +
+            '<span class="truncate">' + dict.sitemapHomeLabel + '</span>' +
+          '</a>';
+
+        var unitItems = SITEMAP_UNITS.map(function (u) {
+          var cls = u.current
+            ? 'bg-white/10 border-gold/40 text-white font-semibold'
+            : 'bg-white/5 hover:bg-white/10 border-white/10 text-slate-300 hover:text-white';
+          var badgeCls = u.current ? 'bg-gold text-white' : 'bg-white/10 text-goldLight';
+          return (
+            '<a href="' + u.href + '" class="flex items-center gap-2 px-3 py-2 rounded-lg border transition-colors ' + cls + '">' +
+              '<span class="px-1.5 py-0.5 rounded text-[10px] font-bold shrink-0 ' + badgeCls + '">' + u.marker[lang] + '</span>' +
+              '<span class="truncate">' + u.ref[lang] + ' · ' + u.title[lang] + '</span>' +
+            '</a>'
+          );
+        }).join('');
+
+        container.innerHTML = homeItem + unitItems;
+      }
+
+      function renderAll() {
+        hideZhTip();
+        renderChrome();
+        renderLexicon();
+        renderWeek17();
+        renderWeek18();
+        renderClosure();
+        renderFooterSitemap();
+        refreshReftagger();
+      }
+
+      // -------------------------------------------------------------------
+      // 8. EVENT HANDLERS
+      // -------------------------------------------------------------------
+      function initEvents() {
+        var langBtn = document.getElementById('btn-lang-toggle');
+        if (langBtn) {
+          langBtn.addEventListener('click', function () {
+            appState.lang = appState.lang === 'zh' ? 'en' : 'zh';
+            saveLanguage(appState.lang);
+            renderAll();
+          });
+        }
+
+        var mobileBtn = document.getElementById('mobileMenuBtn');
+        var mobileMenu = document.getElementById('mobileMenu');
+        if (mobileBtn && mobileMenu) {
+          mobileBtn.addEventListener('click', function () {
+            var isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden', isOpen);
+            mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+          });
+          mobileMenu.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+              mobileMenu.classList.add('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+
+        var gateForm = document.getElementById('accessGateForm');
+        var pwdInput = document.getElementById('accessPasswordInput');
+        var errMsg = document.getElementById('accessErrorMsg');
+        var togglePwdBtn = document.getElementById('togglePasswordVisibility');
+        var eyeShow = document.getElementById('eyeIconShow');
+        var eyeHide = document.getElementById('eyeIconHide');
+
+        if (togglePwdBtn && pwdInput) {
+          togglePwdBtn.addEventListener('click', function () {
+            var isHidden = pwdInput.type === 'password';
+            pwdInput.type = isHidden ? 'text' : 'password';
+            if (eyeShow && eyeHide) {
+              eyeShow.classList.toggle('hidden', isHidden);
+              eyeHide.classList.toggle('hidden', !isHidden);
+            }
+            var dict = UI_TEXT[appState.lang];
+            togglePwdBtn.setAttribute('aria-label', isHidden ? dict.gateHidePwd : dict.gateShowPwd);
+          });
+        }
+
+        if (pwdInput && errMsg) {
+          pwdInput.addEventListener('input', function () {
+            errMsg.classList.add('hidden');
+            pwdInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+          });
+        }
+
+        if (gateForm && pwdInput) {
+          gateForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var entered = String(pwdInput.value || '').trim();
+            if (entered === ACCESS_PASSWORD) {
+              appState.isUnlocked = true;
+              saveUnlockState();
+              if (errMsg) errMsg.classList.add('hidden');
+              pwdInput.value = '';
+              applyAccessLockState();
+              refreshReftagger();
+            } else {
+              if (errMsg) errMsg.classList.remove('hidden');
+              pwdInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+              pwdInput.focus();
+              pwdInput.select();
+            }
+          });
+        }
+
+        // Redirect in-page anchors to password gate while locked
+        document.addEventListener('click', function (e) {
+          var anchor = e.target.closest && e.target.closest('a[href^="#lex"], a[href="#week17"], a[href="#week18"], a[href="#closure"]');
+          if (anchor && !appState.isUnlocked) {
+            e.preventDefault();
+            var gateEl = document.getElementById('accessGate');
+            if (gateEl) gateEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (pwdInput) window.setTimeout(function () { pwdInput.focus(); }, 250);
+          }
+        });
+
+        // Delegated CUV hover/tap tooltip
+        if (!isTouchDevice) {
+          document.addEventListener('mouseover', function (e) {
+            var a = e.target.closest && e.target.closest('a.sc-zh');
+            if (a && a !== tipTarget) {
+              showZhTip(a);
+            } else if (a || (e.target.closest && e.target.closest('#zh-tip'))) {
+              clearTimeout(hideTipTimer);
+            }
+          });
+          document.addEventListener('mouseout', function (e) {
+            var a = e.target.closest && (e.target.closest('a.sc-zh') || e.target.closest('#zh-tip'));
+            if (a) {
+              clearTimeout(hideTipTimer);
+              hideTipTimer = window.setTimeout(hideZhTip, 220);
+            }
+          });
+          document.addEventListener('scroll', function (e) {
+            if (!tipEl.contains(e.target)) hideZhTip();
+          }, true);
+        } else {
+          document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a.sc-zh');
+            if (a) {
+              if (tipTarget === a && tipEl.classList.contains('visible')) return;
+              e.preventDefault();
+              e.stopPropagation();
+              showZhTip(a);
+              return;
+            }
+            if (!tipEl.contains(e.target)) hideZhTip();
+          }, true);
+        }
+      }
+
+      // -------------------------------------------------------------------
+      // 9. BOOTSTRAP
+      // -------------------------------------------------------------------
+      function bootstrapApp() {
+        try {
+          loadSavedLanguage();
+          loadUnlockState();
+          initEvents();
+          applyAccessLockState();
+          renderAll();
+        } catch (err) {
+          console.error('Failed to initialize James 5:7–20 unit page:', err);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bootstrapApp);
+      } else {
+        bootstrapApp();
+      }
+    })();
+  </script>
+</body>
+</html>
