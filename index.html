@@ -94,6 +94,21 @@
       border-radius: 2px;
     }
 
+    /* High-contrast scripture citation styling inside active dark-navy chiasm rows */
+    .chiasm-row-active a.sc-zh,
+    .chiasm-row-active .sc-en a,
+    .chiasm-row-active a.rtBibleRef {
+      color: #FDE68A !important;
+      border-bottom-color: rgba(253, 230, 138, 0.6);
+    }
+
+    .chiasm-row-active a.sc-zh:hover,
+    .chiasm-row-active .sc-en a:hover,
+    .chiasm-row-active a.rtBibleRef:hover {
+      color: #FFFFFF !important;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
     /* Floating Chinese Union Version (和合本) Hover Tooltip */
     #zh-tip {
       position: fixed;
@@ -223,19 +238,16 @@
         <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-8" data-i18n="heroDesc"></p>
 
         <div class="flex flex-wrap items-center justify-center gap-3">
-          <a href="#chiasm" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gold hover:bg-goldLight text-white text-sm font-semibold shadow-sm transition-all active:scale-95">
+          <a href="#chiasm" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-gold border border-white/20 hover:border-gold text-white text-sm font-medium hover:font-semibold shadow-sm transition-all active:scale-95">
             <span data-i18n="navChiasm"></span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-            </svg>
           </a>
-          <a href="#units" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-medium transition-all active:scale-95">
+          <a href="#units" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-gold border border-white/20 hover:border-gold text-white text-sm font-medium hover:font-semibold shadow-sm transition-all active:scale-95">
             <span data-i18n="navUnits"></span>
           </a>
-          <a href="#theology" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-medium transition-all active:scale-95">
+          <a href="#theology" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-gold border border-white/20 hover:border-gold text-white text-sm font-medium hover:font-semibold shadow-sm transition-all active:scale-95">
             <span data-i18n="navTheology"></span>
           </a>
-          <a href="#application" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-medium transition-all active:scale-95">
+          <a href="#application" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-gold border border-white/20 hover:border-gold text-white text-sm font-medium hover:font-semibold shadow-sm transition-all active:scale-95">
             <span data-i18n="navApplication"></span>
           </a>
         </div>
@@ -442,16 +454,16 @@
           pageTitle: '雅各书研经课程 · 文体结构与神学',
           emblem: '雅',
           siteTitle: '雅各书研经课程',
-          siteSubtitle: '圣经归纳法查经 · 第十九讲总览',
+          siteSubtitle: '圣经归纳法查经 · 全书总览',
           navChiasm: '文本结构',
           navUnits: '解经导览',
           navTheology: '圣经神学',
           navApplication: '教会实践',
           langBtnTitle: '切换到英文',
 
-          heroBadge: '圣经归纳法查经课程 · 雅各书（共十九讲）',
+          heroBadge: '圣经归纳法查经课程 · 雅各书',
           heroTitle: '雅各书：文体结构与神学',
-          heroDesc: '基于第十九讲全书综合总结，系统呈现雅各书的交叉对称文学架构、十八周分段释经脉络、圣经神学核心教义与教会牧养实践。',
+          heroDesc: '系统呈现雅各书的交叉对称文学架构、分段释经脉络、圣经神学核心教义与教会牧养实践。',
 
           gateEyebrow: '课程内容访问验证',
           gateTitle: '请输入访问密码',
@@ -478,7 +490,7 @@
 
           theologyEyebrow: '系统归纳',
           theologyTitle: '雅各书的圣经神学',
-          theologySubtitle: '汇整第十九讲四大核心神学主题，点击或悬停经文即可查阅和合本原经文。',
+          theologySubtitle: '汇整雅各书四大核心神学主题，悬停或点击经文即可查阅和合本经文。',
           tabAll: '全部教义',
           tabTheologyProper: '神论',
           tabChristology: '基督论',
@@ -489,7 +501,7 @@
           appTitle: '教会实践与应用',
           appSubtitle: '雅各书不仅重在神学认知，更强调听道并行道——分别针对教会领袖与一般会众提出具体呼召。',
 
-          footerDesc: '本课程网站依据圣经归纳法查经十九讲内容编撰，旨在帮助信徒以清洁属神的智慧研读圣经、在基督里生活并在教会中忠心服事。',
+          footerDesc: '本课程网站依据圣经归纳法查经课程内容编撰，旨在帮助信徒以清洁属神的智慧研读圣经、在基督里生活并在教会中忠心服事。',
           sitemapTitle: '课程页面导航（全九页）',
           footerCopyright: '雅各书圣经归纳法查经课程 · 仅作教会与神学研习使用',
           backToTop: '返回顶部',
@@ -500,16 +512,16 @@
           pageTitle: 'Epistle of James Course · Literary Structure & Theology',
           emblem: 'J',
           siteTitle: 'Epistle of James Course',
-          siteSubtitle: 'Inductive Bible Study · Lecture 19 Synthesis',
+          siteSubtitle: 'Inductive Bible Study · Book Overview',
           navChiasm: 'Literary Structure',
           navUnits: 'Expository Guide',
           navTheology: 'Biblical Theology',
           navApplication: 'Church Practice',
           langBtnTitle: 'Switch to Chinese',
 
-          heroBadge: 'Inductive Bible Study Seminary Course · James (19 Lectures)',
+          heroBadge: 'Inductive Bible Study Seminary Course · James',
           heroTitle: 'The Epistle of James: Literary Structure & Theology',
-          heroDesc: 'Synthesizing Lecture 19, this portal maps the symmetrical chiastic architecture, 18-week expository progression, biblical theology, and pastoral applications of James.',
+          heroDesc: 'This portal maps the symmetrical chiastic architecture, expository progression, biblical theology, and pastoral applications of the Epistle of James.',
 
           gateEyebrow: 'COURSE CONTENT ACCESS',
           gateTitle: 'Enter Access Password',
@@ -536,7 +548,7 @@
 
           theologyEyebrow: 'SYSTEMATIC SYNTHESIS',
           theologyTitle: 'Biblical Theology of James',
-          theologySubtitle: 'Explore all twenty-nine doctrinal propositions from Lecture 19 across four theological categories, with interactive Legacy Standard Bible references.',
+          theologySubtitle: 'Explore twenty-nine doctrinal propositions across four theological categories, with interactive Legacy Standard Bible references.',
           tabAll: 'All Doctrines',
           tabTheologyProper: 'Theology Proper',
           tabChristology: 'Christology',
@@ -547,7 +559,7 @@
           appTitle: 'Church Practice & Application',
           appSubtitle: 'James moves relentlessly from hearing to doing, addressing both church leaders and the wider congregation with concrete obedience.',
 
-          footerDesc: 'Built from the 19-week Inductive Bible Study course on the Epistle of James, equipping believers to live in Christ and serve faithfully in the church with pure, godly wisdom.',
+          footerDesc: 'Built from the Inductive Bible Study course on the Epistle of James, equipping believers to live in Christ and serve faithfully in the church with pure, godly wisdom.',
           sitemapTitle: 'COURSE SITEMAP (9 PAGES)',
           footerCopyright: 'Epistle of James Inductive Bible Study · For Church & Seminary Study',
           backToTop: 'Back to Top',
@@ -1234,6 +1246,9 @@
           var s = document.createElement('script');
           s.src = 'https://api.reftagger.com/v2/RefTagger.js';
           s.async = true;
+          s.onload = function () {
+            refreshReftagger();
+          };
           document.body.appendChild(s);
         } catch (err) {
           // Ignore in restricted environments
@@ -1368,30 +1383,88 @@
         diagramEl.innerHTML = CHIASM_ARCH_NODES.map(function (node) {
           var unit = getUnitById(node.unitId);
           var isActive = appState.activeChiasmKey === node.key;
-          var btnCls = isActive
-            ? 'bg-navy text-white border-navy shadow-md'
+          var rowCls = isActive
+            ? 'chiasm-row-active bg-navy text-white border-navy shadow-md'
             : 'bg-parchment/60 hover:bg-parchmentDeep/80 text-navy border-parchmentBorder';
           var badgeCls = isActive
             ? 'bg-gold text-white border-gold'
             : 'bg-white text-navy border-parchmentBorder';
-          var refCls = isActive ? 'text-goldLight' : 'text-gold';
           var subCls = isActive ? 'text-slate-200' : 'text-inkMuted';
 
           return (
             '<div class="' + node.indent + '">' +
-              '<button type="button" data-chiasm-key="' + node.key + '" ' +
-              'class="chiasm-node-btn w-full text-left px-3.5 py-3 rounded-xl border transition-all flex items-center gap-3 ' + btnCls + '">' +
+              '<div role="button" tabindex="0" data-chiasm-key="' + node.key + '" ' +
+              'class="chiasm-node-btn w-full text-left px-3.5 py-3 rounded-xl border transition-all flex items-center gap-3 cursor-pointer ' + rowCls + '">' +
                 '<span class="min-w-[2.4rem] px-2 h-8 rounded-lg border text-xs font-bold flex items-center justify-center shrink-0 ' + badgeCls + '">' +
                   unit.marker[lang] +
                 '</span>' +
                 '<div class="min-w-0 flex-1">' +
-                  '<div class="text-xs font-bold tracking-wide ' + refCls + '">' + formatDisplayRef(unit.ref, lang) + '</div>' +
+                  '<div class="text-xs font-bold tracking-wide">' + buildScriptureHTML(unit.ref) + '</div>' +
                   '<div class="text-xs sm:text-sm font-semibold truncate ' + subCls + '">' + unit.title[lang] + ' · ' + unit.shortDesc[lang] + '</div>' +
                 '</div>' +
                 '<svg class="w-4 h-4 shrink-0 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">' +
                   '<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>' +
                 '</svg>' +
-              '</button>' +
+              '</div>' +
+            '</div>'
+          );
+        }).join('');
+
+        // Bind hover, click & keyboard handlers
+        diagramEl.querySelectorAll('.chiasm-node-btn').forEach(function (btn) {
+          var key = btn.getAttribute('data-chiasm-key');
+          btn.addEventListener('click', function (e) {
+            if (e.target.closest && e.target.closest('a.sc-zh, .sc-en a, a.rtBibleRef')) return;
+            if (appState.activeChiasmKey !== key) {
+              appState.activeChiasmKey = key;
+              renderChiasm();
+              refreshReftagger();
+            }
+          });
+          btn.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              if (appState.activeChiasmKey !== key) {
+                appState.activeChiasmKey = key;
+                renderChiasm();
+                refreshReftagger();
+              }
+            }
+          });
+          btn.addEventListener('mouseenter', function () {
+            if (appState.activeChiasmKey !== key) {
+              appState.activeChiasmKey = key;
+              renderChiasm();
+              refreshReftagger();
+            }
+          });
+        });
+
+        // Render right comparative detail panel
+        var group = CHIASM_GROUPS[appState.activeChiasmKey] || CHIASM_GROUPS.centerD;
+        var refsHtml = group.refs.map(buildScriptureHTML).join(' <span class="text-inkMuted mx-1">↔</span> ');
+
+        var bulletsHtml = group.bullets[lang].map(function (b) {
+          return (
+            '<li class="flex items-start gap-2.5 text-xs sm:text-sm text-ink leading-relaxed">' +
+              '<span class="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0"></span>' +
+              '<span>' + renderRichText(b) + '</span>' +
+            '</li>'
+          );
+        }).join('');
+
+        var unitLinksHtml = group.unitIds.map(function (uid) {
+          var u = getUnitById(uid);
+          return (
+            '<div class="group flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-parchmentBorder bg-parchment/70 hover:bg-parchmentDeep hover:border-gold/60 transition-all">' +
+              '<div class="min-w-0">' +
+                '<div class="flex items-center gap-2">' +
+                  '<span class="px-1.5 py-0.5 rounded bg-white border border-parchmentBorder text-[11px] font-bold text-navy">' + u.marker[lang] + '</span>' +
+                  '<span class="text-xs font-semibold">' + buildScriptureHTML(u.ref) + '</span>' +
+                '</div>' +
+                '<a href="' + u.href + '" class="block text-sm font-bold text-navy hover:text-gold mt-1 truncate transition-colors">' + u.title[lang] + '（' + u.weeks[lang] + '）</a>' +
+              '</div>' +
+              '<a href="' + u.href + '" class="text-xs font-semibold text-gold group-hover:translate-x-0.5 transition-transform shrink-0">' + dict.chiasmEnterUnit + ' →</a>' +
             '</div>'
           );
         }).join('');
@@ -1496,7 +1569,7 @@
               '<div class="px-5 py-4 bg-parchmentDeep/60 border-b border-parchmentBorder flex items-center justify-between gap-2">' +
                 '<div class="flex items-center gap-2">' +
                   '<span class="px-2 py-0.5 rounded-md bg-navy text-white text-xs font-bold">' + u.marker[lang] + '</span>' +
-                  '<span class="text-xs font-bold text-gold">' + formatDisplayRef(u.ref, lang) + '</span>' +
+                  '<span class="text-xs font-bold">' + buildScriptureHTML(u.ref) + '</span>' +
                 '</div>' +
                 '<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-white border border-parchmentBorder text-inkMuted">' + u.weeks[lang] + '</span>' +
               '</div>' +
